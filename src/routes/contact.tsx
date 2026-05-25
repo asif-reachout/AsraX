@@ -20,14 +20,36 @@ function ContactPage() {
     <SiteShell>
       <section className="relative overflow-hidden bg-hero">
         <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="container-x relative py-24 md:py-32">
-          <p className="eyebrow">Get in touch</p>
-          <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl">
-            Book a free <span className="text-gradient-brand">strategy call.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-ink-soft sm:text-xl">
-            30 minutes. No pitch. We'll look at your numbers, find the biggest growth levers, and tell you exactly what we'd do — whether you hire us or not.
-          </p>
+        <div className="container-x relative grid gap-12 py-24 md:py-32 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+          <div>
+            <p className="eyebrow">Get in touch</p>
+            <h1 className="mt-6 text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl">
+              Book a free <span className="text-gradient-brand">strategy call.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-ink-soft sm:text-xl text-balance">
+              30 minutes. No pitch. We'll look at your numbers, find the biggest growth levers, and tell you exactly what we'd do — whether you hire us or not.
+            </p>
+          </div>
+          
+          <div className="hidden lg:flex lg:h-full lg:flex-col lg:justify-center">
+             <div className="relative mx-auto w-full max-w-sm">
+                <div className="absolute inset-0 rotate-6 rounded-[2rem] bg-brand/10 transition-transform hover:rotate-12 blur-sm" />
+                <div className="absolute inset-0 -rotate-3 rounded-[2rem] bg-brand/5 transition-transform hover:-rotate-6 blur-sm" />
+                <div className="relative flex aspect-square flex-col items-center justify-center gap-6 rounded-[2rem] border border-border bg-card p-10 shadow-2xl text-center">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className={`flex h-16 w-16 items-center justify-center rounded-full border-4 border-card ${i === 1 ? 'bg-brand' : i === 2 ? 'bg-emerald-500' : 'bg-blue-600'} text-white shadow-sm`}>
+                        <ArrowRight className="h-6 w-6" />
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-widest text-brand">Growth Catalyst</p>
+                    <p className="mt-2 text-xl font-bold leading-tight">Scale your brand with expert precision.</p>
+                  </div>
+                </div>
+             </div>
+          </div>
         </div>
       </section>
 

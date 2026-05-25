@@ -17,9 +17,9 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="container-x flex h-16 items-center justify-between">
+      <div className="container-x flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="AsraX Media" className="h-8 w-auto" />
+          <img src={logo} alt="AsraX Media" className="h-14 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

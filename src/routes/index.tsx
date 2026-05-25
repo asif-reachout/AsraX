@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Check, Sparkles, Target, LineChart, Megaphone, Search, BarChart3, Globe } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Sparkles, Target, LineChart, Megaphone, Search, BarChart3, Globe, Linkedin, Facebook, Award, Briefcase, Star } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { FinalCTA } from "@/components/site/CTA";
 
@@ -49,6 +49,14 @@ const caseStudies = [
   { tag: "B2B SaaS Startup", title: "127% growth in organic traffic", channel: "SEO" },
   { tag: "Real Estate Agency", title: "48 qualified leads / month at $22 CPL", channel: "Google Ads" },
   { tag: "Local Service Business", title: "4.6x return on ad spend in Q1", channel: "Performance Max" },
+];
+
+const recognition = [
+  { name: "Google Ads Certified", icon: Award },
+  { name: "Meta Business Partner", icon: Facebook },
+  { name: "Fiverr Pro", icon: Briefcase },
+  { name: "Upwork Top Rated", icon: Star },
+  { name: "LinkedIn Partner", icon: Linkedin },
 ];
 
 const testimonials = [
@@ -129,13 +137,21 @@ function HomePage() {
       </section>
 
       {/* MARQUEE */}
-      <section className="border-y border-border bg-foreground py-6 text-background">
-        <div className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm font-medium text-background/70">
-          <span className="text-background/40">Trusted by ambitious brands in</span>
-          {markets.map((m) => (
-            <span key={m} className="flex items-center gap-2">
-              <Globe className="h-3.5 w-3.5 text-brand-glow" /> {m}
-            </span>
+      <section className="relative overflow-hidden border-y border-border bg-foreground py-8 text-background flex items-center">
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-foreground to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-foreground to-transparent z-10 pointer-events-none" />
+        
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex shrink-0 items-center justify-around gap-12 px-6">
+              <span className="text-background/50 font-semibold tracking-wider uppercase text-xs">Trusted by ambitious brands in</span>
+              {markets.map((m) => (
+                <span key={m} className="flex items-center gap-2 group">
+                  <Globe className="h-4 w-4 text-brand-glow transition-transform group-hover:rotate-45 group-hover:scale-110" /> 
+                  <span className="text-base tracking-wide transition-colors group-hover:text-white">{m}</span>
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </section>
@@ -280,9 +296,12 @@ function HomePage() {
         <p className="eyebrow text-center">Recognition & certifications</p>
         <h2 className="mt-3 text-center text-3xl font-bold sm:text-4xl">Trusted partners.</h2>
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {["Google Ads Certified", "Meta Business Partner", "Fiverr Pro", "Upwork Top Rated", "LinkedIn Partner"].map((b) => (
-            <div key={b} className="rounded-2xl border border-border bg-card px-6 py-8 text-center">
-              <p className="text-sm font-semibold text-ink-soft">{b}</p>
+          {recognition.map((b) => (
+            <div key={b.name} className="group flex flex-col items-center justify-center rounded-2xl border border-border bg-card px-6 py-8 text-center transition-all hover:-translate-y-1 hover:shadow-card">
+              <div className="mb-4 grid h-14 w-14 place-items-center rounded-full bg-surface text-muted-foreground transition-colors group-hover:bg-brand/10 group-hover:text-brand">
+                <b.icon className="h-6 w-6" />
+              </div>
+              <p className="text-sm font-bold text-foreground">{b.name}</p>
             </div>
           ))}
         </div>

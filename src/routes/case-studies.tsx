@@ -39,14 +39,55 @@ function CaseStudiesPage() {
     <SiteShell>
       <section className="relative overflow-hidden bg-hero">
         <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="container-x relative py-24 md:py-32">
-          <p className="eyebrow">Case studies</p>
-          <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl">
-            Real campaigns. <span className="text-gradient-brand">Real numbers.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-ink-soft sm:text-xl">
-            Selected work across paid, SEO, social, and content. Every number below comes from real client accounts, not stock screenshots.
-          </p>
+        <div className="container-x relative grid gap-12 py-24 md:py-32 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+          <div>
+            <p className="eyebrow">Case studies</p>
+            <h1 className="mt-6 text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl">
+              Real campaigns. <span className="text-gradient-brand">Real numbers.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-ink-soft sm:text-xl text-balance">
+              Selected work across paid, SEO, social, and content. Every number below comes from real client accounts, not stock screenshots.
+            </p>
+          </div>
+
+          <div className="hidden lg:flex lg:h-full lg:justify-end">
+            <div className="relative w-full max-w-md">
+              <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-brand/20 blur-[50px]" />
+              <div className="absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-brand/10 blur-[60px]" />
+              
+              <div className="relative grid gap-5">
+                <div className="flex items-center justify-between rounded-3xl border border-border bg-card p-6 shadow-xl transition-transform hover:-translate-y-1 hover:shadow-2xl">
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground">Revenue Growth</p>
+                    <p className="mt-1 text-4xl font-bold text-foreground">+212%</p>
+                  </div>
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand/10 text-brand">
+                    <ArrowRight className="h-6 w-6 -rotate-45" />
+                  </div>
+                </div>
+                
+                <div className="ml-12 flex items-center justify-between rounded-3xl border border-border bg-surface p-6 shadow-xl transition-transform hover:-translate-y-1 hover:shadow-2xl">
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground">Return on Ad Spend</p>
+                    <p className="mt-1 text-4xl font-bold text-foreground">3.2x</p>
+                  </div>
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand/10 text-brand">
+                    <ArrowRight className="h-6 w-6 relative top-[2px] -rotate-45" />
+                  </div>
+                </div>
+
+                <div className="mr-8 mt-2 flex items-center justify-between rounded-3xl border border-border bg-card p-6 shadow-xl transition-transform hover:-translate-y-1 hover:shadow-2xl">
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground">Cost Per Lead</p>
+                    <p className="mt-1 text-4xl font-bold text-foreground">-61%</p>
+                  </div>
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-500/10 text-emerald-500">
+                    <ArrowRight className="h-6 w-6 rotate-45" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

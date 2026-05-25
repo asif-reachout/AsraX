@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="container-x py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <img src={logo} alt="AsraX Media" className="h-9 w-auto brightness-0 invert" />
+            <img src={logo} alt="AsraX Media" className="h-14 w-auto brightness-0 invert" />
             <p className="mt-5 max-w-sm text-sm text-background/70">
               Turning Brands into Beliefs. The growth partner for ambitious brands across the US, UK, Canada, Australia & UAE.
             </p>

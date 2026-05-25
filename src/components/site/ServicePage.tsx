@@ -40,14 +40,19 @@ export function ServicePage(p: ServicePageProps) {
               <Link to="/case-studies" className="btn-ghost">See the work</Link>
             </div>
           </div>
-          <div className="hidden lg:block">
-            <div className="relative aspect-square rounded-[2rem] border border-border bg-card p-8 shadow-card">
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-brand/10 to-transparent" />
-              <div className="relative grid h-full grid-cols-2 gap-4">
+          <div className="hidden lg:flex lg:h-full lg:flex-col lg:justify-center">
+            <div className="relative w-full max-w-md ml-auto rounded-[2rem] border border-border bg-gradient-to-br from-surface to-card p-8 shadow-2xl">
+              <div className="absolute -left-6 -top-6 h-24 w-24 rounded-full bg-brand/20 blur-2xl" />
+              <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-brand/20 blur-3xl" />
+              
+              <h3 className="relative mb-6 text-xl font-bold">What's included</h3>
+              <div className="relative flex flex-col gap-4">
                 {p.features.slice(0, 4).map((f) => (
-                  <div key={f} className="flex flex-col justify-between rounded-2xl border border-border bg-background p-5">
-                    <Check className="h-5 w-5 text-brand" />
-                    <p className="text-sm font-semibold">{f}</p>
+                  <div key={f} className="group flex items-center gap-4 rounded-2xl bg-background p-4 shadow-sm ring-1 ring-border/50 transition-all hover:ring-brand/50 hover:shadow-md">
+                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
+                      <Check className="h-5 w-5" />
+                    </div>
+                    <p className="text-sm font-semibold leading-snug text-foreground">{f}</p>
                   </div>
                 ))}
               </div>

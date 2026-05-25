@@ -25,14 +25,38 @@ function AboutPage() {
     <SiteShell>
       <section className="relative overflow-hidden bg-hero">
         <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="container-x relative py-28 md:py-36">
-          <p className="eyebrow">About AsraX Media</p>
-          <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl">
-            We turn marketing budgets into <span className="text-gradient-brand">growth engines.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-ink-soft sm:text-xl">
-            AsraX Media is a global growth partner for ambitious brands in eCommerce, SaaS, real estate, and professional services. We build the marketing system most founders wish they had on day one.
-          </p>
+        <div className="container-x relative grid gap-12 py-24 md:py-32 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+          <div>
+            <p className="eyebrow">About AsraX Media</p>
+            <h1 className="mt-6 text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl">
+              We turn marketing budgets into <span className="text-gradient-brand">growth engines.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-ink-soft sm:text-xl text-balance">
+              AsraX Media is a global growth partner for ambitious brands in eCommerce, SaaS, real estate, and professional services. We build the marketing system most founders wish they had on day one.
+            </p>
+          </div>
+          
+          <div className="hidden lg:flex lg:h-full lg:justify-end">
+            <div className="relative w-full max-w-sm">
+              <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-brand/10 blur-[80px]" />
+              <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-brand/5 blur-[60px]" />
+              
+              <div className="relative grid gap-4 p-4">
+                <div className="flex items-center gap-4 rounded-3xl border border-border bg-card p-4 shadow-lg">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand font-bold text-brand-foreground">1</div>
+                  <p className="text-sm font-semibold">Identify levers</p>
+                </div>
+                <div className="flex items-center gap-4 rounded-3xl border border-border bg-card p-4 shadow-lg ml-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand font-bold text-brand-foreground">2</div>
+                  <p className="text-sm font-semibold">Deploy capital</p>
+                </div>
+                <div className="flex items-center gap-4 rounded-3xl border border-border bg-card p-4 shadow-lg ml-12">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand font-bold text-brand-foreground">3</div>
+                  <p className="text-sm font-semibold">Scale profitability</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
