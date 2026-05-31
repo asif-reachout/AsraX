@@ -14,9 +14,21 @@ export default defineConfig(({ command }) => {
           preset: 'static'
         },
         prerender: {
-          routes: ['/'],
-          crawlLinks: true
-        }
+          enabled: true,
+          crawlLinks: true,
+        },
+        pages: [
+          { path: '/', prerender: { enabled: true } },
+          { path: '/about', prerender: { enabled: true } },
+          { path: '/contact', prerender: { enabled: true } },
+          { path: '/case-studies', prerender: { enabled: true } },
+          { path: '/services', prerender: { enabled: true } },
+          { path: '/services/seo', prerender: { enabled: true } },
+          { path: '/services/google-ads', prerender: { enabled: true } },
+          { path: '/services/social-media', prerender: { enabled: true } },
+          { path: '/services/content', prerender: { enabled: true } },
+          { path: '/services/reporting', prerender: { enabled: true } },
+        ],
       }),
       viteReact(),
     ],
