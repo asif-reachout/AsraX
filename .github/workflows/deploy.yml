@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           port: 65002
-          source: ".output/public/*"
+          source: "dist/client/*"
           target: "~/domains/asraxmedia.com/public_html" 
           strip_components: 2
