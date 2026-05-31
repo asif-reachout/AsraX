@@ -6,10 +6,8 @@ import { FinalCTA } from "@/components/site/CTA";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AsraX Media — Marketing that moves the needle" },
+      { title: "AsraX Media — Marketing that moves the needle." },
       { name: "description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social, and Content — built around revenue, not vanity metrics." },
-      { property: "og:title", content: "AsraX Media — Turning Brands into Beliefs" },
-      { property: "og:description", content: "Growth partner for ambitious brands. Strategy, ads, content, and reporting under one team." },
     ],
   }),
   component: HomePage,

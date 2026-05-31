@@ -75,10 +75,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "AsraX Media — Turning Brands into Beliefs" },
       { name: "description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social, Content & Reporting — built around revenue." },
       { name: "author", content: "AsraX Media" },
-      { property: "og:title", content: "AsraX Media — Turning Brands into Beliefs" },
-      { property: "og:description", content: "Growth partner for ambitious brands. Marketing that moves the needle." },
+      // Open Graph
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://asraxmedia.com/" },
+      { property: "og:site_name", content: "AsraX Media" },
+      { property: "og:title", content: "AsraX Media — Marketing that moves the needle." },
+      { property: "og:description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social Media, Content & Reporting — built around revenue, not vanity metrics." },
+      { property: "og:image", content: "https://asraxmedia.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:alt", content: "AsraX Media — Marketing that moves the needle." },
+      // Twitter / X Card
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AsraX Media — Marketing that moves the needle." },
+      { name: "twitter:description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social Media, Content & Reporting — built around revenue." },
+      { name: "twitter:image", content: "https://asraxmedia.com/og-image.png" },
+      { name: "twitter:image:alt", content: "AsraX Media — Marketing that moves the needle." },
     ],
     links: [
       {
