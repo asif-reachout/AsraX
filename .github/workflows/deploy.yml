@@ -24,6 +24,9 @@ jobs:
       - name: Build Project (SEO Friendly Pre-rendered SSG)
         run: npm run build
 
+      - name: List Build Output (Debug)
+        run: ls -la dist/client/
+
       - name: Deploy to Hostinger via SCP (SSH)
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -31,6 +34,6 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           port: 65002
-          source: "dist/client/*"
-          target: "~/domains/asraxmedia.com/public_html" 
+          source: "dist/client/"
+          target: "~/domains/asraxmedia.com/public_html"
           strip_components: 2
