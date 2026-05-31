@@ -1,0 +1,36 @@
+name: Deploy To Hostinger via SSH
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Build Project (SEO Friendly Pre-rendered SSG)
+        run: npm run build
+
+      - name: Deploy to Hostinger via SCP (SSH)
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          port: 65002
+          source: ".output/public/*"
+          target: "~/domains/asraxmedia.com/public_html" 
+          strip_components: 2
