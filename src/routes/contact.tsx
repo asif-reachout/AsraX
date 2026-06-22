@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Mail, MessageCircle, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MessageCircle, MapPin, Loader } from "lucide-react";
 import { useState } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 
@@ -15,6 +15,35 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitting(true);
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", "79433abe-59ec-4f10-b69b-bef6d28c5734");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSent(true);
+      } else {
+        setError(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to send message. Please check your connection.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <SiteShell>
@@ -63,9 +92,14 @@ function ContactPage() {
             </div>
           ) : (
             <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleSubmit}
               className="space-y-5"
             >
+              {error && (
+                <div className="rounded-xl bg-red-500/10 p-4 text-sm text-red-500 border border-red-500/20">
+                  {error}
+                </div>
+              )}
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Name" name="name" required />
                 <Field label="Work email" name="email" type="email" required />
@@ -76,7 +110,7 @@ function ContactPage() {
               </div>
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Primary goal</label>
-                <select className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm">
+                <select name="primary_goal" className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm">
                   <option>Scale paid ads (Google / Meta)</option>
                   <option>Grow organic traffic (SEO)</option>
                   <option>Build a social presence</option>
@@ -87,7 +121,7 @@ function ContactPage() {
               </div>
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Monthly marketing budget</label>
-                <select className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm">
+                <select name="marketing_budget" className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm">
                   <option>$1,000 – $3,000</option>
                   <option>$3,000 – $10,000</option>
                   <option>$10,000 – $25,000</option>
@@ -96,10 +130,18 @@ function ContactPage() {
               </div>
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tell us about your business</label>
-                <textarea rows={4} className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" placeholder="A few sentences about where you are and where you want to go." />
+                <textarea name="business_details" rows={4} className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" placeholder="A few sentences about where you are and where you want to go." />
               </div>
-              <button type="submit" className="btn-brand w-full">
-                Send & book a call <ArrowRight className="h-4 w-4" />
+              <button type="submit" disabled={submitting} className="btn-brand w-full flex items-center justify-center gap-2 disabled:opacity-70">
+                {submitting ? (
+                  <>
+                    Sending... <Loader className="h-4 w-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Send & book a call <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
               <p className="text-xs text-muted-foreground">By submitting, you agree to be contacted about your enquiry. We never share your data.</p>
             </form>
