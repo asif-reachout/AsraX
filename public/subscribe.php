@@ -13,6 +13,34 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// ── Honeypot check ─────────────────────────────────────────────────────────
+// Hidden field 'website' — real users never fill it, bots always do
+if (!empty($_POST['website'])) {
+    // Silently pretend success so bots think they worked
+    echo json_encode(['result' => 'success', 'msg' => "You're subscribed!"]);
+    exit;
+}
+
+// ── Rate limiting (5 requests per IP per hour) ──────────────────────────────
+$ip       = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$ip_hash  = md5($ip); // don't store raw IPs
+$rl_file  = sys_get_temp_dir() . '/mc_rl_' . $ip_hash . '.json';
+$now      = time();
+$limit    = 5;
+$window   = 3600; // 1 hour
+
+$rl_data = file_exists($rl_file) ? json_decode(file_get_contents($rl_file), true) : ['count' => 0, 'reset' => $now + $window];
+if ($now > $rl_data['reset']) $rl_data = ['count' => 0, 'reset' => $now + $window];
+
+if ($rl_data['count'] >= $limit) {
+    http_response_code(429);
+    echo json_encode(['result' => 'error', 'msg' => 'Too many attempts. Please try again later.']);
+    exit;
+}
+$rl_data['count']++;
+file_put_contents($rl_file, json_encode($rl_data), LOCK_EX);
+
+// ── Email validation ────────────────────────────────────────────────────────
 $email = trim($_POST['email'] ?? '');
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

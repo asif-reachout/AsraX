@@ -19,6 +19,7 @@ function NewsletterForm() {
     try {
       const body = new FormData();
       body.append("email", email);
+      body.append("website", ""); // honeypot — always empty for real users
 
       const res = await fetch("/subscribe.php", { method: "POST", body });
       const data = await res.json() as { result: string; msg: string };
@@ -52,6 +53,15 @@ function NewsletterForm() {
         onSubmit={handleSubmit}
         className="mt-6 flex max-w-sm items-center gap-2 rounded-full border border-background/15 bg-background/5 p-1.5"
       >
+        {/* Honeypot — hidden from humans, bots fill this and get blocked */}
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ display: "none" }}
+        />
         <input
           type="email"
           required
