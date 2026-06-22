@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Loader, ChevronDown, UserCheck, BookOpen, Globe, Briefcase, TrendingUp, MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { FinalCTA } from "@/components/site/CTA";
 
@@ -87,6 +87,9 @@ function CareersPage() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [loadedAt, setLoadedAt] = useState(0);
+
+  useEffect(() => { setLoadedAt(Math.floor(Date.now() / 1000)); }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -320,6 +323,9 @@ function CareersPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot — hidden from humans, bots fill it */}
+                  <input type="text" name="website_confirm" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+                  <input type="hidden" name="form_loaded_at" value={loadedAt} />
                   {error && (
                     <div className="rounded-xl bg-red-500/10 p-4 text-sm text-red-500 border border-red-500/20">
                       {error}
