@@ -23,18 +23,18 @@ if (!empty($_POST['website'])) {
 
 // ── Rate limiting (5 requests per IP per hour) ──────────────────────────────
 $ip       = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$ip_hash  = md5($ip); // don't store raw IPs
+$ip_hash  = md5($ip);
 $rl_file  = sys_get_temp_dir() . '/mc_rl_' . $ip_hash . '.json';
 $now      = time();
-$limit    = 5;
-$window   = 3600; // 1 hour
+$limit    = 20;   // 20 subscribe attempts per IP per hour
+$window   = 3600;
 
 $rl_data = file_exists($rl_file) ? json_decode(file_get_contents($rl_file), true) : ['count' => 0, 'reset' => $now + $window];
 if ($now > $rl_data['reset']) $rl_data = ['count' => 0, 'reset' => $now + $window];
 
 if ($rl_data['count'] >= $limit) {
     http_response_code(429);
-    echo json_encode(['result' => 'error', 'msg' => 'Too many attempts. Please try again later.']);
+    echo json_encode(['result' => 'error', 'msg' => 'Too many attempts. Please try again in an hour.']);
     exit;
 }
 $rl_data['count']++;
