@@ -1,6 +1,106 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Instagram, Facebook, Mail } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Mail, CheckCircle, AlertCircle, Loader } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useState, useCallback } from "react";
+
+// Mailchimp config — u is the public account identifier (safe to expose)
+const MC_U  = "ca6a47748b206dfd3e20d75fa";
+const MC_ID = "5e76804856";
+const MC_SERVER = "us3";
+
+type FormState = "idle" | "loading" | "success" | "error";
+
+function NewsletterForm() {
+  const [email, setEmail]     = useState("");
+  const [state, setState]     = useState<FormState>("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || state === "loading") return;
+
+    setState("loading");
+
+    // Mailchimp JSONP — works on any static host, no server required
+    const callbackName = `mc_cb_${Date.now()}`;
+    const url =
+      `https://${MC_SERVER}.list-manage.com/subscribe/post-json` +
+      `?u=${MC_U}&id=${MC_ID}&EMAIL=${encodeURIComponent(email)}&c=${callbackName}`;
+
+    const script = document.createElement("script");
+    script.src = url;
+
+    const timeout = setTimeout(() => {
+      cleanup();
+      setState("error");
+      setMessage("Request timed out. Please try again.");
+    }, 10000);
+
+    function cleanup() {
+      clearTimeout(timeout);
+      delete (window as any)[callbackName];
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    (window as any)[callbackName] = (data: { result: string; msg: string }) => {
+      cleanup();
+      if (data.result === "success") {
+        setState("success");
+        setEmail("");
+        setMessage("You're subscribed! 🎉");
+      } else {
+        setState("error");
+        // Clean up Mailchimp's HTML-heavy error messages
+        const msg = data.msg?.replace(/<[^>]+>/g, "").replace(/^\d+ - /, "") ?? "Something went wrong.";
+        setMessage(msg.includes("already subscribed") ? "You're already subscribed!" : msg);
+      }
+    };
+
+    document.body.appendChild(script);
+  }, [email, state]);
+
+  if (state === "success") {
+    return (
+      <div className="mt-6 flex max-w-sm items-center gap-3 rounded-2xl border border-background/15 bg-background/5 px-5 py-4">
+        <CheckCircle className="h-5 w-5 shrink-0 text-brand-glow" />
+        <p className="text-sm text-background/80">{message}</p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="mt-6 flex max-w-sm items-center gap-2 rounded-full border border-background/15 bg-background/5 p-1.5"
+      >
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => { setEmail(e.target.value); if (state === "error") setState("idle"); }}
+          placeholder="you@company.com"
+          className="flex-1 bg-transparent px-3 text-sm text-background placeholder:text-background/40 focus:outline-none"
+          disabled={state === "loading"}
+        />
+        <button
+          type="submit"
+          disabled={state === "loading"}
+          className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-xs font-semibold text-brand-foreground disabled:opacity-60"
+        >
+          {state === "loading" ? (
+            <><Loader className="h-3 w-3 animate-spin" /> Subscribing…</>
+          ) : "Subscribe"}
+        </button>
+      </form>
+      {state === "error" && (
+        <p className="mt-2 flex items-center gap-1.5 text-xs text-red-400">
+          <AlertCircle className="h-3 w-3" /> {message}
+        </p>
+      )}
+    </>
+  );
+}
 
 export function SiteFooter() {
   return (
@@ -12,20 +112,7 @@ export function SiteFooter() {
             <p className="mt-5 max-w-sm text-sm text-background/70">
               Turning Brands into Beliefs. The growth partner for ambitious brands across the US, UK, Canada, Australia & UAE.
             </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-6 flex max-w-sm items-center gap-2 rounded-full border border-background/15 bg-background/5 p-1.5"
-            >
-              <input
-                type="email"
-                required
-                placeholder="you@company.com"
-                className="flex-1 bg-transparent px-3 text-sm text-background placeholder:text-background/40 focus:outline-none"
-              />
-              <button className="rounded-full bg-brand px-4 py-2 text-xs font-semibold text-brand-foreground">
-                Subscribe
-              </button>
-            </form>
+            <NewsletterForm />
             <p className="mt-2 text-xs text-background/50">One practical growth tip a week. No fluff.</p>
           </div>
 
