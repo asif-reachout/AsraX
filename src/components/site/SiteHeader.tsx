@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -18,6 +18,23 @@ export function SiteHeader() {
   const location = useLocation();
 
   const isServicesActive = location.pathname.startsWith("/services");
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  // Close mobile menu on page transition
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
@@ -81,12 +98,34 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Overlay (Backdrop) */}
       <div
-        className={`transition-all duration-300 ease-in-out lg:hidden overflow-hidden bg-background border-border/60 ${open ? "max-h-[600px] opacity-100 border-t py-6" : "max-h-0 opacity-0 border-t-0 py-0 pointer-events-none"
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-xs transition-opacity duration-300 lg:hidden ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        onClick={() => setOpen(false)}
+      />
+
+      {/* Mobile Side Drawer Panel (Slides from right-to-left) */}
+      <div
+        className={`fixed top-0 right-0 z-50 h-screen w-full max-w-[300px] bg-background border-l border-border/60 shadow-2xl transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${open ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="container-x flex flex-col gap-1">
+        {/* Drawer Header */}
+        <div className="flex h-20 items-center justify-between px-6 border-b border-border/40">
+          <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
+            <img src={logo} alt="AsraX Media" className="h-10 w-auto" />
+          </Link>
+          <button
+            onClick={() => setOpen(false)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface/50 text-foreground transition-all hover:bg-surface/80 active:scale-95 cursor-pointer"
+            aria-label="Close menu"
+          >
+            <X className="h-4.5 w-4.5" />
+          </button>
+        </div>
+
+        {/* Drawer Scrollable Content */}
+        <div className="flex-1 overflow-y-auto px-5 py-6 flex flex-col gap-1">
           <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
           <MobileLink to="/about" onClick={() => setOpen(false)}>About</MobileLink>
 
@@ -118,7 +157,7 @@ export function SiteHeader() {
           <MobileLink to="/careers" onClick={() => setOpen(false)}>Careers</MobileLink>
           <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
 
-          <Link to="/contact" onClick={() => setOpen(false)} className="btn-brand mt-4 text-center">
+          <Link to="/contact" onClick={() => setOpen(false)} className="btn-brand mt-6 text-center">
             Book a Free Strategy Call
           </Link>
         </div>
@@ -151,4 +190,3 @@ function MobileLink({ to, children, onClick }: { to: string; children: React.Rea
     </Link>
   );
 }
-
