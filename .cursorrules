@@ -1,0 +1,96 @@
+# AsraX Media — Project AI Rules & Design System Guidelines
+
+This file serves as the definitive guide for any AI coding assistant or developer working on the AsraX Media project. It outlines the codebase structure, tech stack, design guidelines, security constraints, spam protection, and server deployment procedures.
+
+---
+
+## 1. Tech Stack & Architecture
+
+### Frontend
+- **Framework**: TanStack Start (with React 19 and TypeScript)
+- **Routing**: TanStack Router (`src/routes/...`)
+- **Styling**: Tailwind CSS v4 (using the `@tailwindcss/vite` compiler plugin)
+- **Icons**: Lucide React
+- **Page Output**: Fully prerendered static pages (defined in `vite.config.ts` under `tanstackStart.pages`).
+
+### Backend API
+- **Language**: PHP 8.x
+- **Emails**: Sent via PHPMailer SMTP (configured to use Hostinger mail service).
+- **Paths on Hostinger Server (`u150244648`):**
+  - Subdomain `api.asraxmedia.com` points to `/home/u150244648/domains/asraxmedia.com/public_html/api`
+  - Autoload path: `/home/u150244648/vendor/autoload.php`
+  - Uploads folder: `/home/u150244648/uploads/` (kept secure outside `public_html`).
+
+---
+
+## 2. Codebase Organization & Security
+
+### Directory Structure
+```
+🏠 Project Root (Git Repository)
+├── 📁 .github/              ← GitHub Actions workflows
+├── 📁 public/               ← Static frontend assets
+├── 📁 src/                  ← TanStack React codebase (Auto-deploys via GitHub Actions)
+│   ├── 📁 components/       ← Reusable UI blocks (SiteShell, Footer, CTA, etc.)
+│   └── 📁 routes/           ← Frontend pages (careers.tsx, contact.tsx, index.tsx)
+│
+└── 📁 php-api/              ← PHP Backend (CRITICAL: Ignored by Git!)
+    ├── 📁 api/
+    │   └── .htaccess        ← Blocks non-PHP files, handles HTTPS redirections
+    ├── 📁 uploads/
+    │   └── .htaccess        ← Blocks public access to uploaded resumes
+    ├── apply.php            ← Careers form handler (Saves CV to ~/uploads, emails team)
+    ├── contact.php          ← Strategy Call handler (Emails team)
+    └── composer.json        ← PHPMailer dependency config
+```
+
+### ⚠️ Security Rules — DO NOT VIOLATE
+1. **Never commit the `php-api/` directory to Git.** It contains live SMTP credentials and is explicitly blocked in `.gitignore`.
+2. **Never commit `.env` or other configuration secrets.**
+3. **Manual Deploy for API:** All PHP backend updates must be manually uploaded to the Hostinger server via File Manager or SSH.
+
+---
+
+## 3. Design & Styling System (Tailwind CSS v4)
+
+Keep the interface premium, modern, and aligned with the established design system:
+
+- **Primary Colors**:
+  - Brand Red: `#E41C23` or `#C0392B`
+  - Dark Charcoal: `#1A1A1A`
+  - Neutral Light: `#F4F4F5`
+- **Typography**: Clean, sans-serif modern look (Inter, Arial, etc.).
+- **Vibe**: Sleek dark modes, thin borders, hover states, glassmorphism, and responsive padding.
+- **Rules for UI modifications**:
+  - Keep styling consistent. Maintain clean borders and subtle spacing.
+  - Buttons must use the `.btn-brand` style classes or standard brand Tailwind styling.
+
+---
+
+## 4. Forms & Spam Protection
+
+Both the Careers Form (`careers.tsx`) and the Contact Form (`contact.tsx`) submit POST requests to the PHP endpoints (`apply.php` and `contact.php`). 
+
+To protect forms from bots **without using external captcha services**:
+
+1. **Honeypot Field**:
+   - A hidden field named `website_confirm` must exist on the React forms.
+   - It should be hidden visually (e.g., `className="absolute opacity-0 -z-50 pointer-events-none"`).
+   - If the incoming POST request has `website_confirm` populated, the PHP backend must silently succeed (return HTTP 200 Success but do not send email or upload file).
+2. **Time-Based submission check**:
+   - A hidden input field named `form_loaded_at` must hold the Unix timestamp (in seconds) of when the page loaded.
+   - If a submission is received by PHP in less than 3 seconds from `form_loaded_at`, reject the submission with HTTP 422.
+
+---
+
+## 5. Hostinger Manual Deployment Guide
+
+When updating the backend, files must be manually uploaded to these server targets:
+
+| Local Source File | Server Destination | Notes |
+|---|---|---|
+| `php-api/apply.php` | `/public_html/api/apply.php` | Careers Endpoint |
+| `php-api/contact.php` | `/public_html/api/contact.php` | Contact Endpoint |
+| `php-api/api/.htaccess` | `/public_html/api/.htaccess` | Routes redirection & file guards |
+| `php-api/uploads/.htaccess` | `/home/u150244648/uploads/.htaccess` | Security guard for resumes |
+| `php-api/composer.json` | `/home/u150244648/composer.json` | Runs composer install on server |
