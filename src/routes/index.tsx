@@ -88,12 +88,26 @@ function HomePage() {
   return (
     <SiteShell>
       {/* 1 — HERO SECTION */}
-      <section
-        className="relative overflow-hidden bg-cover bg-center pt-24 pb-[100px] max-md:py-[40px] text-white"
-        style={{ backgroundImage: `linear-gradient(rgba(26, 26, 26, 0.35), rgba(26, 26, 26, 0.55)), url('/img/home-hero.jpg')` }}
-      >
-        <div className="absolute inset-0 bg-grid opacity-10" />
-        <div className="container-x relative grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+      <section className="relative overflow-hidden pt-24 pb-[100px] max-md:py-[40px] text-white bg-neutral-950">
+        {/* Background Earth Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover z-0 opacity-80"
+          poster="/img/home-hero.jpg"
+        >
+          <source src="/earth.mp4" type="video/mp4" />
+        </video>
+
+        {/* Gradient Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-linear-to-b from-neutral-950/60 to-neutral-950/80 z-10" />
+        
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-grid opacity-10 z-10" />
+
+        <div className="container-x relative z-20 grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="fade-up">
             <p className="eyebrow text-brand-glow">ASRAX MEDIA — TURNING BRANDS INTO BELIEFS</p>
             <h1 className="mt-6 text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl lg:text-8xl text-white">
