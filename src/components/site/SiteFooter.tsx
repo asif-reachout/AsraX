@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Instagram, Facebook, Mail, CheckCircle, AlertCircle, Loader } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone, CheckCircle, AlertCircle, Loader } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useState, useCallback } from "react";
 
@@ -120,12 +120,19 @@ export function SiteFooter() {
 
           <FooterCol title="Contact">
             <a href="mailto:hello@asraxmedia.com" className="flex items-center gap-2 text-sm text-background/70 hover:text-background">
-              <Mail className="h-4 w-4" /> hello@asraxmedia.com
+              <Mail className="h-4 w-4 shrink-0" /> hello@asraxmedia.com
             </a>
-            <div className="mt-4 flex items-center gap-3">
-              <SocialIcon href="#"><Linkedin className="h-4 w-4" /></SocialIcon>
-              <SocialIcon href="#"><Instagram className="h-4 w-4" /></SocialIcon>
-              <SocialIcon href="#"><Facebook className="h-4 w-4" /></SocialIcon>
+            <a href="https://wa.me/447986952432" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-background/70 hover:text-background">
+              <Phone className="h-4 w-4 shrink-0" /> +44 7986 952432
+            </a>
+            <p className="flex items-start gap-2 text-sm text-background/70">
+              <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+              <span>78 Whalebone Grove,<br />Romford, RM6 8BL</span>
+            </p>
+            <div className="mt-2 flex items-center gap-3">
+              <SocialIcon href="https://www.linkedin.com/company/asrax-media" label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </SocialIcon>
             </div>
           </FooterCol>
         </div>
@@ -156,9 +163,15 @@ function FooterLink({ to, children }: { to: string; children: React.ReactNode })
   );
 }
 
-function SocialIcon({ href, children }: { href: string; children: React.ReactNode }) {
+function SocialIcon({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="grid h-9 w-9 place-items-center rounded-full border border-background/15 text-background/80 transition-colors hover:border-brand hover:text-brand">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="grid h-9 w-9 place-items-center rounded-full border border-background/15 text-background/80 transition-colors hover:border-brand hover:text-brand"
+    >
       {children}
     </a>
   );
