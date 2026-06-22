@@ -30,18 +30,17 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-1.5 lg:flex">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
-          
+
           <div
             className="relative"
             onMouseEnter={() => setSvcOpen(true)}
             onMouseLeave={() => setSvcOpen(false)}
           >
             <button
-              className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer ${
-                isServicesActive
+              className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer ${isServicesActive
                   ? "text-brand font-semibold bg-brand/10"
                   : "text-ink-soft hover:text-foreground hover:bg-surface/50"
-              }`}
+                }`}
             >
               Services <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${svcOpen ? "rotate-180" : ""}`} />
             </button>
@@ -62,7 +61,7 @@ export function SiteHeader() {
               </div>
             )}
           </div>
-          
+
           <NavLink to="/case-studies">Case Studies</NavLink>
           <NavLink to="/careers">Careers</NavLink>
           <NavLink to="/contact">Contact</NavLink>
@@ -83,46 +82,47 @@ export function SiteHeader() {
       </div>
 
       {/* Mobile Drawer Menu */}
-      {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <div className="container-x flex flex-col gap-1 py-6">
-            <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
-            <MobileLink to="/about" onClick={() => setOpen(false)}>About</MobileLink>
-            
-            {/* Mobile Collapsible Services Section */}
-            <div className="flex flex-col">
-              <button
-                onClick={() => setMobileSvcOpen(!mobileSvcOpen)}
-                className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors cursor-pointer ${
-                  isServicesActive
-                    ? "text-brand font-semibold bg-brand/10"
-                    : "text-ink-soft hover:text-foreground hover:bg-surface/50"
-                }`}
-              >
-                <span>Services</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileSvcOpen ? "rotate-180" : ""}`} />
-              </button>
-              {mobileSvcOpen && (
-                <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-border/60 pl-3">
-                  {services.map((s) => (
-                    <MobileLink key={s.to} to={s.to} onClick={() => setOpen(false)}>
-                      {s.label}
-                    </MobileLink>
-                  ))}
-                </div>
-              )}
-            </div>
+      <div
+        className={`transition-all duration-300 ease-in-out lg:hidden overflow-hidden bg-background border-border/60 ${open ? "max-h-[600px] opacity-100 border-t py-6" : "max-h-0 opacity-0 border-t-0 py-0 pointer-events-none"
+          }`}
+      >
+        <div className="container-x flex flex-col gap-1">
+          <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
+          <MobileLink to="/about" onClick={() => setOpen(false)}>About</MobileLink>
 
-            <MobileLink to="/case-studies" onClick={() => setOpen(false)}>Case Studies</MobileLink>
-            <MobileLink to="/careers" onClick={() => setOpen(false)}>Careers</MobileLink>
-            <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
-            
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn-brand mt-4 text-center">
-              Book a Free Strategy Call
-            </Link>
+          {/* Mobile Collapsible Services Section */}
+          <div className="flex flex-col">
+            <button
+              onClick={() => setMobileSvcOpen(!mobileSvcOpen)}
+              className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors cursor-pointer ${isServicesActive
+                  ? "text-brand font-semibold bg-brand/10"
+                  : "text-ink-soft hover:text-foreground hover:bg-surface/50"
+                }`}
+            >
+              <span>Services</span>
+              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileSvcOpen ? "rotate-180" : ""}`} />
+            </button>
+            <div
+              className={`transition-all duration-300 ease-in-out overflow-hidden ml-4 flex flex-col gap-1 border-l border-border/60 pl-3 ${mobileSvcOpen ? "max-h-64 opacity-100 mt-1" : "max-h-0 opacity-0 mt-0 pointer-events-none"
+                }`}
+            >
+              {services.map((s) => (
+                <MobileLink key={s.to} to={s.to} onClick={() => setOpen(false)}>
+                  {s.label}
+                </MobileLink>
+              ))}
+            </div>
           </div>
+
+          <MobileLink to="/case-studies" onClick={() => setOpen(false)}>Case Studies</MobileLink>
+          <MobileLink to="/careers" onClick={() => setOpen(false)}>Careers</MobileLink>
+          <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
+
+          <Link to="/contact" onClick={() => setOpen(false)} className="btn-brand mt-4 text-center">
+            Book a Free Strategy Call
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }
