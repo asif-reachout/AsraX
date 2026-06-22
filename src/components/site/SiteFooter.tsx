@@ -5,6 +5,22 @@ import { useState, useCallback } from "react";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
+const DISPOSABLE_DOMAINS = [
+  "yopmail.com", "mailinator.com", "tempmail.com", "10minutemail.com",
+  "dispostable.com", "getairmail.com", "guerrillamail.com", "sharklasers.com",
+  "maildrop.cc", "trashmail.com", "tempr.email", "generator.email",
+  "fakeinbox.com", "mailnesia.com", "mailcatch.com", "mintemail.com",
+  "spamgourmet.com", "temp-mail.org", "temp-mail.ru", "temp-mail.com",
+  "guerrillamailblock.com", "guerrillamail.net", "guerrillamail.org",
+  "guerrillamail.biz", "guerrillamail.co", "guerrillamail.de",
+  "guerrillamail.se", "grr.la", "duck.com"
+];
+
+function isDisposableEmail(email: string): boolean {
+  const domain = email.split("@")[1]?.toLowerCase();
+  return DISPOSABLE_DOMAINS.includes(domain);
+}
+
 function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<FormState>("idle");
@@ -13,6 +29,12 @@ function NewsletterForm() {
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || state === "loading") return;
+
+    if (isDisposableEmail(email)) {
+      setState("error");
+      setMessage("Temporary or disposable email addresses are not allowed.");
+      return;
+    }
 
     setState("loading");
 

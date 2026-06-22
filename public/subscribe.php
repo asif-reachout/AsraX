@@ -48,6 +48,25 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// ── Block temp/disposable emails ──────────────────────────────────────────
+$disposable_domains = [
+    'yopmail.com', 'mailinator.com', 'tempmail.com', '10minutemail.com',
+    'dispostable.com', 'getairmail.com', 'guerrillamail.com', 'sharklasers.com',
+    'maildrop.cc', 'trashmail.com', 'tempr.email', 'generator.email',
+    'fakeinbox.com', 'mailnesia.com', 'mailcatch.com', 'mintemail.com',
+    'spamgourmet.com', 'temp-mail.org', 'temp-mail.ru', 'temp-mail.com',
+    'guerrillamailblock.com', 'guerrillamail.net', 'guerrillamail.org',
+    'guerrillamail.biz', 'guerrillamail.co', 'guerrillamail.de',
+    'guerrillamail.se', 'grr.la', 'duck.com'
+];
+$email_parts = explode('@', $email);
+$email_domain = isset($email_parts[1]) ? strtolower(trim($email_parts[1])) : '';
+
+if (in_array($email_domain, $disposable_domains)) {
+    echo json_encode(['result' => 'error', 'msg' => 'Temporary/disposable email addresses are not allowed. Please use a work or personal email.']);
+    exit;
+}
+
 // Load API key from environment — key is NOT stored in git
 // On Hostinger: create /home/u150244648/domains/asraxmedia.com/.mailchimp_key
 //   containing just the API key on one line
