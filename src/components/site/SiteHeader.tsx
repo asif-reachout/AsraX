@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -14,6 +14,10 @@ const services = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [svcOpen, setSvcOpen] = useState(false);
+  const [mobileSvcOpen, setMobileSvcOpen] = useState(false);
+  const location = useLocation();
+
+  const isServicesActive = location.pathname.startsWith("/services");
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
@@ -22,16 +26,24 @@ export function SiteHeader() {
           <img src={logo} alt="AsraX Media" className="h-14 w-auto" />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-1.5 lg:flex">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
+          
           <div
             className="relative"
             onMouseEnter={() => setSvcOpen(true)}
             onMouseLeave={() => setSvcOpen(false)}
           >
-            <button className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink-soft hover:text-foreground">
-              Services <ChevronDown className="h-3.5 w-3.5" />
+            <button
+              className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer ${
+                isServicesActive
+                  ? "text-brand font-semibold bg-brand/10"
+                  : "text-ink-soft hover:text-foreground hover:bg-surface/50"
+              }`}
+            >
+              Services <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${svcOpen ? "rotate-180" : ""}`} />
             </button>
             {svcOpen && (
               <div className="absolute left-1/2 top-full w-72 -translate-x-1/2 pt-2">
@@ -40,7 +52,8 @@ export function SiteHeader() {
                     <Link
                       key={s.to}
                       to={s.to}
-                      className="block rounded-xl px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary"
+                      className="block rounded-xl px-4 py-3 text-sm font-medium text-ink-soft hover:text-foreground hover:bg-surface/50 transition-colors"
+                      activeProps={{ className: "block rounded-xl px-4 py-3 text-sm font-semibold text-brand bg-brand/10" }}
                     >
                       {s.label}
                     </Link>
@@ -49,6 +62,7 @@ export function SiteHeader() {
               </div>
             )}
           </div>
+          
           <NavLink to="/case-studies">Case Studies</NavLink>
           <NavLink to="/careers">Careers</NavLink>
           <NavLink to="/contact">Contact</NavLink>
@@ -58,28 +72,54 @@ export function SiteHeader() {
           <Link to="/contact" className="btn-brand">Book a Free Strategy Call</Link>
         </div>
 
+        {/* Mobile Hamburger Button */}
         <button
-          className="lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface/50 text-foreground transition-all hover:bg-surface/80 active:scale-95 lg:hidden cursor-pointer"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
+      {/* Mobile Drawer Menu */}
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
-          <div className="container-x flex flex-col gap-1 py-4">
+          <div className="container-x flex flex-col gap-1 py-6">
             <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
             <MobileLink to="/about" onClick={() => setOpen(false)}>About</MobileLink>
-            <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Services</div>
-            {services.map((s) => (
-              <MobileLink key={s.to} to={s.to} onClick={() => setOpen(false)}>{s.label}</MobileLink>
-            ))}
+            
+            {/* Mobile Collapsible Services Section */}
+            <div className="flex flex-col">
+              <button
+                onClick={() => setMobileSvcOpen(!mobileSvcOpen)}
+                className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors cursor-pointer ${
+                  isServicesActive
+                    ? "text-brand font-semibold bg-brand/10"
+                    : "text-ink-soft hover:text-foreground hover:bg-surface/50"
+                }`}
+              >
+                <span>Services</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileSvcOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileSvcOpen && (
+                <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-border/60 pl-3">
+                  {services.map((s) => (
+                    <MobileLink key={s.to} to={s.to} onClick={() => setOpen(false)}>
+                      {s.label}
+                    </MobileLink>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <MobileLink to="/case-studies" onClick={() => setOpen(false)}>Case Studies</MobileLink>
             <MobileLink to="/careers" onClick={() => setOpen(false)}>Careers</MobileLink>
             <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn-brand mt-3">Book a Free Strategy Call</Link>
+            
+            <Link to="/contact" onClick={() => setOpen(false)} className="btn-brand mt-4 text-center">
+              Book a Free Strategy Call
+            </Link>
           </div>
         </div>
       )}
@@ -91,8 +131,8 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
     <Link
       to={to}
-      className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-foreground"
-      activeProps={{ className: "rounded-full px-4 py-2 text-sm font-medium text-foreground" }}
+      className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-foreground hover:bg-surface/50"
+      activeProps={{ className: "rounded-full px-4 py-2 text-sm font-semibold text-brand bg-brand/10" }}
     >
       {children}
     </Link>
@@ -101,8 +141,14 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
 
 function MobileLink({ to, children, onClick }: { to: string; children: React.ReactNode; onClick: () => void }) {
   return (
-    <Link to={to} onClick={onClick} className="rounded-xl px-4 py-3 text-sm font-medium hover:bg-secondary">
+    <Link
+      to={to}
+      onClick={onClick}
+      className="rounded-xl px-4 py-3 text-sm font-medium text-ink-soft hover:text-foreground hover:bg-surface/50 transition-colors"
+      activeProps={{ className: "rounded-xl px-4 py-3 text-sm font-semibold text-brand bg-brand/10" }}
+    >
       {children}
     </Link>
   );
 }
+
