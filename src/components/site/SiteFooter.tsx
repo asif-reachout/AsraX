@@ -3,60 +3,38 @@ import { Linkedin, Instagram, Facebook, Mail, CheckCircle, AlertCircle, Loader }
 import logo from "@/assets/logo.png";
 import { useState, useCallback } from "react";
 
-// Mailchimp config — u is the public account identifier (safe to expose)
-const MC_U  = "ca6a47748b206dfd3e20d75fa";
-const MC_ID = "5e76804856";
-const MC_SERVER = "us3";
-
 type FormState = "idle" | "loading" | "success" | "error";
 
 function NewsletterForm() {
-  const [email, setEmail]     = useState("");
-  const [state, setState]     = useState<FormState>("idle");
+  const [email, setEmail] = useState("");
+  const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = useCallback((e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || state === "loading") return;
 
     setState("loading");
 
-    // Mailchimp JSONP — works on any static host, no server required
-    const callbackName = `mc_cb_${Date.now()}`;
-    const url =
-      `https://${MC_SERVER}.list-manage.com/subscribe/post-json` +
-      `?u=${MC_U}&id=${MC_ID}&EMAIL=${encodeURIComponent(email)}&c=${callbackName}`;
+    try {
+      const body = new FormData();
+      body.append("email", email);
 
-    const script = document.createElement("script");
-    script.src = url;
+      const res = await fetch("/subscribe.php", { method: "POST", body });
+      const data = await res.json() as { result: string; msg: string };
 
-    const timeout = setTimeout(() => {
-      cleanup();
-      setState("error");
-      setMessage("Request timed out. Please try again.");
-    }, 10000);
-
-    function cleanup() {
-      clearTimeout(timeout);
-      delete (window as any)[callbackName];
-      if (script.parentNode) script.parentNode.removeChild(script);
-    }
-
-    (window as any)[callbackName] = (data: { result: string; msg: string }) => {
-      cleanup();
       if (data.result === "success") {
         setState("success");
         setEmail("");
         setMessage("You're subscribed! 🎉");
       } else {
         setState("error");
-        // Clean up Mailchimp's HTML-heavy error messages
-        const msg = data.msg?.replace(/<[^>]+>/g, "").replace(/^\d+ - /, "") ?? "Something went wrong.";
-        setMessage(msg.includes("already subscribed") ? "You're already subscribed!" : msg);
+        setMessage(data.msg || "Something went wrong. Please try again.");
       }
-    };
-
-    document.body.appendChild(script);
+    } catch {
+      setState("error");
+      setMessage("Network error. Please try again.");
+    }
   }, [email, state]);
 
   if (state === "success") {
