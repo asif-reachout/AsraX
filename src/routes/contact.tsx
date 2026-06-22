@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MessageCircle, MapPin, Loader } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -34,8 +33,6 @@ function ContactPage() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const captchaRef = useRef<any>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,21 +45,13 @@ function ContactPage() {
       return;
     }
 
-    if (!captchaToken) {
-      setError("Please complete the hCaptcha verification.");
-      return;
-    }
-
     setSubmitting(true);
     setError(null);
 
-    formData.append("access_key", "79433abe-59ec-4f10-b69b-bef6d28c5734");
-    formData.append("h-captcha-response", captchaToken);
-
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://api.asraxmedia.com/contact.php", {
         method: "POST",
-        body: formData
+        body: formData,
       });
 
       const data = await response.json();
@@ -70,8 +59,6 @@ function ContactPage() {
         setSent(true);
       } else {
         setError(data.message || "Something went wrong. Please try again.");
-        captchaRef.current?.resetCaptcha();
-        setCaptchaToken(null);
       }
     } catch (err) {
       setError("Failed to send message. Please check your connection.");
@@ -167,14 +154,7 @@ function ContactPage() {
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tell us about your business</label>
                 <textarea name="business_details" rows={4} className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" placeholder="A few sentences about where you are and where you want to go." />
               </div>
-              <div className="flex justify-center py-2">
-                <HCaptcha
-                  sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                  onVerify={(token) => setCaptchaToken(token)}
-                  onExpire={() => setCaptchaToken(null)}
-                  ref={captchaRef}
-                />
-              </div>
+
               <button type="submit" disabled={submitting} className="btn-brand w-full flex items-center justify-center gap-2 disabled:opacity-70">
                 {submitting ? (
                   <>

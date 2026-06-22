@@ -315,7 +315,7 @@ function CareersPage() {
               {sent ? (
                 <div className="grid place-items-center py-16 text-center">
                   <div className="grid h-16 w-16 place-items-center rounded-full bg-brand text-white text-2xl font-bold">✓</div>
-                  <h2 className="mt-6 text-2xl font-bold">Application Received</h2>
+                  <h2 className="mt-6 text-2xl font-bold">Application Sent</h2>
                   <p className="mt-2 text-ink-soft max-w-md">Thanks for reaching out! Our team will review your details and get back to you shortly.</p>
                 </div>
               ) : (
