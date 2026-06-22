@@ -50,6 +50,7 @@ export function SiteHeader() {
             )}
           </div>
           <NavLink to="/case-studies">Case Studies</NavLink>
+          <NavLink to="/careers">Careers</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 
@@ -76,6 +77,7 @@ export function SiteHeader() {
               <MobileLink key={s.to} to={s.to} onClick={() => setOpen(false)}>{s.label}</MobileLink>
             ))}
             <MobileLink to="/case-studies" onClick={() => setOpen(false)}>Case Studies</MobileLink>
+            <MobileLink to="/careers" onClick={() => setOpen(false)}>Careers</MobileLink>
             <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
             <Link to="/contact" onClick={() => setOpen(false)} className="btn-brand mt-3">Book a Free Strategy Call</Link>
           </div>

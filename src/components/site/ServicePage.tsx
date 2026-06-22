@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronDown } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { ArrowRight, Check, Star } from "lucide-react";
+import { useState } from "react";
 import { SiteShell } from "./SiteShell";
 import { FinalCTA } from "./CTA";
 
@@ -8,206 +8,190 @@ export interface ServicePageProps {
   eyebrow?: string;
   title: string;
   subtitle: string;
+  heroImage: string;
   introHeading: string;
-  introParagraphs: [string, string];
-  features: string[];
-  approachHeading: string;
-  approachParagraph: string;
+  introParagraphs: string[];
+  introImage: string;
+  features: { title: string; desc: string }[];
   processHeading: string;
   steps: { title: string; body: string }[];
-  resultsHeading: string;
-  results: string[];
-  packages: { name: string; price: string; popular?: boolean; bullets: string[] }[];
+  results: { value: string; label: string }[];
+  testimonial: { quote: string; author: string; role: string; image: string };
   faqs: { q: string; a: string }[];
   finalHeading: string;
 }
 
 export function ServicePage(p: ServicePageProps) {
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
   return (
     <SiteShell>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-hero">
-        <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="container-x relative grid gap-12 py-24 md:py-32 lg:grid-cols-[1.3fr_1fr] lg:items-center">
-          <div className="fade-up">
-            <p className="eyebrow">{p.eyebrow ?? "AsraX Media — Growth Partner Services"}</p>
-            <h1 className="mt-5 text-5xl font-bold leading-[1.05] text-balance sm:text-6xl md:text-7xl">
+      {/* 1. Hero (full-width image + dark overlay) */}
+      <section
+        className="relative overflow-hidden bg-cover bg-center section-hero-cta flex min-h-[400px] items-center text-white"
+        style={{ backgroundImage: `linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('${p.heroImage}')` }}
+      >
+        <div className="container-x w-full">
+          <div className="max-w-3xl">
+            <p className="eyebrow text-brand-glow">{p.eyebrow ?? "SERVICE"}</p>
+            <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl text-white">
               {p.title}
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-ink-soft text-balance">{p.subtitle}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <p className="mt-6 text-lg text-neutral-300 sm:text-xl text-balance">
+              {p.subtitle}
+            </p>
+            <div className="mt-8">
               <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
-              <Link to="/case-studies" className="btn-ghost">See the work</Link>
-            </div>
-          </div>
-          <div className="hidden lg:flex lg:h-full lg:flex-col lg:justify-center">
-            <div className="relative w-full max-w-md ml-auto rounded-[2rem] border border-border bg-gradient-to-br from-surface to-card p-8 shadow-2xl">
-              <div className="absolute -left-6 -top-6 h-24 w-24 rounded-full bg-brand/20 blur-2xl" />
-              <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-brand/20 blur-3xl" />
-              
-              <h3 className="relative mb-6 text-xl font-bold">What's included</h3>
-              <div className="relative flex flex-col gap-4">
-                {p.features.slice(0, 4).map((f) => (
-                  <div key={f} className="group flex items-center gap-4 rounded-2xl bg-background p-4 shadow-sm ring-1 ring-border/50 transition-all hover:ring-brand/50 hover:shadow-md">
-                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
-                      <Check className="h-5 w-5" />
-                    </div>
-                    <p className="text-sm font-semibold leading-snug text-foreground">{f}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Intro */}
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <h2 className="text-4xl font-bold leading-tight text-balance sm:text-5xl">{p.introHeading}</h2>
-          <div className="space-y-5 text-lg text-ink-soft">
-            <p>{p.introParagraphs[0]}</p>
-            <p>{p.introParagraphs[1]}</p>
+      {/* 2. What It Looks Like (two-column: left = 3-4 paragraphs, right = photo) */}
+      <section className="section-content bg-background">
+        <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="eyebrow">Overview</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{p.introHeading}</h2>
+            <div className="mt-6 space-y-4 text-ink-soft leading-relaxed">
+              {p.introParagraphs.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+          </div>
+          <div className="relative aspect-4/3 w-full overflow-hidden rounded-4xl border border-border shadow-lg">
+            <img
+              src={p.introImage}
+              alt={p.title}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Features */}
-      <Section className="bg-surface">
-        <p className="eyebrow">What's included</p>
-        <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Everything you get.</h2>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {p.features.map((f, i) => (
-            <div key={f} className="group rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-card">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand text-brand-foreground font-bold">
-                {String(i + 1).padStart(2, "0")}
+      {/* 3. What You Get (light grey background) */}
+      <section className="section-content bg-surface">
+        <div className="container-x">
+          <div className="max-w-2xl mb-12">
+            <p className="eyebrow">WHAT YOU GET</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Everything included in your {p.eyebrow ?? "Service"} plan.</h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {p.features.map((f) => (
+              <div key={f.title} className="flex gap-4 items-start rounded-2xl border border-border bg-card p-5 shadow-sm">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                  <Check className="h-4 w-4" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-foreground">{f.title}</h4>
+                  <p className="text-xs text-ink-soft mt-1 leading-normal">{f.desc}</p>
+                </div>
               </div>
-              <p className="mt-4 text-base font-semibold">{f}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Approach */}
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          <div>
-            <p className="eyebrow">Our approach</p>
-            <h2 className="mt-3 text-4xl font-bold sm:text-5xl text-balance">{p.approachHeading}</h2>
-          </div>
-          <p className="text-lg text-ink-soft">{p.approachParagraph}</p>
-        </div>
-      </Section>
-
-      {/* Process */}
-      <Section className="bg-foreground text-background">
-        <p className="eyebrow text-brand-glow">The process</p>
-        <h2 className="mt-3 text-4xl font-bold sm:text-5xl">{p.processHeading}</h2>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {p.steps.map((s, i) => (
-            <div key={s.title} className="rounded-2xl border border-background/10 bg-background/5 p-6">
-              <div className="text-sm font-semibold text-brand-glow">Step {String(i + 1).padStart(2, "0")}</div>
-              <h3 className="mt-2 text-xl font-bold">{s.title}</h3>
-              <p className="mt-3 text-sm text-background/70">{s.body}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Results */}
-      <Section>
-        <p className="eyebrow">Proof</p>
-        <h2 className="mt-3 text-4xl font-bold sm:text-5xl">{p.resultsHeading}</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {p.results.map((r) => (
-            <div key={r} className="rounded-2xl border border-border bg-card p-7 shadow-card">
-              <div className="text-3xl font-bold text-gradient-brand">↗</div>
-              <p className="mt-4 text-lg font-semibold leading-snug">{r}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Pricing */}
-      <Section className="bg-surface">
-        <div className="text-center">
-          <p className="eyebrow">Pricing</p>
-          <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Engagements start at $1,000 / month.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-ink-soft">
-            Pick the package that fits where your business is right now. All packages include senior strategy, weekly optimisation, and transparent reporting.
-          </p>
-        </div>
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {p.packages.map((pkg) => (
-            <div
-              key={pkg.name}
-              className={`relative flex flex-col rounded-3xl border p-8 ${
-                pkg.popular
-                  ? "border-transparent bg-foreground text-background shadow-brand"
-                  : "border-border bg-card"
-              }`}
-            >
-              {pkg.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-brand-foreground">
-                  Most popular
-                </span>
-              )}
-              <h3 className="text-xl font-bold">{pkg.name}</h3>
-              <p className={`mt-2 text-3xl font-bold ${pkg.popular ? "text-brand-glow" : "text-foreground"}`}>{pkg.price}</p>
-              <ul className="mt-6 flex-1 space-y-3 text-sm">
-                {pkg.bullets.map((b) => (
-                  <li key={b} className="flex gap-2">
-                    <Check className={`mt-0.5 h-4 w-4 flex-none ${pkg.popular ? "text-brand-glow" : "text-brand"}`} />
-                    <span className={pkg.popular ? "text-background/85" : "text-ink-soft"}>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/contact"
-                className={pkg.popular ? "btn-brand mt-8" : "btn-dark mt-8"}
-              >
-                Book a Strategy Call
-              </Link>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* FAQ */}
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
-          <div>
-            <p className="eyebrow">FAQ</p>
-            <h2 className="mt-3 text-4xl font-bold sm:text-5xl text-balance">Questions you're probably asking.</h2>
-          </div>
-          <div className="divide-y divide-border rounded-2xl border border-border bg-card">
-            {p.faqs.map((f) => <FAQItem key={f.q} {...f} />)}
+            ))}
           </div>
         </div>
-      </Section>
+      </section>
 
-      <FinalCTA heading={p.finalHeading} sub="Book a free 30-minute strategy call — no pitch, just a useful conversation about your numbers." />
+      {/* 4. How We Run It (white background, 4 horizontal steps / stacked mobile) */}
+      <section className="section-content bg-background">
+        <div className="container-x">
+          <div className="max-w-2xl mb-12">
+            <p className="eyebrow">OUR PROCESS</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{p.processHeading}</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-4">
+            {p.steps.map((s, i) => (
+              <div key={s.title} className="relative flex flex-col items-start bg-card p-6 rounded-2xl border border-border/80 shadow-sm hover:border-brand transition-all duration-200">
+                <div className="grid h-10 w-10 place-items-center rounded-2xl bg-brand text-brand-foreground font-bold text-base mb-4 shadow-brand/20 shadow-md">
+                  0{i + 1}
+                </div>
+                <h3 className="text-lg font-bold">{s.title}</h3>
+                <p className="mt-2 text-xs text-ink-soft leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Real Results (full-width dark/red background stats strip) */}
+      <section className="bg-foreground section-stats text-background border-y border-border/10">
+        <div className="container-x">
+          <div className="grid gap-6 grid-cols-2 md:grid-cols-3 text-center">
+            {p.results.map((r, i) => (
+              <div key={i}>
+                <div className="text-4xl font-bold text-brand-glow">{r.value}</div>
+                <div className="mt-2 text-xs text-background/50 font-semibold uppercase tracking-wider">{r.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Testimonials */}
+      <section className="section-content bg-surface border-y border-border">
+        <div className="container-x">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <p className="eyebrow">WHAT CLIENTS SAY</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Don't take our word for it.</h2>
+          </div>
+          <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-brand bg-white mb-4 shadow-md">
+              <img src={p.testimonial.image} alt={p.testimonial.author} className="h-full w-full object-cover" />
+            </div>
+            <div className="flex gap-1 mb-4 text-brand">
+              {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+            </div>
+            <blockquote className="text-xl sm:text-2xl font-semibold leading-relaxed text-balance text-ink italic">
+              "{p.testimonial.quote}"
+            </blockquote>
+            <cite className="mt-6 not-italic">
+              <span className="block font-bold text-lg text-foreground">{p.testimonial.author}</span>
+              <span className="block text-sm text-brand font-semibold tracking-wider uppercase mt-1">{p.testimonial.role}</span>
+            </cite>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ (Accordion questions with + / - toggles, one open at a time) */}
+      <section className="section-content bg-background">
+        <div className="container-x">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
+            <div>
+              <p className="eyebrow">FAQ</p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Common questions about {p.eyebrow ?? "Service"}.</h2>
+            </div>
+            <div className="divide-y divide-border rounded-2xl border border-border bg-card">
+              {p.faqs.map((faq, idx) => {
+                const isOpen = activeFaq === idx;
+                return (
+                  <div key={faq.q} className="block w-full border-b border-border last:border-0">
+                    <button
+                      onClick={() => setActiveFaq(isOpen ? null : idx)}
+                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-foreground hover:text-brand transition-colors cursor-pointer"
+                    >
+                      <span className="text-base leading-snug">{faq.q}</span>
+                      <span className="text-xl text-ink-soft shrink-0">{isOpen ? "−" : "+"}</span>
+                    </button>
+                    {isOpen && (
+                      <div className="px-6 pb-5 text-sm text-ink-soft leading-relaxed">
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. CTA (full-width red background, white button) */}
+      <FinalCTA
+        heading={`Ready to grow with ${p.eyebrow ?? "us"}?`}
+        sub="Book a free 30-minute strategy call — no pitch, just a useful conversation about your numbers."
+        btnText="Book Your Free Strategy Call"
+        btnLink="/contact"
+      />
     </SiteShell>
-  );
-}
-
-function Section({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <section className={className}>
-      <div className="container-x py-24">{children}</div>
-    </section>
-  );
-}
-
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <button onClick={() => setOpen((v) => !v)} className="block w-full px-6 py-5 text-left">
-      <div className="flex items-center justify-between gap-4">
-        <span className="text-base font-semibold">{q}</span>
-        <ChevronDown className={`h-5 w-5 flex-none text-ink-soft transition-transform ${open ? "rotate-180" : ""}`} />
-      </div>
-      {open && <p className="mt-3 text-ink-soft">{a}</p>}
-    </button>
   );
 }

@@ -10,63 +10,49 @@ export const Route = createFileRoute("/services/content")({
   }),
   component: () => (
     <ServicePage
-      title="Content and creative that actually sell."
+      eyebrow="Content Marketing"
+      title="Attract, educate, and convert ideal clients."
       subtitle="Landing pages, ad creatives, blogs, and LinkedIn content — written around your buyer, designed to convert."
-      introHeading="What content and creative looks like at AsraX."
+      heroImage="/img/content-hero.jpg"
+      introHeading="What does Content Marketing actually look like?"
       introParagraphs={[
         "Most content is written for search engines, social algorithms, or the founder's ego — and it shows. It reads like everyone else's, sells like nobody's.",
         "We write content for the one person who matters: your buyer. Every page, ad, and post is built around their problem, their language, and the next step we want them to take.",
+        "We focus on creating conversion assets (e.g. landing page layouts, email workflows, digital sales pitches) rather than just pushing out bulk text."
       ]}
+      introImage="/img/content-intro.jpg"
       features={[
-        "Landing pages that convert",
-        "Ad copy & creative (static + video scripts)",
-        "Blog & SEO content",
-        "LinkedIn & founder content",
-        "Email sequences & nurture flows",
-        "Brand messaging & positioning",
+        { title: "Landing Page Copywriting", desc: "Design page wireframes and write landing page copy optimized for conversions." },
+        { title: "Ad Creative Directions", desc: "Script static ads, video frames, hooks, and body copy angles." },
+        { title: "SEO Blogs & Copy", desc: "Formulate in-depth guides answering customer transaction questions." },
+        { title: "LinkedIn Thought Leadership", desc: "Construct B2B content that positions the founder as an authority." },
+        { title: "Email Sequences", desc: "Build automated sequences to nurture leads from fit-checks to calls." },
+        { title: "Brand Positioning Guides", desc: "Develop copy standards and unique angles to differentiate your brand." }
       ]}
-      approachHeading="Our approach to content."
-      approachParagraph="Good content sounds like one person talking to another, not a brand talking at the world. We write with a clear point of view, sharp positioning, and a real call to action — so every piece either moves your reader closer to buying, or it doesn't ship."
-      processHeading="How we run Content & Creative at AsraX."
+      processHeading="How we run your Content Marketing"
       steps={[
-        { title: "Buyer & message research", body: "We interview you, study your buyers, and dig into your competitors to find the language that actually lands." },
-        { title: "Strategy & content plan", body: "We map the pieces of content needed across your funnel — top, middle, and bottom — and the order they should be produced in." },
-        { title: "Writing & design", body: "Our writers and designers build every piece in your brand voice, around the metric we're trying to move." },
-        { title: "Review & launch", body: "You review, we refine, and we ship — with clear publishing or campaign briefs for your team or your ad platforms." },
-        { title: "Performance review", body: "Every month we look at what each piece is doing — opens, conversions, pipeline — and iterate." },
+        { title: "Strategy & Audit", body: "We study target buyer objectives, extract insights, and map out hooks." },
+        { title: "Funnel Planning", body: "We align content pieces across the customer acquisition funnel stages." },
+        { title: "Production & Creation", body: "Our copy and design team crafts the visual and textual marketing assets." },
+        { title: "Distribution & Pitching", body: "We format assets directly into campaign workflows and ad accounts." }
       ]}
-      resultsHeading="Real content results we've delivered."
       results={[
-        "A new landing page lifted conversion rate from 1.7% to 4.9% in 30 days",
-        "Founder LinkedIn content generated 23 booked calls in 60 days",
-        "Rewritten ad copy cut CPL by 38% with no change to spend",
+        { value: "4.9%", label: "Landing Page CVR" },
+        { value: "23", label: "Booked Calls / 60d" },
+        { value: "-38%", label: "CPL Reduction" }
       ]}
-      packages={[
-        { name: "Starter", price: "$1,000 / mo", bullets: [
-          "Up to 4 long-form pieces / month",
-          "Ad copy & creative briefs",
-          "Brand voice document",
-          "Monthly content call",
-        ]},
-        { name: "Growth", price: "$1,800 / mo", popular: true, bullets: [
-          "8 content pieces / month",
-          "Landing pages & ad creative",
-          "LinkedIn / founder content",
-          "Email & nurture flows",
-        ]},
-        { name: "Scale", price: "From $3,000 / mo", bullets: [
-          "Full content engine across channels",
-          "Dedicated senior writer",
-          "Video scripts & ad creative at scale",
-          "Quarterly messaging review",
-        ]},
-      ]}
+      testimonial={{
+        quote: "Our conversion rate was holding us back. AsraX solved it by rewriting our landing pages and tightening the copy. It's like we unlocked a brand new ad account.",
+        author: "Sarah T.",
+        role: "VP Product, MetricsHub",
+        image: "/img/test-sarah.jpg"
+      }}
       faqs={[
         { q: "How quickly will I see results?", a: "Landing pages and ad copy typically move metrics within 30 days. Long-form content compounds over 60–90+ days." },
         { q: "What's the minimum engagement?", a: "$1,000 / month — enough scope to build a real asset, not one-off pieces." },
         { q: "Who will I be working with?", a: "A senior strategist who runs your account, supported by writers and designers in your brand voice." },
         { q: "Do you sign monthly or yearly contracts?", a: "Monthly, with a 30-day notice period." },
-        { q: "What happens if I'm not happy with the results?", a: "Revisions are unlimited within scope. If we're not delivering, we re-scope or you walk — no penalties." },
+        { q: "What happens if I'm not happy with the results?", a: "Revisions are unlimited within scope. If we're not delivering, we re-scope or you walk — no penalties." }
       ]}
       finalHeading="Ready to grow with content that sells?"
     />

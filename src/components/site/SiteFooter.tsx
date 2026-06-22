@@ -137,6 +137,7 @@ export function SiteFooter() {
           <FooterCol title="Company">
             <FooterLink to="/about">About</FooterLink>
             <FooterLink to="/case-studies">Case Studies</FooterLink>
+            <FooterLink to="/careers">Careers</FooterLink>
             <FooterLink to="/contact">Contact</FooterLink>
           </FooterCol>
 

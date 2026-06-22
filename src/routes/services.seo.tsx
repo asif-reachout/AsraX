@@ -10,65 +10,51 @@ export const Route = createFileRoute("/services/seo")({
   }),
   component: () => (
     <ServicePage
-      title="SEO that compounds into a growth engine."
+      eyebrow="SEO"
+      title="Build traffic you own — no ad spend required."
       subtitle="Technical SEO, content strategy, and authority building that turn your site into a steady source of qualified, ready-to-buy traffic."
-      introHeading="What SEO looks like at AsraX."
+      heroImage="/img/seo-hero.jpg"
+      introHeading="What does SEO actually look like?"
       introParagraphs={[
         "SEO isn't about ranking for keywords nobody buys from. It's about owning the search queries your best customers actually type in — and being the obvious answer when they do.",
         "We build SEO as a long-term growth asset: a strong technical base, content built around buyer intent, and authority signals that compound month after month.",
+        "Our team manages technical infrastructure, on-page content production pipelines, and manual white-hat link acquisition campaigns under a single unified growth strategy."
       ]}
+      introImage="/img/seo-intro.jpg"
       features={[
-        "Full technical SEO audit",
-        "Keyword & buyer-intent research",
-        "On-page optimisation & site structure",
-        "Content strategy & briefs",
-        "Backlink & authority building",
-        "Monthly ranking & traffic reporting",
+        { title: "Technical Audit & Fixes", desc: "Optimize crawl budget, core web vitals, speed, and redirects." },
+        { title: "Intent Keyword Research", desc: "Target high-intent search phrases aligned to transaction cycles." },
+        { title: "On-Page SEO Optimization", desc: "Revise page headers, semantic styling, and structured markups." },
+        { title: "Content Engine Plans", desc: "Establish search briefs and calendars mapped to buyer priorities." },
+        { title: "Premium Link Building", desc: "Acquire domain authority through manual digital PR outreach." },
+        { title: "Detailed Metric Reporting", desc: "Track conversions, keywords visibility, and keyword rankings." }
       ]}
-      approachHeading="Our approach to SEO."
-      approachParagraph="We don't chase rankings for the sake of rankings. We chase the rankings that bring buyers. Every keyword we target is mapped to a stage of your funnel, every piece of content has a job to do, and every backlink we build moves a real metric — leads, pipeline, revenue."
-      processHeading="How we run SEO at AsraX."
+      processHeading="How we run your SEO"
       steps={[
-        { title: "Audit & opportunity mapping", body: "We audit your site, your current rankings, and your competition — then map the highest-leverage SEO opportunities for the next 12 months." },
-        { title: "Technical foundation", body: "We fix the issues holding your site back — site speed, crawlability, indexing, structured data, and internal linking." },
-        { title: "Content strategy & production", body: "We build a content calendar around buyer intent and your sales funnel, then write or brief every piece." },
-        { title: "Authority building", body: "We earn backlinks through outreach, digital PR, and partnerships — never spam, never bought." },
-        { title: "Monthly reporting & iteration", body: "Every month you get clear reporting on rankings, traffic, and conversions — plus the next 30 days of the plan." },
+        { title: "Audit & Fixes", body: "We resolve indexing issues, site speed bottlenecks, and semantic structures." },
+        { title: "Strategy & Mapping", body: "We research and organize keywords into transactional, commercial, and informational funnels." },
+        { title: "Execute Content", body: "We draft high-quality content briefs and build internal linking pathways." },
+        { title: "Report & Scale", body: "Every month, you receive a concise analysis summarizing traffic growth and organic leads." }
       ]}
-      resultsHeading="Real SEO results we've delivered."
       results={[
-        "127% growth in organic traffic over 6 months for a B2B SaaS",
-        "First-page rankings for 38 buyer-intent keywords in 9 months",
-        "Organic became the #1 lead source within 12 months",
+        { value: "+127%", label: "Organic Traffic Growth" },
+        { value: "38", label: "Top-3 Ranking Keywords" },
+        { value: "+74", label: "Monthly Demo Bookings" }
       ]}
-      packages={[
-        { name: "Starter", price: "$1,000 / mo", bullets: [
-          "Technical SEO audit & fixes",
-          "Up to 4 optimised pages / month",
-          "Monthly reporting",
-          "1 strategy call / month",
-        ]},
-        { name: "Growth", price: "$1,800 / mo", popular: true, bullets: [
-          "Full technical SEO",
-          "4–6 SEO-optimised content pieces / month",
-          "Outreach & backlink building",
-          "2 strategy calls / month",
-        ]},
-        { name: "Scale", price: "From $3,000 / mo", bullets: [
-          "Aggressive content & link strategy",
-          "Digital PR & partnership outreach",
-          "Custom dashboard & KPI tracking",
-          "Dedicated senior strategist",
-        ]},
-      ]}
+      testimonial={{
+        quote: "They rebuilt our content engine around buyer intent. Organic search is now the #1 lead source in our business.",
+        author: "James K.",
+        role: "B2B Marketing Lead",
+        image: "/img/test-james.jpg"
+      }}
       faqs={[
         { q: "How quickly will I see results?", a: "SEO is a long game. Expect early movement in months 2–3 and meaningful traffic / lead growth from months 4–6 onwards." },
         { q: "What's the minimum engagement?", a: "$1,000 / month with a recommended 6-month commitment, because anything shorter rarely gives SEO time to compound." },
         { q: "Who will I be working with?", a: "A senior SEO strategist plus a content team. Every piece is reviewed by a strategist, not a junior." },
         { q: "Do you sign monthly or yearly contracts?", a: "Month-to-month after the first 6 months. We don't lock you in beyond that." },
-        { q: "What happens if I'm not happy with the results?", a: "We review the plan together. SEO has clear leading indicators — if we're not hitting them, we adjust. If we're still not the right fit, you walk." },
+        { q: "What happens if I'm not happy with the results?", a: "We review the plan together. SEO has clear leading indicators — if we're not hitting them, we adjust. If we're still not the right fit, you walk." }
       ]}
-      finalHeading="Ready to grow with SEO?"
+      finalHeading="Ready to compound your organic traffic?"
     />
   ),
 });

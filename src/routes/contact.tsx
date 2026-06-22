@@ -97,9 +97,9 @@ function ContactPage() {
 
           <div className="hidden lg:flex lg:h-full lg:flex-col lg:justify-center">
             <div className="relative mx-auto w-full max-w-sm">
-              <div className="absolute inset-0 rotate-6 rounded-[2rem] bg-brand/10 transition-transform hover:rotate-12 blur-sm" />
-              <div className="absolute inset-0 -rotate-3 rounded-[2rem] bg-brand/5 transition-transform hover:-rotate-6 blur-sm" />
-              <div className="relative flex aspect-square flex-col items-center justify-center gap-6 rounded-[2rem] border border-border bg-card p-10 shadow-2xl text-center">
+              <div className="absolute inset-0 rotate-6 rounded-4xl bg-brand/10 transition-transform hover:rotate-12 blur-sm" />
+              <div className="absolute inset-0 -rotate-3 rounded-4xl bg-brand/5 transition-transform hover:-rotate-6 blur-sm" />
+              <div className="relative flex aspect-square flex-col items-center justify-center gap-6 rounded-4xl border border-border bg-card p-10 shadow-2xl text-center">
                 <div className="flex -space-x-3">
                   {[1, 2, 3].map((i) => (
                     <div key={i} className={`flex h-16 w-16 items-center justify-center rounded-full border-4 border-card ${i === 1 ? 'bg-brand' : i === 2 ? 'bg-emerald-500' : 'bg-blue-600'} text-white shadow-sm`}>
