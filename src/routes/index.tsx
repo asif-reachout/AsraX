@@ -105,7 +105,7 @@ function HomePage() {
         <div className="absolute inset-0 bg-linear-to-b from-neutral-950/60 to-neutral-950/80 z-10" />
 
         {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-grid opacity-10 z-10" />
+        <div className="absolute inset-0 bg-grid opacity-100 z-10" />
 
         <div className="container-x relative z-20 grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="fade-up">
