@@ -103,7 +103,7 @@ function HomePage() {
 
         {/* Gradient Overlay for Text Readability */}
         <div className="absolute inset-0 bg-linear-to-b from-neutral-950/60 to-neutral-950/80 z-10" />
-        
+
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 bg-grid opacity-10 z-10" />
 
