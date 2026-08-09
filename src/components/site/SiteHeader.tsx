@@ -4,10 +4,11 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const services = [
-  { to: "/services/google-ads", label: "Google Ads" },
-  { to: "/services/seo", label: "SEO" },
+  { to: "/services/website-development", label: "Website Development" },
+  { to: "/services/content", label: "Content Marketing" },
+  { to: "/services/seo", label: "SEO / AEO / GEO" },
+  { to: "/services/google-ads", label: "Paid Ads" },
   { to: "/services/social-media", label: "Social Media Marketing" },
-  { to: "/services/content", label: "Content & Creative" },
   { to: "/services/reporting", label: "Performance Reporting" },
 ];
 
@@ -142,7 +143,7 @@ export function SiteHeader() {
               <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileSvcOpen ? "rotate-180" : ""}`} />
             </button>
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden ml-4 flex flex-col gap-1 border-l border-border/60 pl-3 ${mobileSvcOpen ? "max-h-64 opacity-100 mt-1" : "max-h-0 opacity-0 mt-0 pointer-events-none"
+              className={`transition-all duration-300 ease-in-out overflow-hidden ml-4 flex flex-col gap-1 border-l border-border/60 pl-3 ${mobileSvcOpen ? "max-h-96 opacity-100 mt-1" : "max-h-0 opacity-0 mt-0 pointer-events-none"
                 }`}
             >
               {services.map((s) => (

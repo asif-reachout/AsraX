@@ -1,13 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Target, Search, Megaphone, Sparkles, Star, AlertCircle, FileText, Calendar, TrendingUp, UserCheck } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Target, Search, Megaphone, Sparkles, Star, AlertCircle, FileText, TrendingUp, UserCheck, MonitorSmartphone, BarChart3, ShieldCheck } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { FinalCTA } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AsraX Media — Marketing that moves the needle." },
-      { name: "description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social, and Content — built around revenue, not vanity metrics." },
+      { title: "AsraX Media — Full Funnel Marketing Agency for Global Brands" },
+      { name: "description", content: "A growth partner that keeps every result transparent. Website development, content, SEO, paid ads, social, and performance reporting — built around leads and revenue." },
     ],
   }),
   component: HomePage,
@@ -15,70 +16,81 @@ export const Route = createFileRoute("/")({
 
 const services = [
   {
-    to: "/services/google-ads",
-    icon: Target,
-    title: "Google Ads",
-    body: "Turn clicks into paying customers. Search, Performance Max, and Shopping campaigns engineered around your ROAS goals."
-  },
-  {
-    to: "/services/seo",
-    icon: Search,
-    title: "SEO",
-    body: "Build traffic you own — no ad spend required. Technical audits, content plans, and authority building that compound."
-  },
-  {
-    to: "/services/social-media",
-    icon: Megaphone,
-    title: "Social Media Marketing",
-    body: "Build your brand and fill your pipeline. Platform management, custom graphics, reels, and analytics engineered to convert."
+    to: "/services/website-development",
+    icon: MonitorSmartphone,
+    title: "Website Development",
+    body: "You get a site built to convert, not just to look good. Every page is built around clear calls to action and clean tracking, so the traffic your other campaigns generate actually turns into leads instead of leaking out the back door.",
+    cta: "See Our Website Development Services"
   },
   {
     to: "/services/content",
     icon: Sparkles,
     title: "Content Marketing",
-    body: "Attract, educate, and convert ideal clients. SEO blogs, email copy, lead magnets, and website copy distribution."
+    body: "You get content that answers your customers' real questions, builds your authority in Google and AI search results alike, and gives your sales team material that actually closes deals.",
+    cta: "Read About Our Content Marketing Services"
+  },
+  {
+    to: "/services/seo",
+    icon: Search,
+    title: "SEO / AEO / GEO",
+    body: "You get search visibility that brings in the right traffic, not just more of it. Your rankings, your content and your technical SEO work together, so growth in traffic actually turns into growth in leads.",
+    cta: "Explore Our SEO Services"
+  },
+  {
+    to: "/services/google-ads",
+    icon: Target,
+    title: "Paid Ads",
+    body: "You get campaigns built around your actual sales goals, not just clicks. Every dollar of your ad spend gets tracked back to leads and revenue, so you always know exactly what's working and what needs to change.",
+    cta: "Discover Our Paid Ads Services"
+  },
+  {
+    to: "/services/social-media",
+    icon: Megaphone,
+    title: "Social Media Marketing",
+    body: "You get a social presence that builds trust with people who are already looking for what you sell, on the platforms your customers actually use.",
+    cta: "Uncover Our Social Media Marketing Services"
+  },
+  {
+    to: "/services/reporting",
+    icon: BarChart3,
+    title: "Performance Reporting",
+    body: "You get clear, plain-language reporting that ties every channel back to leads and revenue, so you always know what's working and where your investment is going.",
+    cta: "See How We Report On Performance"
   }
 ];
 
 const testimonials = [
   {
-    pull: "Doubled our leads in 60 days.",
-    quote: "AsraX took over our Google Ads after months of wasted spend. Within 60 days they cut our cost per lead in half and doubled the volume. They actually report on revenue, not just clicks.",
-    who: "Daniel R., D2C Founder"
+    quote: "We'd tried managing things in-house before bringing AsraX Media on, and the difference was immediate. They took the time to actually understand our business before touching a single campaign, and the weekly updates kept us in the loop without needing to chase anyone down. Our pipeline has looked healthier every month since.",
+    who: "Google Review"
   },
   {
-    pull: "Finally, a partner that thinks like an operator.",
-    quote: "Our previous agencies sent screenshots of impressions. AsraX sends a one-page report on pipeline and ROI. Night and day.",
-    who: "Priya M., SaaS COO"
-  },
-  {
-    pull: "127% organic traffic in 6 months.",
-    quote: "They rebuilt our content engine around buyer intent. Organic search is now the #1 lead source in our business.",
-    who: "James K., B2B Marketing Lead"
+    quote: "Great experience working with this team. They helped improve our entire marketing funnel, not just bring in leads. Communication was clear, they were proactive with suggestions, and we saw noticeable improvements in both lead quality and conversions.",
+    who: "Shawn P., Google Review"
   }
 ];
 
 const caseStudies = [
   {
-    slug: "d2c-skincare",
+    slug: "montessori-toys",
     img: "/img/case-d2c.jpg",
-    client: "D2C Skincare Brand",
-    result: "3.2x ROAS in 90 days",
-    summary: "Rebuilt account structure and shifted budget into Performance Max with creative cycles."
+    client: "Montessori Toys",
+    result: "ROAS from 209.93% to 338.43%",
+    summary: "Audit-first rebuild of the account, fixed conversion tracking, and a Shopping-led structure that scaled spend and profit together."
   },
   {
-    slug: "b2b-saas",
+    slug: "greensonic",
     img: "/img/case-b2b.jpg",
-    client: "B2B SaaS Startup",
-    result: "127% Organic Traffic Growth",
-    summary: "Technical SEO overhaul and intent-mapped content engine turned organic into #1 lead source."
+    client: "Greensonic",
+    result: "0 to 1.61K Conversions in 8 Months",
+    summary: "Built a paid acquisition channel from scratch in a niche marine market — 525K impressions at a 2.56% conversion rate."
   },
   {
-    slug: "real-estate",
-    img: "/img/case-realestate.jpg",
-    client: "Real Estate Agency",
-    result: "48 Qualified Leads / Month at $22 CPL",
-    summary: "Geo-targeted search and landing page testing cut CPL by 61% with a steady lead flow."
+    slug: "maranatha-pediatrics",
+    img: "/img/case-localservice.jpg",
+    client: "Maranatha Pediatrics",
+    result: "Cost Per Conversion Down To $12.64",
+    summary: "A phased audience, conversion and scaling plan took CTR from 6.19% to 10.39% and conversions from 7 to 1,220."
   }
 ];
 
@@ -109,23 +121,18 @@ function HomePage() {
 
         <div className="container-x relative z-20 grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="fade-up">
-            <p className="eyebrow text-brand-glow">ASRAX MEDIA — TURNING BRANDS INTO BELIEFS</p>
-            <h1 className="mt-6 text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl lg:text-8xl text-white">
-              Marketing that <span className="text-gradient-brand">moves the needle.</span>
+            <p className="eyebrow text-brand-glow">ASRAX MEDIA. TURNING BRANDS INTO BELIEFS</p>
+            <h1 className="mt-6 text-4xl font-bold leading-[1.05] text-balance sm:text-5xl md:text-6xl lg:text-7xl text-white">
+              Full Funnel Marketing Agency for <span className="text-gradient-brand">Global Brands</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-neutral-300 sm:text-xl text-balance">
-              We're the growth partner for ambitious brands. Google Ads, SEO, Social, and Content — built around revenue, not vanity metrics.
+              A growth partner that keeps every result transparent.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
               <Link to="/case-studies" className="btn-ghost bg-transparent! text-white! hover:bg-white/10! border-white/30">See Our Work <ArrowRight className="h-4 w-4" /></Link>
             </div>
 
-            <div className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/20 pt-6">
-              <Stat n="3.2x" label="avg ROAS lift" dark />
-              <Stat n="127%" label="organic growth" dark />
-              <Stat n="48/mo" label="leads delivered" dark />
-            </div>
           </div>
 
           <div className="relative hidden lg:block">
@@ -146,15 +153,19 @@ function HomePage() {
                 </div>
               </div>
               <div className="mt-6 grid grid-cols-2 gap-3">
-                <KpiCard label="Revenue" value="$184K" delta="+38%" />
-                <KpiCard label="ROAS" value="4.6x" delta="+1.2x" />
-                <KpiCard label="CPL" value="$22" delta="-41%" />
-                <KpiCard label="Leads" value="612" delta="+212%" />
+                <KpiCard label="Revenue" to={184} prefix="$" suffix="K" delta="+38%" />
+                <KpiCard label="ROAS" to={4.6} decimals={1} suffix="x" delta="+1.2x" />
+                <KpiCard label="CPL" to={22} prefix="$" delta="-41%" />
+                <KpiCard label="Leads" to={612} delta="+212%" />
               </div>
               <div className="mt-6">
                 <div className="flex h-32 items-end gap-1.5">
                   {[35, 48, 42, 60, 55, 72, 68, 85, 78, 95, 88, 100].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t-md bg-linear-to-t from-brand to-brand-glow opacity-90" style={{ height: `${h}%` }} />
+                    <div
+                      key={i}
+                      className="grow-bar flex-1 rounded-t-md bg-linear-to-t from-brand to-brand-glow opacity-90"
+                      style={{ height: `${h}%`, animationDelay: `${i * 70}ms` }}
+                    />
                   ))}
                 </div>
                 <div className="mt-3 flex justify-between text-[10px] text-muted-foreground">
@@ -190,15 +201,15 @@ function HomePage() {
       <section className="bg-surface section-content">
         <div className="container-x">
           <div className="text-center max-w-3xl mx-auto">
-            <p className="eyebrow">THE CHALLENGE</p>
-            <h2 className="mt-3 text-4xl font-bold sm:text-5xl text-balance">Does any of this sound familiar?</h2>
+            <p className="eyebrow">THE PAIN POINTS WE SOLVE</p>
+            <h2 className="mt-3 text-4xl font-bold sm:text-5xl text-balance">Is This Where Your Marketing Feels Stuck?</h2>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { t: "Wasting budget on ads", d: "Pouring money into campaigns that generate clicks but fail to convert into paying customers." },
-              { t: "SEO sends reports, no leads", d: "Traffic charts are going up, but the telephone isn't ringing and inbox is empty." },
-              { t: "Don't know what's working", d: "Conversion tracking is broken or data is buried across 5 dashboard pages." },
-              { t: "No consistent leads", d: "A rollercoaster of high-lead months followed by dry spells that crush cash flow." }
+              { t: "Clicks, not customers", d: "You're spending on ads that generate clicks, not paying customers." },
+              { t: "Traffic up, leads flat", d: "Your SEO traffic is climbing, but leads stay flat, and it's hard to pin down why." },
+              { t: "No clear picture", d: "You can't tell what's actually working, because your tracking is broken or scattered across five different dashboards." },
+              { t: "A new coordinator every quarter", d: "You're stuck explaining your strategy to a new coordinator every few months, instead of talking to the people actually running it." }
             ].map((p, i) => (
               <div key={i} className="rounded-3xl border border-border bg-card p-6 shadow-sm">
                 <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand/10 text-brand">
@@ -209,8 +220,11 @@ function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-12 flex justify-center">
-            <Link to="/contact" className="btn-brand">Let's fix that — Book a Free Call <ArrowRight className="h-4 w-4" /></Link>
+          <div className="mt-12 flex flex-col items-center gap-5 text-center">
+            <p className="max-w-2xl text-base text-ink-soft text-balance">
+              You don't have to accept any of that as normal. It isn't — and it's exactly what we fix.
+            </p>
+            <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
@@ -220,9 +234,9 @@ function HomePage() {
         <div className="container-x">
           <div className="max-w-2xl">
             <p className="eyebrow">OUR SERVICES</p>
-            <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Everything you need to grow.</h2>
+            <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Everything Your Business Needs To Grow</h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => {
               const Icon = s.icon;
               return (
@@ -236,7 +250,7 @@ function HomePage() {
                   <h3 className="mt-6 text-2xl font-bold">{s.title}</h3>
                   <p className="mt-3 flex-1 text-ink-soft leading-relaxed">{s.body}</p>
                   <Link to={s.to} className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand">
-                    Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    {s.cta} <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               );
@@ -248,19 +262,24 @@ function HomePage() {
       {/* 5 — GOOGLE REVIEWS (REPOSITIONED TESTIMONIALS) */}
       <section className="bg-foreground section-content text-background">
         <div className="container-x">
-          <p className="eyebrow text-brand-glow">GOOGLE REVIEWS</p>
-          <h2 className="mt-3 text-4xl font-bold sm:text-5xl md:text-6xl text-balance">Results, in their words.</h2>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <p className="eyebrow text-brand-glow">TESTIMONIALS</p>
+          <h2 className="mt-3 text-4xl font-bold sm:text-5xl md:text-6xl text-balance">Real Results, In Our Clients' Own Words</h2>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {testimonials.map((t) => (
-              <div key={t.pull} className="flex flex-col rounded-3xl border border-background/10 bg-background/5 p-8">
-                <div className="flex gap-1 mb-4 text-brand-glow">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+              <div key={t.who} className="flex flex-col rounded-3xl border border-background/10 bg-background/5 p-8">
+                <div className="mb-4 flex items-center gap-3">
+                  <GoogleG className="h-5 w-5" />
+                  <div className="flex gap-1 text-brand-glow">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold leading-tight text-brand-glow">"{t.pull}"</h3>
-                <p className="mt-4 flex-1 text-sm text-background/70 leading-relaxed">{t.quote}</p>
+                <p className="flex-1 text-base text-background/80 leading-relaxed">"{t.quote}"</p>
                 <p className="mt-6 text-sm font-semibold">— {t.who}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-12">
+            <Link to="/about" className="btn-brand">Learn More About AsraX Media <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
@@ -270,14 +289,14 @@ function HomePage() {
         <div className="container-x">
           <div className="text-center max-w-3xl mx-auto">
             <p className="eyebrow">OUR STANDARDS</p>
-            <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Standards we won't compromise.</h2>
+            <h2 className="mt-3 text-4xl font-bold sm:text-5xl">The Standards You Can Hold Us To</h2>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { t: "Transparent monthly reporting", d: "Get raw monthly reports and dynamic dashboard links. No metrics manipulation, no smoke & mirrors.", icon: FileText },
-              { t: "No long-term lock-in contracts", d: "We offer rolling monthly agreements. We'd rather earn your renewal every month with results.", icon: Calendar },
-              { t: "Revenue-focused strategy, not vanity metrics", d: "We optimize for customer leads, sales pipeline, and bottom-line profit — not arbitrary clicks.", icon: TrendingUp },
-              { t: "Dedicated account manager from day one", d: "Work directly with a senior strategist who understands your brand. No junior handoffs.", icon: UserCheck }
+              { t: "Transparency", d: "You always know exactly where your budget goes, every single month.", icon: FileText },
+              { t: "Results", d: "You get campaigns that get judged on revenue and leads, not impressions.", icon: TrendingUp },
+              { t: "Accountability", d: "If something isn't working, you get told, and it gets fixed.", icon: ShieldCheck },
+              { t: "Solutions", d: "You get strategic thinking paired with fast execution, every time.", icon: UserCheck }
             ].map((p, i) => {
               const Icon = p.icon;
               return (
@@ -292,8 +311,8 @@ function HomePage() {
             })}
           </div>
           <div className="mt-12 flex flex-col items-center gap-4 text-center">
-            <p className="text-base font-semibold text-ink-soft">Ready to grow? Book your free strategy call</p>
-            <Link to="/contact" className="btn-brand">Book Strategy Call <ArrowRight className="h-4 w-4" /></Link>
+            <p className="text-base font-semibold text-ink-soft">Ready to grow your business?</p>
+            <Link to="/contact" className="btn-brand">Book Your Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
@@ -303,17 +322,20 @@ function HomePage() {
         <div className="container-x">
           <div className="max-w-2xl mb-12">
             <p className="eyebrow">OUR METHOD</p>
-            <h2 className="mt-3 text-4xl font-bold sm:text-5xl">A process built around scale.</h2>
+            <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Here's How You Get Started</h2>
+            <p className="mt-4 text-lg text-ink-soft leading-relaxed">
+              Getting started is simple, and every step is built around your business from day one.
+            </p>
           </div>
           <div className="relative grid gap-8 md:grid-cols-4 max-md:gap-12">
             {/* Desktop connecting lines */}
             <div className="absolute top-1/4 left-[10%] right-[10%] h-px bg-border max-md:hidden z-0" />
 
             {[
-              { n: "01", t: "Discovery Call", b: "Dig into numbers, historical margins, target audiences, and find levers." },
-              { n: "02", t: "Strategy & Audit", b: "90-day execution roadmap detailing channels, metrics, and budget caps." },
-              { n: "03", t: "Campaign Launch", b: "Implement tracking, build structures, and go live with assets." },
-              { n: "04", t: "Reporting & Scale", b: "Analyze loops, scale winners, kill losers, and report transparent pipeline." }
+              { n: "01", t: "Discovery Call", b: "You share your goals, your market and where growth is stalling right now." },
+              { n: "02", t: "Audit & Strategy", b: "Your current marketing, site and data get reviewed, and we map the right mix of channels — paid, organic, content, or site — around your goals and budget." },
+              { n: "03", t: "Execution & Rollout", b: "Your plan goes live across the channels that make sense for your business, from site updates to content to campaigns." },
+              { n: "04", t: "Reporting & Scale", b: "You see the results in plain reporting, and as they grow, your investment scales with them." }
             ].map((s) => (
               <div key={s.n} className="relative z-10 flex flex-col items-start bg-card p-6 rounded-2xl border border-border/80 shadow-sm hover:border-brand transition-colors">
                 <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand text-brand-foreground font-bold text-lg mb-6 shadow-brand/20 shadow-md">
@@ -323,6 +345,9 @@ function HomePage() {
                 <p className="mt-2 text-sm text-ink-soft leading-relaxed">{s.b}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-12 flex justify-center">
+            <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
@@ -338,15 +363,16 @@ function HomePage() {
             />
           </div>
           <div>
-            <p className="eyebrow">ABOUT ASRAXMEDIA</p>
-            <h2 className="mt-3 text-4xl font-bold sm:text-5xl text-balance">We're not just an agency, we're your growth partner.</h2>
+            <p className="eyebrow">ABOUT US</p>
+            <h2 className="mt-3 text-4xl font-bold sm:text-5xl text-balance">Full transparency, and a team that stays hands-on.</h2>
             <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-              We sit on your side of the table. We don't focus on impressions or clicks — we optimize for the pipeline metric that directly affects your bottom line. We build and execute integrated growth systems.
+              AsraX Media is built around one simple standard: full transparency with your business, and a team that stays hands-on with your account long after the contract is signed.
+            </p>
+            <p className="mt-4 text-lg text-ink-soft leading-relaxed">
+              Every person on this team is here because they're genuinely good at what they do — hands-on experts who show up for your account like it's their own, and who never lose sight of the number that actually matters to you: revenue.
             </p>
             <div className="mt-8">
-              <Link to="/about" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-2.5 transition-all">
-                Learn More About Us <ArrowRight className="h-4 w-4" />
-              </Link>
+              <Link to="/about" className="btn-brand">Learn More About AsraX Media <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>
         </div>
@@ -356,9 +382,12 @@ function HomePage() {
       <section className="section-content">
         <div className="container-x">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-            <div>
+            <div className="max-w-2xl">
               <p className="eyebrow">FEATURED CLIENTS</p>
-              <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Explore our work.</h2>
+              <h2 className="mt-3 text-4xl font-bold sm:text-5xl">See The Results Behind The Strategy</h2>
+              <p className="mt-4 text-lg text-ink-soft leading-relaxed">
+                Numbers tell the real story, and the case studies here show exactly how a full funnel marketing partner turns strategy into revenue for real brands like yours. Take a look at the work, and the results behind it, before you decide who gets to run your next campaign.
+              </p>
             </div>
             <Link to="/case-studies" className="inline-flex items-center gap-1 text-sm font-semibold text-brand hover:gap-2 transition-all">
               All case studies <ArrowRight className="h-4 w-4" />
@@ -396,31 +425,57 @@ function HomePage() {
 
       {/* 10 — FINAL CTA */}
       <FinalCTA
-        heading="Ready to grow your business?"
-        sub="Book a free 30-minute strategy call — no commitments, just clarity."
-        btnText="Book Your Free Call"
+        heading="Ready To Grow With A True Growth Partner?"
+        sub="Book a free strategy call below and find out exactly what's possible for your business this quarter."
+        btnText="Book a Free Strategy Call"
         btnLink="/contact"
       />
     </SiteShell>
   );
 }
 
-function Stat({ n, label, dark = false }: { n: string; label: string; dark?: boolean }) {
+function GoogleG({ className }: { className?: string }) {
   return (
-    <div>
-      <div className="text-3xl font-bold text-gradient-brand">{n}</div>
-      <div className={`mt-1 text-xs font-medium ${dark ? "text-neutral-400" : "text-ink-soft"}`}>{label}</div>
-    </div>
+    <svg viewBox="0 0 48 48" className={className} aria-label="Google" role="img">
+      <path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.1h12.1c-.2 1.8-1.6 4.6-4.5 6.5l6.9 5.3c4.1-3.8 6.6-9.4 6.6-15z" />
+      <path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-6.9-5.3c-1.9 1.3-4.4 2.2-7.6 2.2-5.8 0-10.7-3.8-12.5-9.9l-7.1 5.5C8.1 40.8 15.4 46 24 46z" />
+      <path fill="#FBBC05" d="M11.5 27.7c-.5-1.4-.7-2.9-.7-4.4s.3-3 .7-4.4l-7.1-5.5C2.9 16.4 2 20.1 2 23.9s.9 7.5 2.4 10.5l7.1-6.7z" />
+      <path fill="#EA4335" d="M24 10.4c4.1 0 6.9 1.8 8.5 3.3l6.1-6C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7.2 4.4 14.4l7.1 5.5C13.3 14.2 18.2 10.4 24 10.4z" />
+    </svg>
   );
 }
 
-function KpiCard({ label, value, delta }: { label: string; value: string; delta: string }) {
-  const up = delta.startsWith("+") || delta.startsWith("-4") === false && delta.startsWith("-") === false;
+// Counts up from zero on mount so the "Live Dashboard" reads as live.
+// Initial state is the target value, so prerendered HTML and hydration match.
+function useCountUp(to: number, decimals = 0, duration = 1400) {
+  const [value, setValue] = useState(to);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const start = performance.now();
+    let frame = 0;
+    const tick = (now: number) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Number((to * eased).toFixed(decimals)));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [to, decimals, duration]);
+
+  return value;
+}
+
+function KpiCard({ label, to, delta, prefix = "", suffix = "", decimals = 0 }: { label: string; to: number; delta: string; prefix?: string; suffix?: string; decimals?: number }) {
+  const value = useCountUp(to, decimals);
   return (
     <div className="rounded-2xl border border-border bg-surface p-4">
       <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{label}</p>
-      <p className="mt-1 text-xl font-bold text-foreground">{value}</p>
-      <p className={`mt-1 text-xs font-semibold ${up ? "text-brand" : "text-brand"}`}>{delta}</p>
+      <p className="mt-1 text-xl font-bold text-foreground tabular-nums">
+        {prefix}{value.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}
+      </p>
+      <p className="mt-1 text-xs font-semibold text-brand">{delta}</p>
     </div>
   );
 }

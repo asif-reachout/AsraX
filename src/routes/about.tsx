@@ -1,5 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Check, Eye, Target, UserCheck, Zap } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import { ArrowRight, Check, Eye, Target, UserCheck, Zap } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { SiteShell } from "@/components/site/SiteShell";
 import { FinalCTA } from "@/components/site/CTA";
 import team1 from "@/assets/team/team-1.png";
@@ -11,8 +13,8 @@ import team5 from "@/assets/team/team-5.png";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About AsraX Media — Growth partner, not just an agency" },
-      { name: "description", content: "AsraX Media is the growth partner for ambitious brands. We invest in your numbers like they're ours." },
+      { title: "About AsraX Media — Who We Are" },
+      { name: "description", content: "Your business growth partner — here to build something you believe in. Founded by Asra Saleem in 2022, AsraX Media runs paid, organic, content, and web as one connected growth engine." },
     ],
   }),
   component: AboutPage,
@@ -21,64 +23,98 @@ export const Route = createFileRoute("/about")({
 const values = [
   {
     t: "Transparency",
-    b: "You'll always know where your budget goes.",
+    b: "You always know exactly where your budget goes, every single month.",
     icon: Eye
   },
   {
     t: "Results",
-    b: "We celebrate revenue and leads, not impressions.",
+    b: "You get campaigns that get judged on revenue and leads, not impressions.",
     icon: Target
   },
   {
     t: "Accountability",
-    b: "If something isn't working, we own it and fix it.",
+    b: "If something isn't working, you get told, and it gets fixed.",
     icon: UserCheck
   },
   {
     t: "Solutions",
-    b: "Strategic thinking and fast execution, every time.",
+    b: "You get strategic thinking paired with fast execution, every time.",
     icon: Zap
   },
+];
+
+const faqs = [
+  {
+    q: "Why should I choose AsraX Media as my growth partner?",
+    a: "Because we treat every project like it's our own brand on the line — combining strategy, creativity, and data to build marketing that actually earns trust and drives growth."
+  },
+  {
+    q: "What industries and markets does AsraX Media serve?",
+    a: "We work with e-commerce, B2B, healthcare, and local service brands across the globe, tailoring our approach to what actually drives results in each industry."
+  },
+  {
+    q: "How do you ensure the strategy fits my brand's voice and goals?",
+    a: "We take time upfront to understand your brand identity, audience, and objectives, then shape every campaign and piece of content around what makes your brand distinct."
+  },
+  {
+    q: "Do you offer customized strategies or one-size-fits-all packages?",
+    a: "Every strategy we build is shaped around your specific goals, audience, and industry — nothing here is templated or copy-pasted from another client's playbook."
+  },
+  {
+    q: "What size businesses do you work with?",
+    a: "We partner with brands that are serious about growth, whether you're building a strategy from scratch or scaling something that's already working."
+  },
+  {
+    q: "What can I expect from working with AsraX Media?",
+    a: "A team that treats your business like our own — proactive communication, strategies built around your goals, and a genuine investment in seeing your brand grow."
+  }
 ];
 
 const team = [
   {
     name: "Asra Saleem",
     role: "Founder & CEO",
-    img: team1
+    img: team1,
+    bio: "Motivator and a watchful leader. My responsibility is to uphold the vision of AsraX Media and maintain the integrity of my team. I focus on fostering a healthy team environment and promoting positive energy among everyone involved in AsraX Media's progress. I encourage open communication and value talent."
   },
   {
     name: "Yashfeen Alamgir",
-    role: "Business Developer",
-    img: team2
+    role: "Business Development & Client Acquisition",
+    img: team2,
+    bio: "Yashfeen is responsible for building meaningful client relationships and identifying opportunities that drive business growth at AsraX Media. A quick learner with a detail-oriented mindset, always striving to deliver high-quality results while adapting to new challenges and industries. Outside of work, she has a passion for traveling, baking, cooking, and reading non-fiction."
   },
   {
     name: "Hamza Nadeem",
-    role: "Sr Paid Ads Lead",
-    img: team3
+    role: "PPC Team Lead",
+    img: team3,
+    bio: "Hamza leads the PPC team at AsraX Media, managing paid campaigns from strategy to execution and end results. A textile graduate who found his passion in digital marketing, he has spent the past 4 years as a PPC expert, driving qualified conversions and increasing return on investment for his clients. Beyond campaigns, he is a former university handball captain and a national referee at the Pakistan Handball Federation."
   },
   {
     name: "Mubarra Sadaf",
-    role: "Content Specialist",
-    img: team4
+    role: "Content Writer & Editor",
+    img: team4,
+    bio: "Mubarra brings 3 years of experience crafting blogs, website content, email campaigns, and social media writing. She values clarity, creativity, and a research-driven approach, refining every piece for accuracy, brand consistency, and impact. In her downtime she enjoys sketching, painting, and exploring historic places."
   },
   {
     name: "Waleed Rashid",
     role: "Content & Outreach Specialist",
-    img: team5
+    img: team5,
+    bio: "Waleed is responsible for digital marketing, content strategy, brand storytelling, social media marketing, and outreach campaigns at AsraX Media. He combines creativity with data-driven strategy to create engaging content, strengthen brand presence, and drive measurable business growth. Outside work he is a visual storyteller and technology enthusiast."
   }
 ];
 
 const chooseUsItems = [
-  { t: "No long-term lock-in contracts", d: "We earn your partnership month-by-month, not through legal lock-ins." },
-  { t: "Full transparency on every spend", d: "Always know exactly where every dollar of your marketing budget is going." },
-  { t: "Dedicated account manager from day one", d: "A direct line of communication with a senior manager, not a junior coordinator." },
-  { t: "Weekly reporting you can actually understand", d: "Plain English performance reports summarizing key pipeline numbers and results." },
-  { t: "Strategy built around revenue", d: "We optimize campaigns for pipeline value and booking volumes, not vanity impressions." },
-  { t: "Senior strategists only", d: "Work directly with experienced growth operators who have scaled brands before." }
+  { t: "No Long-Term Lock-In Contracts", d: "Our partnership gets earned month-by-month, never through a legal lock-in." },
+  { t: "Full Transparency On Every Spend", d: "You always know exactly where every penny of your budget is going." },
+  { t: "A Direct Line From Day One", d: "You work directly with the person managing your account — not a rotating point of contact." },
+  { t: "Weekly Reporting You Can Actually Understand", d: "You get plain-English reports summarizing the numbers that matter." },
+  { t: "Strategy Built Around Revenue", d: "Your strategy gets optimized for pipeline value, not vanity impressions." },
+  { t: "Real Experience Behind Every Account", d: "You're working with people who've scaled brands before, not learning on your budget." }
 ];
 
 function AboutPage() {
+  const teamRef = useRevealOnScroll();
+
   return (
     <SiteShell>
       {/* 1 — HERO SECTION */}
@@ -91,11 +127,14 @@ function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <p className="eyebrow text-brand-glow">ABOUT US</p>
             <h1 className="mt-6 text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
-              We turn marketing budgets into <span className="text-gradient-brand">growth engines.</span>
+              Who <span className="text-gradient-brand">We Are</span>
             </h1>
             <p className="mt-6 text-lg text-neutral-300 sm:text-xl text-balance">
-              AsraxMedia is a global growth partner for ambitious brands — built on transparency, accountability, and results.
+              Your business growth partner — here to build something you believe in.
             </p>
+            <div className="mt-8 flex justify-center">
+              <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
+            </div>
           </div>
         </div>
       </section>
@@ -112,16 +151,13 @@ function AboutPage() {
           </div>
           <div>
             <p className="eyebrow">OUR STORY</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Built by operators, for operators.</h2>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Built From The Ground Up</h2>
             <div className="mt-6 space-y-4 text-ink-soft leading-relaxed">
               <p>
-                AsraX Media was founded on a frustration we kept seeing — talented founders pouring money into ad accounts and content calendars without anyone owning the number that actually mattered.
+                AsraX Media was founded by Asra Saleem, who began her career in 2020 as a freelance Paid Ads specialist, helping businesses get real results from every dollar of ad spend. As client trust grew, so did the scope of the work — SEO, AEO, Social Media Marketing, Content Marketing, and Website Development were added, one capability at a time, each built to the same standard as the first.
               </p>
               <p>
-                We built the agency we wished we could have hired: senior strategists, full-stack execution, weekly transparency, and a relentless focus on the metrics that move pipeline and revenue.
-              </p>
-              <p>
-                Today, we work with brands across the US, UK, Canada, Australia, and the UAE — running their Google Ads, SEO, social, content, and reporting as one connected growth engine.
+                That growing reliability became AsraX Media in 2022, a full growth partner instead of a single-service freelancer. Today, that same relentless focus on results carries through every account, run as one connected growth engine for ambitious brands across the world.
               </p>
             </div>
           </div>
@@ -132,8 +168,8 @@ function AboutPage() {
       <section className="section-content bg-surface">
         <div className="container-x">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <p className="eyebrow">OUR VALUES</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Four standards we won't compromise.</h2>
+            <p className="eyebrow">OUR STANDARDS</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">The Standards You Can Hold Us To</h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => {
@@ -157,23 +193,49 @@ function AboutPage() {
         <div className="container-x">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <p className="eyebrow">THE TEAM</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">The people behind your growth.</h2>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Your Growth, Powered by Brilliant Humans</h2>
+            <p className="mt-4 text-ink-soft leading-relaxed">
+              Every client gets senior eyes on it. Meet the strategists you'll actually be working with.
+            </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((member) => (
-              <div key={member.name} className="group overflow-hidden rounded-3xl border border-border bg-card shadow-sm hover:border-brand transition-all duration-200">
-                <div className="aspect-4/5 overflow-hidden bg-surface">
+          {/* Uniform photo tiles; the bio slides up over the photo on hover/focus.
+              Touch devices get the bio underneath instead, since there is no hover. */}
+          <div ref={teamRef} className="flex flex-wrap justify-center gap-6">
+            {team.map((member, i) => (
+              <article
+                key={member.name}
+                tabIndex={0}
+                style={{ transitionDelay: `${i * 90}ms` }}
+                className="team-card group w-full max-w-sm flex-1 basis-72 overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-brand hover:shadow-card focus:outline-none focus-visible:border-brand focus-visible:shadow-card"
+              >
+                <div className="relative aspect-4/5 overflow-hidden bg-surface">
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="h-full w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-105"
+                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0 group-focus-visible:scale-105 group-focus-visible:grayscale-0"
                   />
+
+                  {/* name plate — always readable, fades out as the bio comes up */}
+                  <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-neutral-950/90 to-transparent p-5 pt-12 transition-opacity duration-300 max-lg:hidden lg:group-hover:opacity-0 lg:group-focus-visible:opacity-0">
+                    <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brand-glow">{member.role}</p>
+                  </div>
+
+                  {/* bio overlay — desktop hover/focus only */}
+                  <div className="absolute inset-0 flex translate-y-4 flex-col justify-end bg-neutral-950/92 p-6 opacity-0 transition-all duration-300 max-lg:hidden lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus-visible:translate-y-0 lg:group-focus-visible:opacity-100">
+                    <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brand-glow">{member.role}</p>
+                    <p className="mt-3 max-h-52 overflow-y-auto text-sm leading-relaxed text-neutral-300">{member.bio}</p>
+                  </div>
                 </div>
-                <div className="p-5 text-center">
+
+                {/* touch/small screens: no hover, so show it inline */}
+                <div className="p-5 lg:hidden">
                   <h3 className="text-lg font-bold">{member.name}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground font-medium uppercase tracking-wider">{member.role}</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brand">{member.role}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{member.bio}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -183,7 +245,7 @@ function AboutPage() {
       <section className="section-content bg-surface">
         <div className="container-x">
           <div className="max-w-2xl mb-12">
-            <p className="eyebrow">WHY ASRAX</p>
+            <p className="eyebrow">WHY ASRAX MEDIA</p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Why brands trust us with their growth.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -202,7 +264,25 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* 6 — FINAL CTA */}
+      {/* 6 — FAQ */}
+      <section className="section-content bg-background">
+        <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.5fr]">
+          <div>
+            <p className="eyebrow">FAQ</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">The Questions You're Probably Already Asking</h2>
+          </div>
+          <Accordion type="single" collapsible className="rounded-2xl border border-border bg-card px-6">
+            {faqs.map((f) => (
+              <AccordionItem key={f.q} value={f.q}>
+                <AccordionTrigger className="text-left text-base font-semibold hover:text-brand">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-sm text-ink-soft leading-relaxed">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* 7 — FINAL CTA */}
       <FinalCTA
         heading="Ready to work with a team invested in your growth?"
         sub="30 minutes. No pitch. We'll look at your numbers and tell you where the leverage is."
@@ -211,4 +291,35 @@ function AboutPage() {
       />
     </SiteShell>
   );
+}
+
+// Fades the team cards up as the section scrolls into view. Cards are only
+// hidden once JS is running, so with JS off they render normally.
+function useRevealOnScroll() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = ref.current;
+    if (!container) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const cards = Array.from(container.children);
+    cards.forEach((card) => card.classList.add("is-pending"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.remove("is-pending");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return ref;
 }

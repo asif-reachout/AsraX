@@ -12,13 +12,16 @@ export interface ServicePageProps {
   introHeading: string;
   introParagraphs: string[];
   introImage: string;
+  featuresHeading?: string;
   features: { title: string; desc: string }[];
   processHeading: string;
+  processLead?: string;
   steps: { title: string; body: string }[];
-  results: { value: string; label: string }[];
-  testimonial: { quote: string; author: string; role: string; image: string };
+  results?: { value: string; label: string }[];
+  testimonial?: { quote: string; author: string; role: string; image: string };
   faqs: { q: string; a: string }[];
   finalHeading: string;
+  finalSub?: string;
 }
 
 export function ServicePage(p: ServicePageProps) {
@@ -74,7 +77,7 @@ export function ServicePage(p: ServicePageProps) {
         <div className="container-x">
           <div className="max-w-2xl mb-12">
             <p className="eyebrow">WHAT YOU GET</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Everything included in your {p.eyebrow ?? "Service"} plan.</h2>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{p.featuresHeading ?? `Everything included in your ${p.eyebrow ?? "Service"} plan.`}</h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {p.features.map((f) => (
@@ -98,8 +101,9 @@ export function ServicePage(p: ServicePageProps) {
           <div className="max-w-2xl mb-12">
             <p className="eyebrow">OUR PROCESS</p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{p.processHeading}</h2>
+            {p.processLead && <p className="mt-4 text-ink-soft leading-relaxed">{p.processLead}</p>}
           </div>
-          <div className="grid gap-6 md:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {p.steps.map((s, i) => (
               <div key={s.title} className="relative flex flex-col items-start bg-card p-6 rounded-2xl border border-border/80 shadow-sm hover:border-brand transition-all duration-200">
                 <div className="grid h-10 w-10 place-items-center rounded-2xl bg-brand text-brand-foreground font-bold text-base mb-4 shadow-brand/20 shadow-md">
@@ -114,43 +118,47 @@ export function ServicePage(p: ServicePageProps) {
       </section>
 
       {/* 5. Real Results (full-width dark/red background stats strip) */}
-      <section className="bg-foreground section-stats text-background border-y border-border/10">
-        <div className="container-x">
-          <div className="grid gap-6 grid-cols-2 md:grid-cols-3 text-center">
-            {p.results.map((r, i) => (
-              <div key={i}>
-                <div className="text-4xl font-bold text-brand-glow">{r.value}</div>
-                <div className="mt-2 text-xs text-background/50 font-semibold uppercase tracking-wider">{r.label}</div>
-              </div>
-            ))}
+      {p.results && p.results.length > 0 && (
+        <section className="bg-foreground section-stats text-background border-y border-border/10">
+          <div className="container-x">
+            <div className="grid gap-6 grid-cols-2 md:grid-cols-3 text-center">
+              {p.results.map((r, i) => (
+                <div key={i}>
+                  <div className="text-4xl font-bold text-brand-glow">{r.value}</div>
+                  <div className="mt-2 text-xs text-background/50 font-semibold uppercase tracking-wider">{r.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 6. Testimonials */}
-      <section className="section-content bg-surface border-y border-border">
-        <div className="container-x">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <p className="eyebrow">WHAT CLIENTS SAY</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Don't take our word for it.</h2>
-          </div>
-          <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-            <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-brand bg-white mb-4 shadow-md">
-              <img src={p.testimonial.image} alt={p.testimonial.author} className="h-full w-full object-cover" />
+      {p.testimonial && (
+        <section className="section-content bg-surface border-y border-border">
+          <div className="container-x">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <p className="eyebrow">WHAT CLIENTS SAY</p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Don't take our word for it.</h2>
             </div>
-            <div className="flex gap-1 mb-4 text-brand">
-              {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+            <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+              <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-brand bg-white mb-4 shadow-md">
+                <img src={p.testimonial.image} alt={p.testimonial.author} className="h-full w-full object-cover" />
+              </div>
+              <div className="flex gap-1 mb-4 text-brand">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+              </div>
+              <blockquote className="text-xl sm:text-2xl font-semibold leading-relaxed text-balance text-ink italic">
+                "{p.testimonial.quote}"
+              </blockquote>
+              <cite className="mt-6 not-italic">
+                <span className="block font-bold text-lg text-foreground">{p.testimonial.author}</span>
+                <span className="block text-sm text-brand font-semibold tracking-wider uppercase mt-1">{p.testimonial.role}</span>
+              </cite>
             </div>
-            <blockquote className="text-xl sm:text-2xl font-semibold leading-relaxed text-balance text-ink italic">
-              "{p.testimonial.quote}"
-            </blockquote>
-            <cite className="mt-6 not-italic">
-              <span className="block font-bold text-lg text-foreground">{p.testimonial.author}</span>
-              <span className="block text-sm text-brand font-semibold tracking-wider uppercase mt-1">{p.testimonial.role}</span>
-            </cite>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 7. FAQ (Accordion questions with + / - toggles, one open at a time) */}
       <section className="section-content bg-background">
@@ -187,8 +195,8 @@ export function ServicePage(p: ServicePageProps) {
 
       {/* 8. CTA (full-width red background, white button) */}
       <FinalCTA
-        heading={`Ready to grow with ${p.eyebrow ?? "us"}?`}
-        sub="Book a free 30-minute strategy call — no pitch, just a useful conversation about your numbers."
+        heading={p.finalHeading}
+        sub={p.finalSub ?? "Book a free strategy call — no pitch, just a useful conversation about your numbers."}
         btnText="Book Your Free Strategy Call"
         btnLink="/contact"
       />

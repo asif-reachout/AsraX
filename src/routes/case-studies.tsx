@@ -6,8 +6,8 @@ import { FinalCTA } from "@/components/site/CTA";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — Real growth, real numbers | AsraX Media" },
-      { name: "description", content: "Real campaigns we've run. Real numbers we've moved. ROAS, leads, pipeline and organic growth across eCommerce, SaaS, real estate and more." },
+      { title: "Case Studies — Real Clients. Real Revenue. | AsraX Media" },
+      { name: "description", content: "Real campaigns, real numbers: ROAS, conversions and cost-per-conversion results across e-commerce, marine, clothing and healthcare brands." },
     ],
   }),
   component: CaseStudiesPage,
@@ -15,40 +15,28 @@ export const Route = createFileRoute("/case-studies")({
 
 export const studies = [
   {
-    slug: "d2c-skincare",
-    clientName: "Radiant Skin Co.",
-    headline: "3.2x ROAS in 90 days",
+    slug: "montessori-toys",
+    clientName: "Montessori Toys",
+    headline: "ROAS from 209.93% to 338.43%",
     img: "/img/case-d2c.jpg"
   },
   {
-    slug: "b2b-saas",
-    clientName: "SignaFlow SaaS",
-    headline: "127% organic traffic growth in 6 months",
+    slug: "greensonic",
+    clientName: "Greensonic",
+    headline: "0 to 1.61K conversions in 8 months",
     img: "/img/case-b2b.jpg"
   },
   {
-    slug: "real-estate",
-    clientName: "Aura Properties",
-    headline: "48 qualified leads / month at $22 CPL",
-    img: "/img/case-realestate.jpg"
-  },
-  {
-    slug: "local-service",
-    clientName: "Prime HVAC Solutions",
-    headline: "4.6x return on ad spend in Q1",
-    img: "/img/case-localservice.jpg"
-  },
-  {
-    slug: "founder-linkedin",
-    clientName: "Aero Logistics",
-    headline: "60+ inbound enquiries from organic LinkedIn",
-    img: "/img/case-founder.jpg"
-  },
-  {
-    slug: "saas-conversion",
-    clientName: "MetricsHub SaaS",
-    headline: "Landing page CVR from 1.7% → 4.9%",
+    slug: "ecommerce-clothing",
+    clientName: "E-Commerce Clothing Brand",
+    headline: "7.61 purchase ROAS on Facebook",
     img: "/img/case-conversion.jpg"
+  },
+  {
+    slug: "maranatha-pediatrics",
+    clientName: "Maranatha Pediatrics",
+    headline: "Cost per conversion down to $12.64",
+    img: "/img/case-localservice.jpg"
   },
 ];
 
@@ -71,11 +59,14 @@ function CaseStudiesPage() {
         <div className="container-x relative max-w-4xl">
           <p className="eyebrow text-brand-glow">CASE STUDIES</p>
           <h1 className="mt-6 text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl text-white">
-            Real clients. <span className="text-gradient-brand">Real results.</span>
+            Real Clients. <span className="text-gradient-brand">Real Revenue.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-neutral-300 sm:text-xl text-balance">
-            See how we've helped ambitious brands grow through strategy and relentless execution.
+            Here's how ambitious businesses grew through strategy built around revenue.
           </p>
+          <div className="mt-8">
+            <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
+          </div>
         </div>
       </section>
 
@@ -120,8 +111,8 @@ function CaseStudiesPage() {
 
       {/* FINAL CTA */}
       <FinalCTA
-        heading="Want results like these for your brand?"
-        sub="Tell us about your business — we'll show you exactly where the leverage is."
+        heading="Want Your Results Featured Here Next?"
+        sub="Book a free strategy call and find out what your business's numbers could look like here."
         btnText="Book Your Free Strategy Call"
         btnLink="/contact"
       />

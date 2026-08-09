@@ -20,194 +20,151 @@ interface CaseStudy {
   testimonialAuthor: string;
   testimonialRole: string;
   testimonialImage: string;
+  proof?: { label: string; src: string }[];
 }
 
 const caseStudyData: Record<string, CaseStudy> = {
-  "d2c-skincare": {
-    slug: "d2c-skincare",
-    clientName: "Radiant Skin Co.",
-    industry: "D2C Skincare",
-    services: "Google Ads & CRO",
-    duration: "3 Months",
-    headline: "3.2x ROAS in 90 days",
+  "montessori-toys": {
+    slug: "montessori-toys",
+    clientName: "Montessori Toys",
+    industry: "Toys / E-commerce",
+    services: "PPC Ads Management",
+    duration: "1.5 Years",
+    headline: "ROAS from 209.93% to 338.43%",
     bgImage: "/img/case-d2c.jpg",
-    challengeLeft: "Scaling ad spend while maintaining profitability was a bottleneck. Broken GA4 tracking led to misattributed data, and high-frequency ad fatigue caused CPA to spike.",
+    challengeLeft: "Montessori Toys was running paid ad campaigns but underperforming relative to their industry and niche competitors.",
     challengeParagraphs: [
-      "Our client was spending thousands per month on Google Ads without a clear picture of their real return on ad spend. Fragmented tracking meant Google was claiming conversions that didn't show up in Shopify.",
-      "Furthermore, creative assets had not been updated in over six months, leading to ad fatigue and a sharp rise in acquisition costs.",
-      "They needed a clean tag infrastructure and a structured campaign layout built around real revenue metrics."
+      "In the tracked period, the account generated 3.64K clicks, 3.19K purchases, and a 209.93% ROAS on £1.52K of spend — decent, but not reflecting the sales volume the niche typically supports.",
+      "The client wasn't seeing sales volume in line with their industry or their direct competitors in the same niche. Worse, the sales they were getting were coming at a high cost.",
+      "Budget was leaking into traffic that wasn't converting efficiently, while lower-quality keywords quietly ate into spend without contributing meaningful return."
     ],
     approach: [
-      "Fixed conversion attribution using custom Google Tag Manager tags and server-side tracking.",
-      "Consolidated fragmented ad campaigns into structured Performance Max and Search campaigns.",
-      "Introduced weekly creative refresh cycles, introducing high-performing video hooks and user-generated content.",
-      "Implemented budget scaling rules based on real-time ROAS targets rather than legacy budgets."
+      "Full account audit: assessed the account end-to-end to identify exactly where budget was being wasted and what structural mistakes were holding performance back.",
+      "Conversion tracking setup: fixed and properly configured conversion tracking, since accurate data is the foundation for every decision that follows.",
+      "Keyword optimization: doubled down on high-performing keywords driving quality traffic, while cutting or restructuring the keywords exhausting budget without returns.",
+      "Shopping campaign focus: once the foundation was fixed, shifted focus to Shopping campaigns specifically, working to make them consistently profitable."
     ],
-    resultsText: "By restructuring their campaign portfolio and scaling profitable segments, we helped Radiant Skin Co. achieve a record-breaking quarter. Conversions rose by 118% while CPA dropped by 46%.",
+    resultsText: "ROAS climbed from 209.93% to 338.43% — every pound spent now returns significantly more revenue than before. That came alongside major scale in spend (£1.52K to £11.1K), clicks and purchases, so the account grew and got more profitable at the same time.",
     stats: [
-      { label: "ROAS LIFT", value: "3.2x" },
-      { label: "CPA REDUCTION", value: "-46%" },
-      { label: "REVENUE GROWTH", value: "+118%" }
+      { label: "ACTUAL ROAS", value: "338.43%" },
+      { label: "PURCHASES", value: "37.7K" },
+      { label: "CLICKS", value: "29.9K" }
     ],
-    testimonialQuote: "AsraX took over our Google Ads after months of wasted spend. Within 60 days they cut our cost per lead in half and doubled the volume. They report on actual revenue, not just vanity metrics.",
-    testimonialAuthor: "Daniel R.",
-    testimonialRole: "Founder, Radiant Skin Co.",
-    testimonialImage: "/img/test-daniel.jpg"
+    testimonialQuote: "",
+    testimonialAuthor: "",
+    testimonialRole: "",
+    testimonialImage: "",
+    proof: [
+      { label: "Before", src: "/img/case/montessori-before.png" },
+      { label: "After", src: "/img/case/montessori-after.png" }
+    ]
   },
-  "b2b-saas": {
-    slug: "b2b-saas",
-    clientName: "SignaFlow SaaS",
-    industry: "B2B SaaS",
-    services: "Technical SEO & Content Strategy",
-    duration: "6 Months",
-    headline: "127% Organic Traffic Growth in 6 Months",
+  "greensonic": {
+    slug: "greensonic",
+    clientName: "Greensonic",
+    industry: "Marine Industry",
+    services: "PPC Ads Management",
+    duration: "8+ Months",
+    headline: "0 to 1.61K conversions from a standing start",
     bgImage: "/img/case-b2b.jpg",
-    challengeLeft: "SignaFlow had a high ad budget but zero organic presence. Their website had slow load times, poor indexing, and content that targeted generic, high-difficulty terms.",
+    challengeLeft: "Greensonic came to us with no existing PPC presence — no campaigns, no ad spend, no conversion data, and no impressions.",
     challengeParagraphs: [
-      "SignaFlow was completely dependent on paid search ads to drive pipeline, leading to escalating customer acquisition costs (CAC) that ate away at their software margins.",
-      "A deep crawl revealed significant technical errors: slow core web vitals, missing sitemaps, and legacy redirect loops.",
-      "Their content program was also targeting top-of-funnel queries rather than intent-mapped transactional searches."
+      "This meant building the entire paid acquisition channel from the ground up rather than optimizing something already in motion.",
+      "As a business in a niche industry, Greensonic needed to generate real, measurable conversions from paid ads — but had no prior campaign history, no conversion tracking, and no data to build on.",
+      "The challenge wasn't fixing an underperforming account; it was proving that PPC could work for their specific market from a standing start."
     ],
     approach: [
-      "Conducted a comprehensive technical SEO audit to resolve core Web Vitals issues, schema markups, and crawl budget leaks.",
-      "Mapped their content plan to high-intent transactional keywords, building out 'Alternative-to' comparison guides and template pages.",
-      "Launched a targeted link-building campaign to build domain authority through premium industry publications.",
-      "Refined internal linking structures to pass link juice to primary conversion landing pages."
+      "Foundational setup: campaign structure, conversion tracking, and attribution built from scratch, since no historical data existed to work from.",
+      "Niche audience research: researched and targeted the specific audience segments relevant to the marine industry, given the absence of any prior targeting data.",
+      "Conversion-first campaign design: campaigns optimized explicitly around driving conversions rather than early-stage metrics like clicks or impressions alone.",
+      "Iterative optimization: continuously refined targeting, bids, and creative as conversion data started to build over the following months."
     ],
-    resultsText: "Organic search quickly became SignaFlow's top acquisition source. Organic traffic jumped 127%, resulting in a 74% increase in monthly demo bookings.",
+    resultsText: "Within 8 months, Greensonic went from no paid presence at all to 1.61K conversions from 525K impressions at a healthy 2.56% conversion rate on €2.46K of spend — proving out a paid acquisition channel in a niche market where none previously existed.",
     stats: [
-      { label: "ORGANIC TRAFFIC", value: "+127%" },
-      { label: "TOP-3 KEYWORDS", value: "38" },
-      { label: "DEMO BOOKINGS", value: "+74%" }
+      { label: "CONVERSIONS", value: "1.61K" },
+      { label: "IMPRESSIONS", value: "525K" },
+      { label: "CONVERSION RATE", value: "2.56%" }
     ],
-    testimonialQuote: "They rebuilt our content engine around buyer intent. Organic search is now the number one lead source in our business, and our cost per acquisition is at an all-time low.",
-    testimonialAuthor: "James K.",
-    testimonialRole: "Marketing Director, SignaFlow",
-    testimonialImage: "/img/test-james.jpg"
+    testimonialQuote: "",
+    testimonialAuthor: "",
+    testimonialRole: "",
+    testimonialImage: "",
+    proof: [
+      { label: "Before", src: "/img/case/greensonic-before.png" },
+      { label: "After", src: "/img/case/greensonic-after.png" }
+    ]
   },
-  "real-estate": {
-    slug: "real-estate",
-    clientName: "Aura Properties",
-    industry: "Real Estate Agency",
-    services: "Local Search & Google Ads",
-    duration: "4 Months",
-    headline: "48 Qualified Leads / Month at $22 CPL",
-    bgImage: "/img/case-realestate.jpg",
-    challengeLeft: "Aura Properties was relying on expensive, generic listing portals that produced low-intent leads. They lacked direct-to-consumer acquisition channels, resulting in high fees and slow sales cycles.",
-    challengeParagraphs: [
-      "Relying on aggregator portals meant the client was competing head-to-head with hundreds of other brokers for the same buyers.",
-      "Their direct ad campaigns were targeting too broad an audience, leading to thousands of dollars wasted on unqualified phone calls.",
-      "They needed a direct landing page funnel and geographically targeted campaign structures that focused on high-net-worth postcodes."
-    ],
-    approach: [
-      "Created hyper-targeted geo-location search campaigns focusing on affluent zip codes and search queries indicating moving intent.",
-      "Designed high-converting landing pages tailored to specific property developments, using social proof and virtual tour CTAs.",
-      "A/B tested lead forms to request pre-qualification details (budget, timeframe) to filter out low-intent users.",
-      "Integrated CRM pipelines to trigger instant notifications for agents, ensuring follow-ups occurred within 5 minutes."
-    ],
-    resultsText: "Within 4 months Aura Properties established a robust lead pipeline, delivering an average of 48 pre-qualified leads per month at a stable Cost Per Lead (CPL) of $22.",
-    stats: [
-      { label: "COST PER LEAD", value: "$22" },
-      { label: "LEADS DELIVERED", value: "48/mo" },
-      { label: "SHOW RATE", value: "62%" }
-    ],
-    testimonialQuote: "We were paying thousands to listing portals for dead-end leads. AsraX helped us cut our CPL in half and build a pipeline that we fully own. Our sales team is busier than ever.",
-    testimonialAuthor: "Priya M.",
-    testimonialRole: "Sales Director, Aura Properties",
-    testimonialImage: "/img/test-priya.jpg"
-  },
-  "local-service": {
-    slug: "local-service",
-    clientName: "Prime HVAC Solutions",
-    industry: "Local Home Services",
-    services: "Performance Max & LSAs",
-    duration: "3 Months",
-    headline: "4.6x Return on Ad Spend in Q1",
-    bgImage: "/img/case-localservice.jpg",
-    challengeLeft: "With intense local competition, Prime HVAC was struggling to get visibility during off-peak seasons. They spent thousands on generic search terms that generated non-serviceable clicks.",
-    challengeParagraphs: [
-      "Local service businesses face rising ad competition. For Prime HVAC, ad clicks were climbing, but actual calls booked remained stagnant.",
-      "They were targeting generic informational terms like 'how to fix furnace' rather than high-ticket buyer search phrases like 'furnace replacement near me'.",
-      "They needed a tightened local service ad structure coupled with high-converting call funnels."
-    ],
-    approach: [
-      "Configured Google Local Services Ads (LSA) to guarantee top-of-page placement and pay per phone call.",
-      "Developed local Performance Max campaigns combining customer list matching with location asset targeting.",
-      "Launched seasonal promotion-focused landing pages to drive immediate AC replacements during peak months.",
-      "Optimized ad schedules to match the business hours of their service call desk to maximize conversion rates."
-    ],
-    resultsText: "Our targeted local strategies unlocked massive efficiency. Q1 revenue grew by 212%, achieving an overall ROAS of 4.6x across their ad accounts.",
-    stats: [
-      { label: "ROAS ACHIEVED", value: "4.6x" },
-      { label: "REVENUE GROWTH", value: "+212%" },
-      { label: "JOB BOOKING RATE", value: "41%" }
-    ],
-    testimonialQuote: "They didn't just buy clicks; they bought phone calls. The quality of jobs we've booked since AsraX stepped in has transformed our bottom line. Highly recommended.",
-    testimonialAuthor: "Mark S.",
-    testimonialRole: "General Manager, Prime HVAC",
-    testimonialImage: "/img/test-mark.jpg"
-  },
-  "founder-linkedin": {
-    slug: "founder-linkedin",
-    clientName: "Aero Logistics CEO",
-    industry: "Founder LinkedIn Brand",
-    services: "LinkedIn Authority Building",
-    duration: "6 Months",
-    headline: "60+ Inbound Enquiries from Organic LinkedIn",
-    bgImage: "/img/case-founder.jpg",
-    challengeLeft: "The CEO of Aero Logistics wanted to build industry authority and drive enterprise deals but lacked the time and copywriting structure to publish content consistently.",
-    challengeParagraphs: [
-      "Outbound sales calls were delivering diminishing returns. B2B enterprise buyers wanted relationships and authority before booking calls.",
-      "The CEO possessed decades of supply chain expertise but had no structured method to translate this into high-impact social content.",
-      "They needed a strategic content framework, dynamic post-editing cycles, and disciplined connection engagement."
-    ],
-    approach: [
-      "Interviewed the founder weekly to extract raw industry insights, stories, and strong perspectives.",
-      "Created a disciplined content schedule of 4 high-impact weekly posts combining supply chain analyses with personal career lessons.",
-      "Optimized the founder's LinkedIn profile for conversions, redirecting profile views to a custom calendar link.",
-      "Engaged daily with key decision-makers (COOs, VP of Logistics) in target accounts through structured commenting."
-    ],
-    resultsText: "Over 6 months, the founder's audience grew by 11.2k followers, yielding 60+ direct enterprise sales enquiries and a 3x lift in branded search volumes.",
-    stats: [
-      { label: "FOLLOWER INCREASE", value: "+11.2k" },
-      { label: "INBOUND ENQUIRIES", value: "60+" },
-      { label: "PROFILE VIEWS", value: "+450%" }
-    ],
-    testimonialQuote: "I was skeptical about personal branding. AsraX handled the writing while keeping my voice 100% authentic. The inbound inquiries we are getting are high-quality decision-makers.",
-    testimonialAuthor: "Robert H.",
-    testimonialRole: "CEO, Aero Logistics",
-    testimonialImage: "/img/test-robert.jpg"
-  },
-  "saas-conversion": {
-    slug: "saas-conversion",
-    clientName: "MetricsHub SaaS",
-    industry: "SaaS Conversion",
-    services: "CRO & Copywriting",
+  "ecommerce-clothing": {
+    slug: "ecommerce-clothing",
+    clientName: "E-Commerce Clothing Brand",
+    industry: "Clothing / E-commerce",
+    services: "Facebook & Social Media Management",
     duration: "2 Months",
-    headline: "Landing Page CVR from 1.7% → 4.9%",
+    headline: "7.61 purchase ROAS on Facebook",
     bgImage: "/img/case-conversion.jpg",
-    challengeLeft: "MetricsHub was driving high traffic through Google Ads, but their landing pages were converting at only 1.7%. High traffic costs meant they were barely breaking even.",
+    challengeLeft: "The brand had an existing Facebook ad presence but was seeing weak return on spend.",
     challengeParagraphs: [
-      "The client was spending over $10k per month on ads, but their primary signup page was leaky and unoptimized.",
-      "Users were overwhelmed by feature explanations, complex onboarding flows, and a total lack of initial social proof.",
-      "They needed a simplified user flow, conversion-focused layout hierarchy, and copy centered around buyer problems."
+      "Sales volume was low relative to budget, and the sales that did come through were costly to acquire — the account was consistently burning through budget without efficient output.",
+      "The core problem was cost inefficiency: the client wasn't just getting fewer sales than expected, the sales they did get were expensive to acquire.",
+      "Budget was being exhausted without a proportional return, raising concerns about whether Facebook ads could be made profitable for the business."
     ],
     approach: [
-      "Redesigned the landing page structure using a single-focus, conversion-optimized hierarchy.",
-      "Rewrote headline copy to focus on customer pain points rather than dry software feature descriptions.",
-      "Replaced stock graphics with high-fidelity interactive product screenshots showing the product value in under 5 seconds.",
-      "Embedded micro-testimonials right next to primary sign-up forms to handle objections in real-time."
+      "Campaign restructure: rebuilt campaign and ad set structure to isolate top-performing audiences from underperforming ones exhausting budget.",
+      "Creative and targeting refresh: refreshed ad creative and audience targeting to improve CTR and reduce cost per result.",
+      "ROAS-focused optimization: shifted budget allocation toward ad sets delivering the strongest purchase ROAS, cutting spend on low-return segments."
     ],
-    resultsText: "Without adding a single dollar to the ad budget, we nearly tripled MetricsHub's trial sign-up volume, reducing CAC by 42% and generating over 180% more MQLs.",
+    resultsText: "By the end of Q2 2025, the account delivered a 7.61 purchase ROAS across 43.5M impressions, with cost per purchase as low as Rs 406.24. Alongside ad performance, total sales reached PKR 53,081,604 across 18,200 orders, and average order value grew 94% quarter-over-quarter.",
     stats: [
-      { label: "CONVERSION RATE", value: "4.9%" },
-      { label: "CAC REDUCTION", value: "-42%" },
-      { label: "MQL VOLUME", value: "+183%" }
+      { label: "PURCHASE ROAS", value: "7.61" },
+      { label: "PURCHASES", value: "9,100+" },
+      { label: "AOV GROWTH", value: "+94%" }
     ],
-    testimonialQuote: "Our conversion rate was holding us back. AsraX solved it by rewriting our landing pages and tightening the copy. It's like we unlocked a brand new ad account.",
-    testimonialAuthor: "Sarah T.",
-    testimonialRole: "VP Product, MetricsHub",
-    testimonialImage: "/img/test-sarah.jpg"
+    testimonialQuote: "",
+    testimonialAuthor: "",
+    testimonialRole: "",
+    testimonialImage: "",
+    proof: [
+      { label: "Ad account performance (Q2 2025)", src: "/img/case/clothing-ads.png" },
+      { label: "Store performance (Q2 2025)", src: "/img/case/clothing-sales.png" }
+    ]
+  },
+  "maranatha-pediatrics": {
+    slug: "maranatha-pediatrics",
+    clientName: "Maranatha Pediatrics",
+    industry: "Healthcare (Pediatrics)",
+    services: "Social Media Management & PPC",
+    duration: "1.5+ Years",
+    headline: "Cost per conversion down from $44.80 to $12.64",
+    bgImage: "/img/case-localservice.jpg",
+    challengeLeft: "Maranatha Pediatrics was running paid ad campaigns but seeing limited traction — a 6.19% CTR and $44.80 per conversion, with only 7 conversions over the tracked period.",
+    challengeParagraphs: [
+      "Ad spend was going out, but conversion volume wasn't matching the investment. The core issue wasn't visibility — it was efficiency. The client was paying a premium for each conversion relative to the volume they were getting back.",
+      "Social was no stronger. Visibility and engagement were limited, educational content was published inconsistently, and awareness among parents searching for reliable pediatric information online was low.",
+      "Without a refined audience, a stronger digital identity, or a structured content strategy behind the campaigns, the account was underperforming its budget."
+    ],
+    approach: [
+      "Month 1 — audience refinement: focused on social media management to rebuild and refine the target audience, ensuring ad spend was reaching the right people before pushing for volume.",
+      "Month 2 — conversion focus: shifted campaign priorities toward converting the now better-targeted audience, optimizing creative and targeting on early performance signals.",
+      "Month 3 — scaling: with a validated audience and improving conversion rate, scaled spend and campaign reach to grow conversion volume sustainably.",
+      "Educational content marketing: content parents genuinely find useful — parenting guidance, child wellness, seasonal illness prevention, school health, nutrition, hydration, sleep habits and preventive care — rather than promotional graphics.",
+      "Consistent brand identity: every post used the same visual system — bright healthcare colours, child-friendly illustrations, readable typography and clear Maranatha branding — to build recall across platforms.",
+      "Community engagement and website support: an active publishing schedule with a clear call to action on every asset, turning engagement into clinic website visits and patient enquiries."
+    ],
+    resultsText: "Cost per conversion dropped from $44.80 to $12.64 — roughly 3.5x more conversions for every dollar spent. CTR rose from 6.19% to 10.39%, impressions grew from ~1K to 34.7K, and conversions went from 7 to 1,220. Across 18+ months of social management, the clinic also built stronger brand recognition, consistent educational publishing, higher engagement, and more website traffic from social.",
+    stats: [
+      { label: "COST PER CONVERSION", value: "$12.64" },
+      { label: "CONVERSIONS", value: "1,220" },
+      { label: "CTR", value: "10.39%" }
+    ],
+    testimonialQuote: "The consistent educational content helped strengthen our online presence and made it easier for parents to engage with our clinic and access reliable pediatric information.",
+    testimonialAuthor: "Maranatha Pediatrics",
+    testimonialRole: "Healthcare Client",
+    testimonialImage: "",
+    proof: [
+      { label: "Educational campaign — school health", src: "/img/case/maranatha-social-1.jpg" },
+      { label: "Educational campaign — seasonal health", src: "/img/case/maranatha-social-2.jpg" },
+      { label: "Educational campaign — preventive care", src: "/img/case/maranatha-social-3.jpg" }
+    ]
   }
 };
 
@@ -361,6 +318,28 @@ function CaseStudyDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* 5b. Proof — screenshots straight from the ad accounts */}
+      {study.proof && (
+        <section className="section-content bg-background border-t border-border">
+          <div className="container-x">
+            <div className="max-w-2xl mb-10">
+              <p className="eyebrow">THE PROOF</p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Straight from the account.</h2>
+            </div>
+            <div className={`grid gap-6 ${study.proof.length > 2 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+              {study.proof.map((shot) => (
+                <figure key={shot.src} className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+                  <figcaption className="border-b border-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-brand">
+                    {shot.label}
+                  </figcaption>
+                  <img src={shot.src} alt={`${study.clientName} — ${shot.label}`} className="w-full" loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 6. Testimonial (Client photo left, large italic quote center, bold name + company below) */}
       {study.testimonialQuote && study.testimonialAuthor && (

@@ -14,9 +14,11 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CareersRouteImport } from './routes/careers'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/services.website-development'
 import { Route as ServicesSocialMediaRouteImport } from './routes/services.social-media'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
 import { Route as ServicesReportingRouteImport } from './routes/services.reporting'
@@ -49,6 +51,11 @@ const CareersRoute = CareersRouteImport.update({
   path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -64,6 +71,12 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServicesWebsiteDevelopmentRoute =
+  ServicesWebsiteDevelopmentRouteImport.update({
+    id: '/website-development',
+    path: '/website-development',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesSocialMediaRoute = ServicesSocialMediaRouteImport.update({
   id: '/social-media',
   path: '/social-media',
@@ -98,6 +111,7 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
@@ -109,11 +123,13 @@ export interface FileRoutesByFullPath {
   '/services/reporting': typeof ServicesReportingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/social-media': typeof ServicesSocialMediaRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
@@ -124,12 +140,14 @@ export interface FileRoutesByTo {
   '/services/reporting': typeof ServicesReportingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/social-media': typeof ServicesSocialMediaRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
@@ -141,6 +159,7 @@ export interface FileRoutesById {
   '/services/reporting': typeof ServicesReportingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/social-media': typeof ServicesSocialMediaRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -148,6 +167,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/blog'
     | '/careers'
     | '/case-studies'
     | '/contact'
@@ -159,11 +179,13 @@ export interface FileRouteTypes {
     | '/services/reporting'
     | '/services/seo'
     | '/services/social-media'
+    | '/services/website-development'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/blog'
     | '/careers'
     | '/case-studies'
     | '/contact'
@@ -174,11 +196,13 @@ export interface FileRouteTypes {
     | '/services/reporting'
     | '/services/seo'
     | '/services/social-media'
+    | '/services/website-development'
     | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/blog'
     | '/careers'
     | '/case-studies'
     | '/contact'
@@ -190,12 +214,14 @@ export interface FileRouteTypes {
     | '/services/reporting'
     | '/services/seo'
     | '/services/social-media'
+    | '/services/website-development'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
@@ -240,6 +266,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -259,6 +292,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/website-development': {
+      id: '/services/website-development'
+      path: '/website-development'
+      fullPath: '/services/website-development'
+      preLoaderRoute: typeof ServicesWebsiteDevelopmentRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/social-media': {
@@ -324,6 +364,7 @@ interface ServicesRouteChildren {
   ServicesReportingRoute: typeof ServicesReportingRoute
   ServicesSeoRoute: typeof ServicesSeoRoute
   ServicesSocialMediaRoute: typeof ServicesSocialMediaRoute
+  ServicesWebsiteDevelopmentRoute: typeof ServicesWebsiteDevelopmentRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -333,6 +374,7 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesReportingRoute: ServicesReportingRoute,
   ServicesSeoRoute: ServicesSeoRoute,
   ServicesSocialMediaRoute: ServicesSocialMediaRoute,
+  ServicesWebsiteDevelopmentRoute: ServicesWebsiteDevelopmentRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 
@@ -343,6 +385,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
