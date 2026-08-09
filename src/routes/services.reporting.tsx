@@ -4,57 +4,48 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/services/reporting")({
   head: () => ({
     meta: [
-      { title: "Performance Reporting & Strategy — AsraX Media" },
-      { name: "description", content: "Live dashboards, monthly reports, and quarterly strategy. Turn marketing data into your next clear move." },
+      { title: "Performance Reporting Agency — AsraX Media" },
+      { name: "description", content: "One report that ties ads, SEO, and social back to the same number: your revenue. Weekly dashboards, plain-English summaries, senior strategist reviews." },
     ],
   }),
   component: () => (
     <ServicePage
-      eyebrow="Reporting"
-      title="Clear numbers. Sharper decisions."
-      subtitle="Monthly reports, live dashboards, and strategy calls that turn your marketing data into the next clear move."
+      eyebrow="Performance Reporting"
+      title="Performance Reporting Agency Built Around Your Revenue"
+      subtitle="You've stared at separate dashboards for ads, SEO, and social with no one connecting the dots. Here, one report ties every channel back to the same number: your revenue."
       heroImage="/img/reporting-hero.jpg"
-      introHeading="What does Performance Reporting actually look like?"
+      introHeading="What Does A Performance Reporting Agency Actually Deliver?"
       introParagraphs={[
-        "Most agency reports are 30 pages of pretty charts that nobody reads. They tell you what happened but not what to do next.",
-        "We do the opposite. Clean numbers, plain English, one page that tells you what's working, what isn't, and exactly what we're changing next. Built for founders who want to actually make decisions, not decode dashboards.",
-        "We connect live APIs to your operational tools so marketing decisions are measured directly against sales growth."
+        "You've probably experienced marketing that feels disconnected. Google Ads, SEO, social media, and analytics all live in separate dashboards, making it difficult to see what's actually driving growth. Reports are filled with clicks, impressions, and reach, but rarely answer the questions that matter most: Are we generating qualified leads? Is the business growing?",
+        "That's where we work differently. We bring your marketing performance into one clear view, connecting every channel to the metrics that matter.",
+        "You'll work with a senior strategist who turns complex data into practical insights, provides regular updates in plain English, and helps you make confident, informed decisions. No long-term contracts — just transparent reporting that earns your trust through measurable progress."
       ]}
       introImage="/img/reporting-intro.jpg"
+      featuresHeading="Every Number, Tied Back To One Picture"
       features={[
-        { title: "Custom Dashboards", desc: "Integrate Google Ads, GA4, Meta, and CRM into one interface." },
-        { title: "Monthly Executive Reports", desc: "One-page analyses summarizing key numbers in plain English." },
-        { title: "Channel Breakdowns", desc: "Granular cost-per-acquisition and lead reviews per network." },
-        { title: "Pipeline Tracking", desc: "A/B testing, revenue calculations, and LTV attribution." },
-        { title: "Quarterly Strategy Reviews", desc: "Align plans, budgets, and scaling projections every 90 days." },
-        { title: "Strategist Direct Access", desc: "Always-on communication channels via Slack or WhatsApp." }
+        { title: "Weekly Reporting Dashboards", desc: "One weekly view across ads, SEO and social, plus real-time alerts the moment spend, CPA or conversions move outside range." },
+        { title: "Revenue & Pipeline Attribution", desc: "We connect your marketing spend to real business outcomes, using A/B testing, LTV attribution, and multi-touch modeling to understand what truly drives conversions." },
+        { title: "Custom KPI Tracking", desc: "We turn your marketing data into a clear growth roadmap with channel performance insights and strategic budget guidance." },
+        { title: "Cross-Channel Reporting", desc: "Your paid, organic and social performance shown side by side, plus a one-page monthly executive summary in plain English." },
+        { title: "Monthly Strategy Reviews", desc: "Regular check-ins with a senior strategist, plus a deeper quarterly review to align plans, budgets and scaling projections every 90 days." }
       ]}
-      processHeading="How we run your Performance Reporting"
+      processHeading="Here's How You Get Started"
+      processLead="Getting started with your performance reporting agency is straightforward, and built around your business from day one."
       steps={[
-        { title: "KPI Alignment", body: "We map out the 5–10 primary metrics that directly impact your pipeline." },
-        { title: "Dashboard Setup", body: "We connect ad accounts, CRM, and GA4 into a single live interface." },
-        { title: "Monthly Analysis", body: "Every month, you receive a concise analysis summarizing results, spend, and actions." },
-        { title: "Quarterly Roadmap", body: "Every 90 days, we conduct a strategy alignment session to project budgets." }
+        { title: "Discovery Call", body: "You share your goals, current reporting setup, and where visibility into your numbers is falling short today." },
+        { title: "Strategy & Audit", body: "Your existing dashboards, tracking, and data sources get reviewed, so reporting gets built around what's actually happening." },
+        { title: "Dashboard & System Launch", body: "Your custom dashboards and reporting cadence go live, connected to the channels and numbers that matter most." },
+        { title: "Reporting & Scale", body: "You see results in plain weekly reporting, and as your numbers grow, your reporting scales alongside them." }
       ]}
-      results={[
-        { value: "30 min", label: "Reporting Overhead" },
-        { value: "$4,200/mo", label: "Wasted Spend Identified" },
-        { value: "100%", label: "Pipeline Visibility" }
-      ]}
-      testimonial={{
-        quote: "Our previous agencies sent screenshots of impressions. AsraX sends a one-page report on pipeline and ROI. Night and day.",
-        author: "Priya M.",
-        role: "SaaS COO",
-        image: "/img/test-priya.jpg"
-      }}
+      /* Stats and testimonial intentionally omitted — client is supplying real figures and a real quote. */
       faqs={[
-        { q: "How quickly will I see results?", a: "Your dashboard is live in 14–21 days. Your first executive report lands within the first month." },
-        { q: "What's the minimum engagement?", a: "$1,000 / month — enough scope to build a real reporting asset, not a one-off audit." },
-        { q: "Who will I be working with?", a: "A senior strategist who runs your reporting and strategy calls, supported by an analyst." },
-        { q: "Do you sign monthly or yearly contracts?", a: "Monthly, with a 30-day notice period." },
-        { q: "What happens if I'm not happy with the results?", a: "We adjust the dashboards, the reporting cadence, or the focus areas. If we're still not the right fit, you walk." }
+        { q: "How is your reporting different from checking each platform individually?", a: "Platform dashboards only tell part of the story. We bring your Google Ads, Meta, SEO, and social performance into one clear view, connecting every channel to the leads, pipeline, and revenue that matter most to your business." },
+        { q: "Will I have access to the data behind the reports?", a: "Yes. You'll receive a clear, plain-English summary of the key insights, along with full access to your dashboards whenever you want to explore the data in more detail." },
+        { q: "How often will I receive performance updates?", a: "You'll receive clear weekly performance updates, so you're never left guessing. Every quarter, we also review your strategy, priorities, and growth opportunities to keep your marketing moving in the right direction." },
+        { q: "What if I decide to stop the reporting service?", a: "There are no long-term contracts or lock-ins. If your needs change, you can cancel anytime — simple, flexible, and without unnecessary penalties." }
       ]}
-      finalHeading="Ready to make sharper decisions?"
+      finalHeading="Ready For Reporting You Can Actually Trust?"
+      finalSub="Book a free strategy call — no pitch, just a clear look at what your numbers actually mean."
     />
   ),
 });

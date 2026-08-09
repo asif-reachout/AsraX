@@ -1,8 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Loader, ChevronDown, UserCheck, BookOpen, Globe, Briefcase, TrendingUp, MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
-import { FinalCTA } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
@@ -31,56 +30,24 @@ function isDisposableEmail(email: string): boolean {
 }
 
 const benefits = [
-  { t: "Real ownership", d: "No micromanagement. We trust you to run your own experiments and own the results.", icon: UserCheck },
-  { t: "Learning & growth budget", d: "Want to read a book, take a course, or attend a conference? We foot the bill.", icon: BookOpen },
-  { t: "Remote-friendly culture", d: "Work from wherever you produce your best output. We prioritize outcomes over office hours.", icon: Globe },
-  { t: "Work on real brands", d: "Scale paid ad accounts and organic search channels for ambitious global clients with real budgets.", icon: Briefcase },
-  { t: "Fast career progression", d: "In our high-leverage team, your impact is recognized, valued, and rewarded instantly.", icon: TrendingUp },
-  { t: "Honest feedback culture", d: "Direct, constructive, and kind communication that helps you improve every single day.", icon: MessageSquare }
+  { t: "Real Ownership", d: "No micromanagement — you run your own experiments and own the results.", icon: UserCheck },
+  { t: "Learning & Growth Budget", d: "Want to read a book, take a course, or attend a conference? That gets covered.", icon: BookOpen },
+  { t: "Hands-On, In-Person Collaboration", d: "You get direct access to strategic expertise, so decisions happen faster and challenges are solved with confidence.", icon: Globe },
+  { t: "Work On Real Brands", d: "You'll run paid ad accounts and organic channels for ambitious clients with real budgets, not filler accounts.", icon: Briefcase },
+  { t: "Fast Career Progression", d: "We prioritise outcomes over processes, using data and performance insights to keep growth moving forward.", icon: TrendingUp },
+  { t: "Honest Feedback Culture", d: "Every conversation is focused on clarity, collaboration, and finding better ways to achieve your goals.", icon: MessageSquare }
 ];
 
 const fitQuestions = [
-  "Am I willing to keep learning even when things are going well?",
-  "Do I take ownership without making excuses?",
-  "Am I comfortable with honest feedback?",
-  "Do I want to grow fast and take on more responsibility?",
-  "Do I care about real results, not just ticking tasks off a list?"
+  "Am I willing to keep learning as platforms, algorithms, and channels keep changing?",
+  "Am I comfortable owning a campaign's results, not just executing the tasks inside it?",
+  "Can I hear direct feedback on my work without getting defensive?",
+  "Do I want more client responsibility, not less, as I prove myself?",
+  "Do I care more about the client's revenue than the vanity metrics that look good in a report?"
 ];
 
-const openJobs = [
-  {
-    title: "Senior Paid Ads Specialist",
-    type: "Full-Time · Remote",
-    desc: "Oversee PPC strategies for our eCommerce and Lead Gen portfolios. You'll own campaign structures, conversion audits, and Performance Max testing.",
-    duties: [
-      "Manage search, shopping, and Performance Max ad accounts with monthly spends up to $50k.",
-      "Diagnose attribution issues and implement server-side tracking (GTM).",
-      "Draft conversion-first landing page specs and copy vectors.",
-      "Formulate weekly ad asset refreshes and ad script angles."
-    ],
-    requirements: [
-      "3+ years managing client-facing Google Ads campaigns.",
-      "Proficient in Google Tag Manager, GA4, and Shopify/CRM integrations.",
-      "Clear, revenue-focused communication skills."
-    ]
-  },
-  {
-    title: "Senior SEO Strategist",
-    type: "Full-Time · Remote",
-    desc: "Lead organic acquisition strategies for SaaS and D2C clients. Direct audits, keywords mapping, content brief pipelines, and high-quality link building.",
-    duties: [
-      "Identify high-impact commercial search terms.",
-      "Resolve indexing issues, speed bottlenecks, and semantic schemas.",
-      "Manage external copywriting networks and review content drafts.",
-      "Coordinate outreach campaigns for digital PR and backlink acquisition."
-    ],
-    requirements: [
-      "3+ years agency-side SEO experience.",
-      "Proven track record scaling organic traffic into actual conversions.",
-      "Familiar with SEO tools (Ahrefs, Semrush, Screaming Frog)."
-    ]
-  }
-];
+// Openings on hold per client — empty list renders the "no open roles" state.
+const openJobs: { title: string; type: string; desc: string; duties: string[]; requirements: string[] }[] = [];
 
 function CareersPage() {
   const [activeJob, setActiveJob] = useState<number | null>(null);
@@ -138,13 +105,13 @@ function CareersPage() {
           <div className="max-w-3xl mx-auto">
             <p className="eyebrow text-brand-glow">CAREERS</p>
             <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl text-white">
-              We're building a team of growth-obsessed people.
+              Grow Your Career The Way Our Clients Grow
             </h1>
             <p className="mt-6 text-lg text-neutral-300 sm:text-xl text-balance">
-              AsraxMedia isn't just a place to work — it's a place to grow, lead, and do the best work of your career.
+              You'll be joining a team built on one belief: that the businesses you help grow deserve people who actually own the outcome, not just the task.
             </p>
             <div className="mt-8 flex justify-center">
-              <a href="#current-openings" className="btn-brand">See Open Positions →</a>
+              <a href="#current-openings" className="btn-brand">See Current Openings →</a>
             </div>
           </div>
         </div>
@@ -162,20 +129,17 @@ function CareersPage() {
           </div>
           <div>
             <p className="eyebrow">WHO WE ARE</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">We operate on transparency & results.</h2>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">AsraX Media Runs On Ownership And Honesty</h2>
             <div className="mt-6 space-y-4 text-base text-ink-soft leading-relaxed">
               <p>
-                We sit on the same side of the table as our clients. We reject the legacy agency model of hiding behind impressions and clicks. We align our performance goals with their actual business pipeline.
+                We work alongside ambitious brands to help them grow through smart strategy, continuous experimentation, and meaningful execution. Every decision is guided by transparency, accountability, and a shared focus on delivering measurable results — not just staying busy.
               </p>
               <p>
-                This requires a team of self-directed professionals who run experiments, speak the raw truth, and continually challenge baseline standards to find major growth levers.
+                If this sounds interesting to you, join our team now.
               </p>
-              <p>
-                We don't care about what hours you work or where you log in from. If you need to walk the dog, go for a run, or pick up your kids at 2 PM, do it. We measure outputs, not inputs.
-              </p>
-              <p>
-                We're a small group of senior executioners. There is no bureaucracy to hide behind, no endless alignment meetings, and no PowerPoint slides. We brainstorm, make a decision, ship it, and look at the data.
-              </p>
+            </div>
+            <div className="mt-8">
+              <Link to="/about" className="btn-brand">About Us <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>
         </div>
@@ -185,8 +149,9 @@ function CareersPage() {
       <section className="section-content bg-surface border-y border-border">
         <div className="container-x">
           <div className="max-w-3xl mb-12">
-            <p className="eyebrow">WHY ASRAX</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">What makes AsraxMedia different to work at.</h2>
+            <p className="eyebrow">WHY ASRAX MEDIA?</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Why Brands Choose Us as Their Growth Partner</h2>
+            <p className="mt-3 text-ink-soft leading-relaxed">Six principles behind how we work.</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b) => {
@@ -209,10 +174,10 @@ function CareersPage() {
       <section className="section-content bg-background">
         <div className="container-x">
           <div className="max-w-3xl mb-12">
-            <p className="eyebrow">IS THIS YOU?</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Working at AsraxMedia isn't for everyone.</h2>
+            <p className="eyebrow">ARE YOU READY TO OWN THE OUTCOME?</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Before You Apply, Ask Yourself This</h2>
             <p className="mt-3 text-ink-soft leading-relaxed">
-              Ask yourself these questions honestly. If you answer "yes" to all five, you will love working with us.
+              A few simple questions can reveal whether our approach fits how you like to work.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -305,12 +270,9 @@ function CareersPage() {
           <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:items-start">
             <div>
               <p className="eyebrow">Apply Now</p>
-              <h2 className="mt-3 text-3xl font-bold sm:text-4xl text-foreground">Don't see a role that fits?</h2>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl text-foreground">Don't See A Role That Fits Yet?</h2>
               <p className="mt-6 text-ink-soft leading-relaxed">
-                We are always looking for exceptional media buyers, SEO strategists, content copywriters, visual creators, and growth developers.
-              </p>
-              <p className="mt-4 text-ink-soft leading-relaxed">
-                Submit your details and CV here. Our team reviews incoming general applications every week and will reach out if a matching portfolio opens up.
+                You can still get on our radar. Submit your details and CV below, and you'll hear from us the moment a matching opening comes up.
               </p>
             </div>
 
@@ -409,14 +371,6 @@ function CareersPage() {
         </div>
       </section>
 
-      {/* 8 — FINAL CTA */}
-      <FinalCTA
-        heading="Ready to do the best work of your career?"
-        sub="Browse our openings or submit a general application. Senior guidance, full remote freedom."
-        btnText="See Open Positions"
-        btnLink="#current-openings"
-        anchor={true}
-      />
     </SiteShell>
   );
 }

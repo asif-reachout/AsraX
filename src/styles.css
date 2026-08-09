@@ -251,3 +251,56 @@
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
+
+/* YouTube-style top loading bar — creeps toward 90% while the next route loads */
+@keyframes routeProgress {
+  0% { width: 0; }
+  40% { width: 55%; }
+  100% { width: 90%; }
+}
+
+.route-progress {
+  animation: routeProgress 6s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+}
+
+/* Team cards fade up in sequence when the section scrolls into view.
+   JS adds .is-pending on mount and drops it per card via IntersectionObserver,
+   so with JS off the cards simply render visible. */
+.team-card {
+  transition: opacity 650ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.team-card.is-pending {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-card.is-pending {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Hero dashboard bars grow in alongside the KPI count-up */
+@keyframes growBar {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.grow-bar {
+  transform-origin: bottom;
+  animation: growBar 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grow-bar { animation: none; }
+}
+
+.route-progress-done {
+  width: 100%;
+  transition: width 150ms ease-out, opacity 200ms ease-out 100ms;
+  opacity: 0;
+}

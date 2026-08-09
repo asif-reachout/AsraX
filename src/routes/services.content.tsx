@@ -4,57 +4,48 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/services/content")({
   head: () => ({
     meta: [
-      { title: "Content & Creative — AsraX Media" },
-      { name: "description", content: "Landing pages, ad creatives, blogs, and LinkedIn content — written around your buyer, designed to convert." },
+      { title: "Content Marketing Agency — AsraX Media" },
+      { name: "description", content: "From content strategy to execution, we help brands build trust and generate leads through high-quality content built for search, AI answers, and real buyers." },
     ],
   }),
   component: () => (
     <ServicePage
       eyebrow="Content Marketing"
-      title="Attract, educate, and convert ideal clients."
-      subtitle="Landing pages, ad creatives, blogs, and LinkedIn content — written around your buyer, designed to convert."
+      title="Content Marketing Agency That Creates Content That Converts"
+      subtitle="From content strategy to execution, we help brands build trust and generate leads through high-quality content."
       heroImage="/img/content-hero.jpg"
-      introHeading="What does Content Marketing actually look like?"
+      introHeading="What Does an SEO Content Agency Actually Do?"
       introParagraphs={[
-        "Most content is written for search engines, social algorithms, or the founder's ego — and it shows. It reads like everyone else's, sells like nobody's.",
-        "We write content for the one person who matters: your buyer. Every page, ad, and post is built around their problem, their language, and the next step we want them to take.",
-        "We focus on creating conversion assets (e.g. landing page layouts, email workflows, digital sales pitches) rather than just pushing out bulk text."
+        "An SEO content agency helps businesses create and optimize content that improves search visibility, attracts the right audience, and drives measurable growth. From keyword research and content strategy to blog creation, website copy, and AI-focused optimization, these agencies build content designed for both search engines and real users.",
+        "Modern SEO content goes beyond ranking on Google. It focuses on SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) to ensure your brand appears in traditional search results, AI answers, and emerging search experiences."
       ]}
       introImage="/img/content-intro.jpg"
+      featuresHeading="Everything included in your Content Marketing plan."
       features={[
-        { title: "Landing Page Copywriting", desc: "Design page wireframes and write landing page copy optimized for conversions." },
-        { title: "Ad Creative Directions", desc: "Script static ads, video frames, hooks, and body copy angles." },
-        { title: "SEO Blogs & Copy", desc: "Formulate in-depth guides answering customer transaction questions." },
-        { title: "LinkedIn Thought Leadership", desc: "Construct B2B content that positions the founder as an authority." },
-        { title: "Email Sequences", desc: "Build automated sequences to nurture leads from fit-checks to calls." },
-        { title: "Brand Positioning Guides", desc: "Develop copy standards and unique angles to differentiate your brand." }
+        { title: "Landing Page Copywriting", desc: "Conversion-focused landing pages that engage visitors and drive action." },
+        { title: "Ad Creative Directions", desc: "Ad scripts, static designs, video frames, hooks, and copy angles built to drive engagement and conversions." },
+        { title: "SEO Blogs & Copy", desc: "SEO-optimized blogs and copy that improve rankings, attract traffic, and engage your audience." },
+        { title: "LinkedIn Thought Leadership", desc: "B2B content marketing that builds LinkedIn authority and audience trust." },
+        { title: "Email Sequences", desc: "Automated email sequences built to nurture prospects and increase conversions." },
+        { title: "Brand Positioning Guides", desc: "Brand positioning guides that define your message, voice, and market identity." }
       ]}
-      processHeading="How we run your Content Marketing"
+      processHeading="How We Turn Content Into Growth"
       steps={[
-        { title: "Strategy & Audit", body: "We study target buyer objectives, extract insights, and map out hooks." },
-        { title: "Funnel Planning", body: "We align content pieces across the customer acquisition funnel stages." },
-        { title: "Production & Creation", body: "Our copy and design team crafts the visual and textual marketing assets." },
-        { title: "Distribution & Pitching", body: "We format assets directly into campaign workflows and ad accounts." }
+        { title: "Strategy & Audit", body: "Analyze goals, audience, and content gaps to build winning strategies." },
+        { title: "Funnel Planning", body: "Map content funnels that nurture leads and drive B2B conversions." },
+        { title: "Production & Creation", body: "Create blogs, emails, case studies, and SaaS content that performs." },
+        { title: "Distribution & Pitching", body: "Distribute content through channels that build reach and authority." }
       ]}
-      results={[
-        { value: "4.9%", label: "Landing Page CVR" },
-        { value: "23", label: "Booked Calls / 60d" },
-        { value: "-38%", label: "CPL Reduction" }
-      ]}
-      testimonial={{
-        quote: "Our conversion rate was holding us back. AsraX solved it by rewriting our landing pages and tightening the copy. It's like we unlocked a brand new ad account.",
-        author: "Sarah T.",
-        role: "VP Product, MetricsHub",
-        image: "/img/test-sarah.jpg"
-      }}
+      /* Stats and testimonial intentionally omitted — client is supplying real figures and a real quote. */
       faqs={[
-        { q: "How quickly will I see results?", a: "Landing pages and ad copy typically move metrics within 30 days. Long-form content compounds over 60–90+ days." },
-        { q: "What's the minimum engagement?", a: "$1,000 / month — enough scope to build a real asset, not one-off pieces." },
-        { q: "Who will I be working with?", a: "A senior strategist who runs your account, supported by writers and designers in your brand voice." },
-        { q: "Do you sign monthly or yearly contracts?", a: "Monthly, with a 30-day notice period." },
-        { q: "What happens if I'm not happy with the results?", a: "Revisions are unlimited within scope. If we're not delivering, we re-scope or you walk — no penalties." }
+        { q: "How long does it take to see content marketing results?", a: "Content marketing is a long-term growth strategy. While some improvements in engagement and visibility can appear early, consistent SEO growth, authority building, and lead generation typically develop over time with ongoing optimization." },
+        { q: "What is the minimum engagement required?", a: "Our engagement depends on your goals, content needs, and growth stage. We create flexible plans covering services like blogs, website copy, email sequences, lead magnets, case studies, and other B2B content assets." },
+        { q: "Who will manage my content strategy and creation?", a: "You'll work with a dedicated team handling strategy, research, content creation, SEO optimization, and performance improvements to ensure every piece aligns with your business goals." },
+        { q: "Do you offer monthly or long-term content marketing plans?", a: "Yes. We offer flexible engagement options based on your requirements, from ongoing monthly content support to long-term strategies focused on SEO, authority, and sustainable growth." },
+        { q: "What if the content strategy doesn't deliver the expected results?", a: "We continuously analyze performance, gather insights, and optimize our approach. Our goal is to improve content effectiveness through data-driven strategy, testing, and refinement." }
       ]}
-      finalHeading="Ready to grow with content that sells?"
+      finalHeading="Let's Build a Content Strategy"
+      finalSub="Get a free content audit and strategy discussion."
     />
   ),
 });

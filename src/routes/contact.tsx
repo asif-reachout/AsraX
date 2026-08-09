@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Mail, MessageCircle, MapPin, Loader } from "lucide-react";
+import { ArrowRight, Mail, MessageCircle, Loader } from "lucide-react";
 import { useState, useEffect } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 
@@ -78,10 +78,10 @@ function ContactPage() {
           <div>
             <p className="eyebrow">Get in touch</p>
             <h1 className="mt-6 text-5xl font-bold leading-[1.02] text-balance sm:text-6xl md:text-7xl">
-              Book a free <span className="text-gradient-brand">strategy call.</span>
+              Ready to book a <span className="text-gradient-brand">strategy call?</span> Fill out this form.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-soft sm:text-xl text-balance">
-              30 minutes. No pitch. We'll look at your numbers, find the biggest growth levers, and tell you exactly what we'd do — whether you hire us or not.
+              Got a question, or just want to reach the team directly? We're always happy to help, whatever it's about.
             </p>
           </div>
 
@@ -136,11 +136,12 @@ function ContactPage() {
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Primary goal</label>
                 <select name="primary_goal" className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm">
-                  <option>Scale paid ads (Google / Meta)</option>
-                  <option>Grow organic traffic (SEO)</option>
+                  <option>Build or rebuild my website</option>
+                  <option>Scale paid ads (Google / Meta / LinkedIn / TikTok)</option>
+                  <option>Grow organic traffic (SEO / AEO / GEO)</option>
+                  <option>Content marketing</option>
                   <option>Build a social presence</option>
-                  <option>Improve content & creative</option>
-                  <option>Better reporting & strategy</option>
+                  <option>Better performance reporting</option>
                   <option>Full-funnel growth partner</option>
                 </select>
               </div>
@@ -176,8 +177,7 @@ function ContactPage() {
 
         <div className="space-y-6">
           <InfoCard icon={Mail} title="Email" value="hello@asraxmedia.com" href="mailto:hello@asraxmedia.com" />
-          <InfoCard icon={MessageCircle} title="WhatsApp" value="Quick chat — same-day reply" href="#" />
-          <InfoCard icon={MapPin} title="Markets" value="US · UK · Canada · Australia · UAE" />
+          <InfoCard icon={MessageCircle} title="WhatsApp" value="Quick chat — same-day reply" href="https://wa.me/447986952432" />
 
           <div className="rounded-3xl border border-border bg-foreground p-8 text-background">
             <p className="eyebrow text-brand-glow">What happens next</p>
@@ -185,7 +185,6 @@ function ContactPage() {
               {[
                 "We reply within 1 business day.",
                 "Quick 15-min fit call to understand your goals.",
-                "30-min strategy call with a senior strategist.",
                 "You get a written growth plan — yours to keep.",
               ].map((s, i) => (
                 <li key={s} className="flex gap-3">

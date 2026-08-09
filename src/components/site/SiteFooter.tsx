@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Mail, MapPin, Phone, CheckCircle, AlertCircle, Loader } from "lucide-react";
+import { Linkedin, Facebook, Instagram, Mail, MapPin, Phone, CheckCircle, AlertCircle, Loader } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useState, useCallback } from "react";
 
@@ -120,23 +120,33 @@ export function SiteFooter() {
           <div>
             <img src={logo} alt="AsraX Media" className="h-14 w-auto brightness-0 invert" />
             <p className="mt-5 max-w-sm text-sm text-background/70">
-              Turning Brands into Beliefs. The growth partner for ambitious brands across the US, UK, Canada, Australia & UAE.
+              A full funnel marketing agency for global brands — a growth partner that keeps every result transparent.
             </p>
+            {/* TODO: replace "#" with the real Facebook / Instagram URLs */}
+            <div className="mt-5 flex items-center gap-3">
+              <SocialIcon href="#" label="Facebook"><Facebook className="h-4 w-4" /></SocialIcon>
+              <SocialIcon href="#" label="Instagram"><Instagram className="h-4 w-4" /></SocialIcon>
+              <SocialIcon href="https://www.linkedin.com/company/asrax-media" label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </SocialIcon>
+            </div>
             <NewsletterForm />
             <p className="mt-2 text-xs text-background/50">One practical growth tip a week. No fluff.</p>
           </div>
 
           <FooterCol title="Services">
-            <FooterLink to="/services/google-ads">Google Ads</FooterLink>
-            <FooterLink to="/services/seo">SEO</FooterLink>
+            <FooterLink to="/services/website-development">Website Development</FooterLink>
+            <FooterLink to="/services/content">Content Marketing</FooterLink>
+            <FooterLink to="/services/seo">SEO / AEO / GEO</FooterLink>
+            <FooterLink to="/services/google-ads">Paid Ads</FooterLink>
             <FooterLink to="/services/social-media">Social Media</FooterLink>
-            <FooterLink to="/services/content">Content & Creative</FooterLink>
             <FooterLink to="/services/reporting">Performance Reporting</FooterLink>
           </FooterCol>
 
           <FooterCol title="Company">
             <FooterLink to="/about">About</FooterLink>
             <FooterLink to="/case-studies">Case Studies</FooterLink>
+            <FooterLink to="/blog">Blog</FooterLink>
             <FooterLink to="/careers">Careers</FooterLink>
             <FooterLink to="/contact">Contact</FooterLink>
           </FooterCol>
@@ -152,17 +162,12 @@ export function SiteFooter() {
               <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
               <span>78 Whalebone Grove,<br />Romford, RM6 8BL</span>
             </p>
-            <div className="mt-2 flex items-center gap-3">
-              <SocialIcon href="https://www.linkedin.com/company/asrax-media" label="LinkedIn">
-                <Linkedin className="h-4 w-4" />
-              </SocialIcon>
-            </div>
           </FooterCol>
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-background/10 pt-8 sm:flex-row sm:items-center">
           <p className="text-xs text-background/50">© {new Date().getFullYear()} AsraX Media. All rights reserved.</p>
-          <p className="text-xs text-background/50">Turning Brands into Beliefs.</p>
+          <p className="text-xs text-background/50">Your trusted marketing partner.</p>
         </div>
       </div>
     </footer>

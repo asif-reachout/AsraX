@@ -4,57 +4,50 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/services/seo")({
   head: () => ({
     meta: [
-      { title: "SEO Services — AsraX Media" },
-      { name: "description", content: "SEO that compounds. Technical SEO, content strategy, and authority building that turn your site into a steady source of qualified, ready-to-buy traffic." },
+      { title: "SEO, GEO & AEO Agency — AsraX Media" },
+      { name: "description", content: "Technical fixes, content and authority that turn search into pipeline — across Google and AI answer engines like ChatGPT and Gemini." },
     ],
   }),
   component: () => (
     <ServicePage
-      eyebrow="SEO"
-      title="Build traffic you own — no ad spend required."
-      subtitle="Technical SEO, content strategy, and authority building that turn your site into a steady source of qualified, ready-to-buy traffic."
+      eyebrow="SEO, GEO & AEO"
+      title="SEO, GEO & AEO Agency Built Around Revenue, Not Rankings Alone"
+      subtitle="Technical fixes, content and authority that turn search into pipeline."
       heroImage="/img/seo-hero.jpg"
-      introHeading="What does SEO actually look like?"
+      introHeading="What Does An SEO, GEO & AEO Agency Actually Manage?"
       introParagraphs={[
-        "SEO isn't about ranking for keywords nobody buys from. It's about owning the search queries your best customers actually type in — and being the obvious answer when they do.",
-        "We build SEO as a long-term growth asset: a strong technical base, content built around buyer intent, and authority signals that compound month after month.",
-        "Our team manages technical infrastructure, on-page content production pipelines, and manual white-hat link acquisition campaigns under a single unified growth strategy."
+        "Strong growth starts with a strong foundation. We improve the technical health of your website — from site speed and indexing to structured data — so search engines and AI platforms can understand your business.",
+        "From there, we create content around the topics your audience is actively searching for, helping turn organic visibility into qualified leads.",
+        "We strengthen your authority through high-quality links and digital PR, while optimizing your content for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO), making it easier for AI platforms like ChatGPT and Gemini to discover, understand, and reference your brand."
       ]}
       introImage="/img/seo-intro.jpg"
+      featuresHeading="Everything Included In Your SEO, GEO & AEO Plan"
       features={[
-        { title: "Technical Audit & Fixes", desc: "Optimize crawl budget, core web vitals, speed, and redirects." },
-        { title: "Intent Keyword Research", desc: "Target high-intent search phrases aligned to transaction cycles." },
-        { title: "On-Page SEO Optimization", desc: "Revise page headers, semantic styling, and structured markups." },
-        { title: "Content Engine Plans", desc: "Establish search briefs and calendars mapped to buyer priorities." },
-        { title: "Premium Link Building", desc: "Acquire domain authority through manual digital PR outreach." },
-        { title: "Detailed Metric Reporting", desc: "Track conversions, keywords visibility, and keyword rankings." }
+        { title: "Technical Audit & Fixes", desc: "Your crawl budget, core web vitals, speed, and redirects get optimized from day one." },
+        { title: "Intent Keyword Research", desc: "We prioritize search intent over search volume, so your content reaches the right people at the right time." },
+        { title: "On-Page SEO, GEO & AEO Optimization", desc: "We refine your page structure, headings, and markup so your content is easier for both search engines and your audience to understand." },
+        { title: "Content Engine Plans", desc: "We plan content around the questions, challenges, and decisions your audience is already searching for." },
+        { title: "Premium Link Building", desc: "We grow your search presence through quality partnerships and digital PR, avoiding shortcuts that create long-term risks." },
+        { title: "Detailed Metric Reporting", desc: "We monitor your visibility, rankings, and conversions to continuously improve your search strategy and results." }
       ]}
-      processHeading="How we run your SEO"
+      processHeading="How We Run Your Search Growth"
+      processLead="Getting started with your SEO agency is straightforward, and built to cover both traditional search and how AI engines read your site."
       steps={[
-        { title: "Audit & Fixes", body: "We resolve indexing issues, site speed bottlenecks, and semantic structures." },
-        { title: "Strategy & Mapping", body: "We research and organize keywords into transactional, commercial, and informational funnels." },
-        { title: "Execute Content", body: "We draft high-quality content briefs and build internal linking pathways." },
-        { title: "Report & Scale", body: "Every month, you receive a concise analysis summarizing traffic growth and organic leads." }
+        { title: "Discovery Call", body: "Together, we identify your goals, market position, and visibility gaps to create a clear path forward." },
+        { title: "Strategy & Audit", body: "Your technical SEO, content performance, and AI search visibility are reviewed together to uncover gaps and define the next steps." },
+        { title: "Execute & Build Authority", body: "We launch technical enhancements, optimized content, and outreach strategies while building schema into your pages from day one." },
+        { title: "Reporting & Scale", body: "You get a clear view of your rankings, traffic, and AI visibility in one place, helping us measure progress and scale what's working." }
       ]}
-      results={[
-        { value: "+127%", label: "Organic Traffic Growth" },
-        { value: "38", label: "Top-3 Ranking Keywords" },
-        { value: "+74", label: "Monthly Demo Bookings" }
-      ]}
-      testimonial={{
-        quote: "They rebuilt our content engine around buyer intent. Organic search is now the #1 lead source in our business.",
-        author: "James K.",
-        role: "B2B Marketing Lead",
-        image: "/img/test-james.jpg"
-      }}
+      /* Stats and testimonial intentionally omitted — client is supplying real figures and a real quote. */
       faqs={[
-        { q: "How quickly will I see results?", a: "SEO is a long game. Expect early movement in months 2–3 and meaningful traffic / lead growth from months 4–6 onwards." },
-        { q: "What's the minimum engagement?", a: "$1,000 / month with a recommended 6-month commitment, because anything shorter rarely gives SEO time to compound." },
-        { q: "Who will I be working with?", a: "A senior SEO strategist plus a content team. Every piece is reviewed by a strategist, not a junior." },
-        { q: "Do you sign monthly or yearly contracts?", a: "Month-to-month after the first 6 months. We don't lock you in beyond that." },
-        { q: "What happens if I'm not happy with the results?", a: "We review the plan together. SEO has clear leading indicators — if we're not hitting them, we adjust. If we're still not the right fit, you walk." }
+        { q: "How fast does SEO show results?", a: "Technical improvements and schema updates are usually implemented within 4–8 weeks. As content and authority grow, rankings and traffic build over the following 3–6 months. We also optimise pages for AEO from the start, helping your brand gain visibility in AI platforms alongside traditional search growth." },
+        { q: "What's the minimum engagement?", a: "None. You stay on a rolling monthly agreement, not a long-term lock-in — though SEO genuinely needs a few months to build momentum before results can be fairly judged." },
+        { q: "Who owns the account — a strategist or a tool?", a: "A dedicated senior strategist owns every account, not software running on autopilot. Tools handle the heavy lifting — crawling, monitoring, and surfacing signals — but every recommendation that ships gets reviewed and approved by a human who understands your business." },
+        { q: "How quickly will GEO show impact?", a: "Answer-first restructuring and schema fixes can register in 3 to 6 weeks. Steady citation presence across AI engines typically builds over 3 to 6 months, as entity authority and topical depth compound — tracked inside your weekly reporting, alongside your traditional search metrics." },
+        { q: "How is AEO different from waiting on traditional rankings?", a: "AI answer engines can start citing well-structured content faster than Google fully re-ranks a page, since they're pulling direct answers rather than re-crawling and re-scoring an entire site. That's why AEO-ready structure often shows visibility gains before traditional SEO metrics catch up." }
       ]}
-      finalHeading="Ready to compound your organic traffic?"
+      finalHeading="Ready To Grow With SEO?"
+      finalSub="Book a free strategy call — no pitch, just a useful conversation about your numbers."
     />
   ),
 });

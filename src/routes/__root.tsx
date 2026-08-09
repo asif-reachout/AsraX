@@ -4,9 +4,12 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+
+import { useEffect, useState } from "react";
 
 import appCss from "../styles.css?url";
 
@@ -72,26 +75,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AsraX Media — Turning Brands into Beliefs" },
-      { name: "description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social, Content & Reporting — built around revenue." },
+      { title: "AsraX Media — Full Funnel Marketing Agency for Global Brands" },
+      { name: "description", content: "A growth partner that keeps every result transparent. Websites, content, SEO, paid ads, social, and reporting — built around leads and revenue." },
       { name: "author", content: "AsraX Media" },
       // Open Graph
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://asraxmedia.com/" },
       { property: "og:site_name", content: "AsraX Media" },
-      { property: "og:title", content: "AsraX Media — Marketing that moves the needle." },
-      { property: "og:description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social Media, Content & Reporting — built around revenue, not vanity metrics." },
+      { property: "og:title", content: "AsraX Media — Full Funnel Marketing Agency for Global Brands" },
+      { property: "og:description", content: "A growth partner that keeps every result transparent. Websites, content, SEO, paid ads, social, and reporting — built around leads and revenue." },
       { property: "og:image", content: "https://asraxmedia.com/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:type", content: "image/png" },
-      { property: "og:image:alt", content: "AsraX Media — Marketing that moves the needle." },
+      { property: "og:image:alt", content: "AsraX Media — Full Funnel Marketing Agency for Global Brands" },
       // Twitter / X Card
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "AsraX Media — Marketing that moves the needle." },
-      { name: "twitter:description", content: "Growth partner for ambitious brands. Google Ads, SEO, Social Media, Content & Reporting — built around revenue." },
+      { name: "twitter:title", content: "AsraX Media — Full Funnel Marketing Agency for Global Brands" },
+      { name: "twitter:description", content: "A growth partner that keeps every result transparent. Websites, content, SEO, paid ads, social, and reporting — built around leads and revenue." },
       { name: "twitter:image", content: "https://asraxmedia.com/og-image.png" },
-      { name: "twitter:image:alt", content: "AsraX Media — Marketing that moves the needle." },
+      { name: "twitter:image:alt", content: "AsraX Media — Full Funnel Marketing Agency for Global Brands" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -121,11 +124,54 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+const PROGRESS_MIN_MS = 500; // keep the bar on screen long enough to read as feedback
+
+function RouteProgress() {
+  const router = useRouter();
+  const [phase, setPhase] = useState<"idle" | "loading" | "done">("idle");
+
+  useEffect(() => {
+    let startedAt = 0;
+    let finishTimer: ReturnType<typeof setTimeout>;
+    let hideTimer: ReturnType<typeof setTimeout>;
+
+    const offStart = router.subscribe("onBeforeNavigate", () => {
+      clearTimeout(finishTimer);
+      clearTimeout(hideTimer);
+      startedAt = performance.now();
+      setPhase("loading");
+    });
+
+    const offEnd = router.subscribe("onResolved", () => {
+      const wait = Math.max(0, PROGRESS_MIN_MS - (performance.now() - startedAt));
+      finishTimer = setTimeout(() => {
+        setPhase("done");
+        hideTimer = setTimeout(() => setPhase("idle"), 250);
+      }, wait);
+    });
+
+    return () => {
+      offStart();
+      offEnd();
+      clearTimeout(finishTimer);
+      clearTimeout(hideTimer);
+    };
+  }, [router]);
+
+  if (phase === "idle") return null;
+  return (
+    <div aria-hidden className="fixed inset-x-0 top-0 z-100 h-[3px]">
+      <div className={`h-full bg-brand shadow-[0_0_8px_var(--brand)] ${phase === "done" ? "route-progress-done" : "route-progress"}`} />
+    </div>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <RouteProgress />
       <Outlet />
     </QueryClientProvider>
   );
