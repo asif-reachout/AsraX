@@ -121,7 +121,7 @@ function HomePage() {
 
         <div className="container-x relative z-20 grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="fade-up">
-            <p className="eyebrow text-brand-glow">ASRAX MEDIA. TURNING BRANDS INTO BELIEFS</p>
+            <p className="eyebrow text-brand-glow">ASRAX MEDIA · TURNING BRANDS INTO BELIEFS</p>
             <h1 className="mt-6 text-4xl font-bold leading-[1.05] text-balance sm:text-5xl md:text-6xl lg:text-7xl text-white">
               Full Funnel Marketing Agency for <span className="text-gradient-brand">Global Brands</span>
             </h1>
@@ -222,7 +222,7 @@ function HomePage() {
           </div>
           <div className="mt-12 flex flex-col items-center gap-5 text-center">
             <p className="max-w-2xl text-base text-ink-soft text-balance">
-              You don't have to accept any of that as normal. It isn't — and it's exactly what we fix.
+              You don't have to accept any of that as normal. It isn't and it's exactly what we fix.
             </p>
             <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
           </div>
@@ -333,7 +333,7 @@ function HomePage() {
 
             {[
               { n: "01", t: "Discovery Call", b: "You share your goals, your market and where growth is stalling right now." },
-              { n: "02", t: "Audit & Strategy", b: "Your current marketing, site and data get reviewed, and we map the right mix of channels — paid, organic, content, or site — around your goals and budget." },
+              { n: "02", t: "Audit & Strategy", b: "Your current marketing, site and data get reviewed, and we map the right mix of channels paid, organic, content, or site around your goals and budget." },
               { n: "03", t: "Execution & Rollout", b: "Your plan goes live across the channels that make sense for your business, from site updates to content to campaigns." },
               { n: "04", t: "Reporting & Scale", b: "You see the results in plain reporting, and as they grow, your investment scales with them." }
             ].map((s) => (
@@ -369,7 +369,7 @@ function HomePage() {
               AsraX Media is built around one simple standard: full transparency with your business, and a team that stays hands-on with your account long after the contract is signed.
             </p>
             <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-              Every person on this team is here because they're genuinely good at what they do — hands-on experts who show up for your account like it's their own, and who never lose sight of the number that actually matters to you: revenue.
+              Every person on this team is here because they're genuinely good at what they do hands-on experts who show up for your account like it's their own, and who never lose sight of the number that actually matters to you: revenue.
             </p>
             <div className="mt-8">
               <Link to="/about" className="btn-brand">Learn More About AsraX Media <ArrowRight className="h-4 w-4" /></Link>
