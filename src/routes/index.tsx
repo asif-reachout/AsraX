@@ -121,7 +121,7 @@ function HomePage() {
 
         <div className="container-x relative z-20 grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="fade-up">
-            <p className="eyebrow text-brand-glow">ASRAX MEDIA · TURNING BRANDS INTO BELIEFS</p>
+            <p className="eyebrow text-brand-glow">ASRAX MEDIA · YOUR TRUSTED MARKETING PARTNER</p>
             <h1 className="mt-6 text-4xl font-bold leading-[1.05] text-balance sm:text-5xl md:text-6xl lg:text-7xl text-white">
               Full Funnel Marketing Agency for <span className="text-gradient-brand">Global Brands</span>
             </h1>
