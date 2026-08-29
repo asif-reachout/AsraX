@@ -62,11 +62,11 @@ const services = [
 const testimonials = [
   {
     quote: "We'd tried managing things in-house before bringing AsraX Media on, and the difference was immediate. They took the time to actually understand our business before touching a single campaign, and the weekly updates kept us in the loop without needing to chase anyone down. Our pipeline has looked healthier every month since.",
-    who: "Google Review"
+    who: "E29 C."
   },
   {
     quote: "Great experience working with this team. They helped improve our entire marketing funnel, not just bring in leads. Communication was clear, they were proactive with suggestions, and we saw noticeable improvements in both lead quality and conversions.",
-    who: "Shawn P., Google Review"
+    who: "Shawn P."
   }
 ];
 
