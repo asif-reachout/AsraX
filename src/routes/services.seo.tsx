@@ -16,7 +16,7 @@ export const Route = createFileRoute("/services/seo")({
       heroImage="/img/seo-hero.jpg"
       introHeading="What Does An SEO, GEO & AEO Agency Actually Manage?"
       introParagraphs={[
-        "Strong growth starts with a strong foundation. We improve the technical health of your website — from site speed and indexing to structured data — so search engines and AI platforms can understand your business.",
+        "Strong growth starts with a strong foundation. We improve the technical health of your website from site speed and indexing to structured data so search engines and AI platforms can understand your business.",
         "From there, we create content around the topics your audience is actively searching for, helping turn organic visibility into qualified leads.",
         "We strengthen your authority through high-quality links and digital PR, while optimizing your content for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO), making it easier for AI platforms like ChatGPT and Gemini to discover, understand, and reference your brand."
       ]}
@@ -41,9 +41,9 @@ export const Route = createFileRoute("/services/seo")({
       /* Stats and testimonial intentionally omitted — client is supplying real figures and a real quote. */
       faqs={[
         { q: "How fast does SEO show results?", a: "Technical improvements and schema updates are usually implemented within 4–8 weeks. As content and authority grow, rankings and traffic build over the following 3–6 months. We also optimise pages for AEO from the start, helping your brand gain visibility in AI platforms alongside traditional search growth." },
-        { q: "What's the minimum engagement?", a: "None. You stay on a rolling monthly agreement, not a long-term lock-in — though SEO genuinely needs a few months to build momentum before results can be fairly judged." },
-        { q: "Who owns the account — a strategist or a tool?", a: "A dedicated senior strategist owns every account, not software running on autopilot. Tools handle the heavy lifting — crawling, monitoring, and surfacing signals — but every recommendation that ships gets reviewed and approved by a human who understands your business." },
-        { q: "How quickly will GEO show impact?", a: "Answer-first restructuring and schema fixes can register in 3 to 6 weeks. Steady citation presence across AI engines typically builds over 3 to 6 months, as entity authority and topical depth compound — tracked inside your weekly reporting, alongside your traditional search metrics." },
+        { q: "What's the minimum engagement?", a: "None. You stay on a rolling monthly agreement, not a long-term lock-in though SEO genuinely needs a few months to build momentum before results can be fairly judged." },
+        { q: "Who owns the account a strategist or a tool?", a: "A dedicated senior strategist owns every account, not software running on autopilot. Tools handle the heavy lifting crawling, monitoring, and surfacing signals but every recommendation that ships gets reviewed and approved by a human who understands your business." },
+        { q: "How quickly will GEO show impact?", a: "Answer-first restructuring and schema fixes can register in 3 to 6 weeks. Steady citation presence across AI engines typically builds over 3 to 6 months, as entity authority and topical depth compound tracked inside your weekly reporting, alongside your traditional search metrics." },
         { q: "How is AEO different from waiting on traditional rankings?", a: "AI answer engines can start citing well-structured content faster than Google fully re-ranks a page, since they're pulling direct answers rather than re-crawling and re-scoring an entire site. That's why AEO-ready structure often shows visibility gains before traditional SEO metrics catch up." }
       ]}
       finalHeading="Ready To Grow With SEO?"
