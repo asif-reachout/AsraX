@@ -14,7 +14,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About AsraX Media — Who We Are" },
-      { name: "description", content: "Your business growth partner — here to build something you believe in. Founded by Asra Saleem in 2022, AsraX Media runs paid, organic, content, and web as one connected growth engine." },
+      { name: "description", content: "Your business growth partner here to build something you believe in. Founded by Asra Saleem in 2022, AsraX Media runs paid, organic, content, and web as one connected growth engine." },
     ],
   }),
   component: AboutPage,
@@ -46,7 +46,7 @@ const values = [
 const faqs = [
   {
     q: "Why should I choose AsraX Media as my growth partner?",
-    a: "Because we treat every project like it's our own brand on the line — combining strategy, creativity, and data to build marketing that actually earns trust and drives growth."
+    a: "Because we treat every project like it's our own brand on the line combining strategy, creativity, and data to build marketing that actually earns trust and drives growth."
   },
   {
     q: "What industries and markets does AsraX Media serve?",
@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     q: "Do you offer customized strategies or one-size-fits-all packages?",
-    a: "Every strategy we build is shaped around your specific goals, audience, and industry — nothing here is templated or copy-pasted from another client's playbook."
+    a: "Every strategy we build is shaped around your specific goals, audience, and industry nothing here is templated or copy-pasted from another client's playbook."
   },
   {
     q: "What size businesses do you work with?",
@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     q: "What can I expect from working with AsraX Media?",
-    a: "A team that treats your business like our own — proactive communication, strategies built around your goals, and a genuine investment in seeing your brand grow."
+    a: "A team that treats your business like our own proactive communication, strategies built around your goals, and a genuine investment in seeing your brand grow."
   }
 ];
 
@@ -106,7 +106,7 @@ const team = [
 const chooseUsItems = [
   { t: "No Long-Term Lock-In Contracts", d: "Our partnership gets earned month-by-month, never through a legal lock-in." },
   { t: "Full Transparency On Every Spend", d: "You always know exactly where every penny of your budget is going." },
-  { t: "A Direct Line From Day One", d: "You work directly with the person managing your account — not a rotating point of contact." },
+  { t: "A Direct Line From Day One", d: "You work directly with the person managing your account not a rotating point of contact." },
   { t: "Weekly Reporting You Can Actually Understand", d: "You get plain-English reports summarizing the numbers that matter." },
   { t: "Strategy Built Around Revenue", d: "Your strategy gets optimized for pipeline value, not vanity impressions." },
   { t: "Real Experience Behind Every Account", d: "You're working with people who've scaled brands before, not learning on your budget." }
@@ -154,7 +154,7 @@ function AboutPage() {
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Built From The Ground Up</h2>
             <div className="mt-6 space-y-4 text-ink-soft leading-relaxed">
               <p>
-                AsraX Media was founded by Asra Saleem, who began her career in 2020 as a freelance Paid Ads specialist, helping businesses get real results from every dollar of ad spend. As client trust grew, so did the scope of the work — SEO, AEO, Social Media Marketing, Content Marketing, and Website Development were added, one capability at a time, each built to the same standard as the first.
+                AsraX Media was founded by Asra Saleem, who began her career in 2020 as a freelance Paid Ads specialist, helping businesses get real results from every dollar of ad spend. As client trust grew, so did the scope of the work SEO, AEO, Social Media Marketing, Content Marketing, and Website Development were added, one capability at a time, each built to the same standard as the first.
               </p>
               <p>
                 That growing reliability became AsraX Media in 2022, a full growth partner instead of a single-service freelancer. Today, that same relentless focus on results carries through every account, run as one connected growth engine for ambitious brands across the world.
