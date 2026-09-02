@@ -130,7 +130,7 @@ function AboutPage() {
               Who <span className="text-gradient-brand">We Are</span>
             </h1>
             <p className="mt-6 text-lg text-neutral-300 sm:text-xl text-balance">
-              Your business growth partner — here to build something you believe in.
+              Your business growth partner here to build something you believe in.
             </p>
             <div className="mt-8 flex justify-center">
               <Link to="/contact" className="btn-brand">Book a Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
