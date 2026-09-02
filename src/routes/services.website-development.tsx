@@ -19,7 +19,7 @@ export const Route = createFileRoute("/services/website-development")({
       introParagraphs={[
         "Most sites are designed to be admired. Yours needs to be designed to sell. A visitor should know within seconds what you do, who it's for, and what happens next.",
         "You get a site built around clear calls to action and clean tracking, so the traffic your other campaigns generate actually turns into leads instead of leaking out the back door.",
-        "Speed, mobile, and search fundamentals are handled up front — not bolted on later — so your paid, organic, and content spend all lands somewhere that converts."
+        "Speed, mobile, and search fundamentals are handled up front not bolted on later so your paid, organic, and content spend all lands somewhere that converts."
       ]}
       introImage="/img/team-office.jpg"
       features={[
