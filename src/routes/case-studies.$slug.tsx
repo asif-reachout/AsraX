@@ -34,7 +34,7 @@ const caseStudyData: Record<string, CaseStudy> = {
     bgImage: "/img/case-d2c.jpg",
     challengeLeft: "Montessori Toys was running paid ad campaigns but underperforming relative to their industry and niche competitors.",
     challengeParagraphs: [
-      "In the tracked period, the account generated 3.64K clicks, 3.19K purchases, and a 209.93% ROAS on £1.52K of spend — decent, but not reflecting the sales volume the niche typically supports.",
+      "In the tracked period, the account generated 3.64K clicks, 3.19K purchases, and a 209.93% ROAS on £1.52K of spend decent, but not reflecting the sales volume the niche typically supports.",
       "The client wasn't seeing sales volume in line with their industry or their direct competitors in the same niche. Worse, the sales they were getting were coming at a high cost.",
       "Budget was leaking into traffic that wasn't converting efficiently, while lower-quality keywords quietly ate into spend without contributing meaningful return."
     ],
@@ -44,7 +44,7 @@ const caseStudyData: Record<string, CaseStudy> = {
       "Keyword optimization: doubled down on high-performing keywords driving quality traffic, while cutting or restructuring the keywords exhausting budget without returns.",
       "Shopping campaign focus: once the foundation was fixed, shifted focus to Shopping campaigns specifically, working to make them consistently profitable."
     ],
-    resultsText: "ROAS climbed from 209.93% to 338.43% — every pound spent now returns significantly more revenue than before. That came alongside major scale in spend (£1.52K to £11.1K), clicks and purchases, so the account grew and got more profitable at the same time.",
+    resultsText: "ROAS climbed from 209.93% to 338.43% every pound spent now returns significantly more revenue than before. That came alongside major scale in spend (£1.52K to £11.1K), clicks and purchases, so the account grew and got more profitable at the same time.",
     stats: [
       { label: "ACTUAL ROAS", value: "338.43%" },
       { label: "PURCHASES", value: "37.7K" },
@@ -67,10 +67,10 @@ const caseStudyData: Record<string, CaseStudy> = {
     duration: "8+ Months",
     headline: "0 to 1.61K conversions from a standing start",
     bgImage: "/img/case-b2b.jpg",
-    challengeLeft: "Greensonic came to us with no existing PPC presence — no campaigns, no ad spend, no conversion data, and no impressions.",
+    challengeLeft: "Greensonic came to us with no existing PPC presence no campaigns, no ad spend, no conversion data, and no impressions.",
     challengeParagraphs: [
       "This meant building the entire paid acquisition channel from the ground up rather than optimizing something already in motion.",
-      "As a business in a niche industry, Greensonic needed to generate real, measurable conversions from paid ads — but had no prior campaign history, no conversion tracking, and no data to build on.",
+      "As a business in a niche industry, Greensonic needed to generate real, measurable conversions from paid ads but had no prior campaign history, no conversion tracking, and no data to build on.",
       "The challenge wasn't fixing an underperforming account; it was proving that PPC could work for their specific market from a standing start."
     ],
     approach: [
@@ -79,7 +79,7 @@ const caseStudyData: Record<string, CaseStudy> = {
       "Conversion-first campaign design: campaigns optimized explicitly around driving conversions rather than early-stage metrics like clicks or impressions alone.",
       "Iterative optimization: continuously refined targeting, bids, and creative as conversion data started to build over the following months."
     ],
-    resultsText: "Within 8 months, Greensonic went from no paid presence at all to 1.61K conversions from 525K impressions at a healthy 2.56% conversion rate on €2.46K of spend — proving out a paid acquisition channel in a niche market where none previously existed.",
+    resultsText: "Within 8 months, Greensonic went from no paid presence at all to 1.61K conversions from 525K impressions at a healthy 2.56% conversion rate on €2.46K of spend proving out a paid acquisition channel in a niche market where none previously existed.",
     stats: [
       { label: "CONVERSIONS", value: "1.61K" },
       { label: "IMPRESSIONS", value: "525K" },
@@ -104,7 +104,7 @@ const caseStudyData: Record<string, CaseStudy> = {
     bgImage: "/img/case-conversion.jpg",
     challengeLeft: "The brand had an existing Facebook ad presence but was seeing weak return on spend.",
     challengeParagraphs: [
-      "Sales volume was low relative to budget, and the sales that did come through were costly to acquire — the account was consistently burning through budget without efficient output.",
+      "Sales volume was low relative to budget, and the sales that did come through were costly to acquire the account was consistently burning through budget without efficient output.",
       "The core problem was cost inefficiency: the client wasn't just getting fewer sales than expected, the sales they did get were expensive to acquire.",
       "Budget was being exhausted without a proportional return, raising concerns about whether Facebook ads could be made profitable for the business."
     ],
@@ -136,9 +136,9 @@ const caseStudyData: Record<string, CaseStudy> = {
     duration: "1.5+ Years",
     headline: "Cost per conversion down from $44.80 to $12.64",
     bgImage: "/img/case-localservice.jpg",
-    challengeLeft: "Maranatha Pediatrics was running paid ad campaigns but seeing limited traction — a 6.19% CTR and $44.80 per conversion, with only 7 conversions over the tracked period.",
+    challengeLeft: "Maranatha Pediatrics was running paid ad campaigns but seeing limited traction a 6.19% CTR and $44.80 per conversion, with only 7 conversions over the tracked period.",
     challengeParagraphs: [
-      "Ad spend was going out, but conversion volume wasn't matching the investment. The core issue wasn't visibility — it was efficiency. The client was paying a premium for each conversion relative to the volume they were getting back.",
+      "Ad spend was going out, but conversion volume wasn't matching the investment. The core issue wasn't visibility it was efficiency. The client was paying a premium for each conversion relative to the volume they were getting back.",
       "Social was no stronger. Visibility and engagement were limited, educational content was published inconsistently, and awareness among parents searching for reliable pediatric information online was low.",
       "Without a refined audience, a stronger digital identity, or a structured content strategy behind the campaigns, the account was underperforming its budget."
     ],
@@ -146,11 +146,11 @@ const caseStudyData: Record<string, CaseStudy> = {
       "Month 1 — audience refinement: focused on social media management to rebuild and refine the target audience, ensuring ad spend was reaching the right people before pushing for volume.",
       "Month 2 — conversion focus: shifted campaign priorities toward converting the now better-targeted audience, optimizing creative and targeting on early performance signals.",
       "Month 3 — scaling: with a validated audience and improving conversion rate, scaled spend and campaign reach to grow conversion volume sustainably.",
-      "Educational content marketing: content parents genuinely find useful — parenting guidance, child wellness, seasonal illness prevention, school health, nutrition, hydration, sleep habits and preventive care — rather than promotional graphics.",
-      "Consistent brand identity: every post used the same visual system — bright healthcare colours, child-friendly illustrations, readable typography and clear Maranatha branding — to build recall across platforms.",
+      "Educational content marketing: content parents genuinely find useful parenting guidance, child wellness, seasonal illness prevention, school health, nutrition, hydration, sleep habits and preventive care — rather than promotional graphics.",
+      "Consistent brand identity: every post used the same visual system bright healthcare colours, child-friendly illustrations, readable typography and clear Maranatha branding to build recall across platforms.",
       "Community engagement and website support: an active publishing schedule with a clear call to action on every asset, turning engagement into clinic website visits and patient enquiries."
     ],
-    resultsText: "Cost per conversion dropped from $44.80 to $12.64 — roughly 3.5x more conversions for every dollar spent. CTR rose from 6.19% to 10.39%, impressions grew from ~1K to 34.7K, and conversions went from 7 to 1,220. Across 18+ months of social management, the clinic also built stronger brand recognition, consistent educational publishing, higher engagement, and more website traffic from social.",
+    resultsText: "Cost per conversion dropped from $44.80 to $12.64 roughly 3.5x more conversions for every dollar spent. CTR rose from 6.19% to 10.39%, impressions grew from ~1K to 34.7K, and conversions went from 7 to 1,220. Across 18+ months of social management, the clinic also built stronger brand recognition, consistent educational publishing, higher engagement, and more website traffic from social.",
     stats: [
       { label: "COST PER CONVERSION", value: "$12.64" },
       { label: "CONVERSIONS", value: "1,220" },
