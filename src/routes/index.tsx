@@ -83,7 +83,7 @@ const caseStudies = [
     img: "/img/case-b2b.jpg",
     client: "Greensonic",
     result: "0 to 1.61K Conversions in 8 Months",
-    summary: "Built a paid acquisition channel from scratch in a niche marine market — 525K impressions at a 2.56% conversion rate."
+    summary: "Built a paid acquisition channel from scratch in a niche marine market '525K impressions' at a 2.56% conversion rate."
   },
   {
     slug: "maranatha-pediatrics",
