@@ -18,7 +18,7 @@ export const Route = createFileRoute("/services/reporting")({
       introParagraphs={[
         "You've probably experienced marketing that feels disconnected. Google Ads, SEO, social media, and analytics all live in separate dashboards, making it difficult to see what's actually driving growth. Reports are filled with clicks, impressions, and reach, but rarely answer the questions that matter most: Are we generating qualified leads? Is the business growing?",
         "That's where we work differently. We bring your marketing performance into one clear view, connecting every channel to the metrics that matter.",
-        "You'll work with a senior strategist who turns complex data into practical insights, provides regular updates in plain English, and helps you make confident, informed decisions. No long-term contracts — just transparent reporting that earns your trust through measurable progress."
+        "You'll work with a senior strategist who turns complex data into practical insights, provides regular updates in plain English, and helps you make confident, informed decisions. No long-term contracts just transparent reporting that earns your trust through measurable progress."
       ]}
       introImage="/img/reporting-intro.jpg"
       featuresHeading="Every Number, Tied Back To One Picture"
@@ -42,10 +42,10 @@ export const Route = createFileRoute("/services/reporting")({
         { q: "How is your reporting different from checking each platform individually?", a: "Platform dashboards only tell part of the story. We bring your Google Ads, Meta, SEO, and social performance into one clear view, connecting every channel to the leads, pipeline, and revenue that matter most to your business." },
         { q: "Will I have access to the data behind the reports?", a: "Yes. You'll receive a clear, plain-English summary of the key insights, along with full access to your dashboards whenever you want to explore the data in more detail." },
         { q: "How often will I receive performance updates?", a: "You'll receive clear weekly performance updates, so you're never left guessing. Every quarter, we also review your strategy, priorities, and growth opportunities to keep your marketing moving in the right direction." },
-        { q: "What if I decide to stop the reporting service?", a: "There are no long-term contracts or lock-ins. If your needs change, you can cancel anytime — simple, flexible, and without unnecessary penalties." }
+        { q: "What if I decide to stop the reporting service?", a: "There are no long-term contracts or lock-ins. If your needs change, you can cancel anytime simple, flexible, and without unnecessary penalties." }
       ]}
       finalHeading="Ready For Reporting You Can Actually Trust?"
-      finalSub="Book a free strategy call — no pitch, just a clear look at what your numbers actually mean."
+      finalSub="Book a free strategy call no pitch, just a clear look at what your numbers actually mean."
     />
   ),
 });
