@@ -30,7 +30,7 @@ function isDisposableEmail(email: string): boolean {
 }
 
 const benefits = [
-  { t: "Real Ownership", d: "No micromanagement — you run your own experiments and own the results.", icon: UserCheck },
+  { t: "Real Ownership", d: "No micromanagement you run your own experiments and own the results.", icon: UserCheck },
   { t: "Learning & Growth Budget", d: "Want to read a book, take a course, or attend a conference? That gets covered.", icon: BookOpen },
   { t: "Hands-On, In-Person Collaboration", d: "You get direct access to strategic expertise, so decisions happen faster and challenges are solved with confidence.", icon: Globe },
   { t: "Work On Real Brands", d: "You'll run paid ad accounts and organic channels for ambitious clients with real budgets, not filler accounts.", icon: Briefcase },
@@ -132,7 +132,7 @@ function CareersPage() {
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">AsraX Media Runs On Ownership And Honesty</h2>
             <div className="mt-6 space-y-4 text-base text-ink-soft leading-relaxed">
               <p>
-                We work alongside ambitious brands to help them grow through smart strategy, continuous experimentation, and meaningful execution. Every decision is guided by transparency, accountability, and a shared focus on delivering measurable results — not just staying busy.
+                We work alongside ambitious brands to help them grow through smart strategy, continuous experimentation, and meaningful execution. Every decision is guided by transparency, accountability, and a shared focus on delivering measurable results not just staying busy.
               </p>
               <p>
                 If this sounds interesting to you, join our team now.
@@ -203,7 +203,7 @@ function CareersPage() {
           <div className="space-y-4 max-w-4xl">
             {openJobs.length === 0 ? (
               <div className="rounded-3xl border border-border bg-card p-8 text-center text-ink-soft font-medium">
-                No open roles right now — submit your details below and we'll reach out.
+                No open roles right now submit your details below and we'll reach out.
               </div>
             ) : (
               openJobs.map((job, idx) => {
