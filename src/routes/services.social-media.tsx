@@ -16,9 +16,9 @@ export const Route = createFileRoute("/services/social-media")({
       heroImage="/img/social-media-hero.jpg"
       introHeading="What Does A Social Media Marketing Agency Actually Manage?"
       introParagraphs={[
-        "Social media can look busy without creating real business impact. Content gets published, ads run across platforms, and engagement numbers increase — but without a clear connection to leads and revenue, it's difficult to know what's actually moving the business forward.",
+        "Social media can look busy without creating real business impact. Content gets published, ads run across platforms, and engagement numbers increase but without a clear connection to leads and revenue, it's difficult to know what's actually moving the business forward.",
         "That's where we approach social differently. We connect your content, paid campaigns, and audience insights to your actual growth goals.",
-        "A senior strategist stays involved throughout the process, helping shape strategies around meaningful outcomes — not just likes and followers. You get clear weekly updates, practical insights, and a flexible partnership focused on creating measurable growth."
+        "A senior strategist stays involved throughout the process, helping shape strategies around meaningful outcomes not just likes and followers. You get clear weekly updates, practical insights, and a flexible partnership focused on creating measurable growth."
       ]}
       introImage="/img/social-media-intro.jpg"
       featuresHeading="Every Platform, Built Around One Goal: Your Growth"
