@@ -47,7 +47,7 @@ export const Route = createFileRoute("/services/seo")({
         { q: "How is AEO different from waiting on traditional rankings?", a: "AI answer engines can start citing well-structured content faster than Google fully re-ranks a page, since they're pulling direct answers rather than re-crawling and re-scoring an entire site. That's why AEO-ready structure often shows visibility gains before traditional SEO metrics catch up." }
       ]}
       finalHeading="Ready To Grow With SEO?"
-      finalSub="Book a free strategy call — no pitch, just a useful conversation about your numbers."
+      finalSub="Book a free strategy call no pitch, just a useful conversation about your numbers."
     />
   ),
 });
