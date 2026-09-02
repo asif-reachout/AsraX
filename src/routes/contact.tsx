@@ -112,7 +112,7 @@ function ContactPage() {
           {sent ? (
             <div className="grid place-items-center py-24 text-center">
               <div className="grid h-16 w-16 place-items-center rounded-full bg-brand text-brand-foreground text-2xl font-bold">✓</div>
-              <h2 className="mt-6 text-3xl font-bold">Thanks — we'll be in touch.</h2>
+              <h2 className="mt-6 text-3xl font-bold">Thanks we'll be in touch.</h2>
               <p className="mt-3 max-w-md text-ink-soft">Expect a reply within one business day with a link to book your strategy call.</p>
             </div>
           ) : (
@@ -177,7 +177,7 @@ function ContactPage() {
 
         <div className="space-y-6">
           <InfoCard icon={Mail} title="Email" value="hello@asraxmedia.com" href="mailto:hello@asraxmedia.com" />
-          <InfoCard icon={MessageCircle} title="WhatsApp" value="Quick chat — same-day reply" href="https://wa.me/447986952432" />
+          <InfoCard icon={MessageCircle} title="WhatsApp" value="Quick chat" href="https://wa.me/447986952432" />
 
           <div className="rounded-3xl border border-border bg-foreground p-8 text-background">
             <p className="eyebrow text-brand-glow">What happens next</p>
@@ -185,7 +185,7 @@ function ContactPage() {
               {[
                 "We reply within 1 business day.",
                 "Quick 15-min fit call to understand your goals.",
-                "You get a written growth plan — yours to keep.",
+                "You get a written growth plan yours to keep.",
               ].map((s, i) => (
                 <li key={s} className="flex gap-3">
                   <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand text-xs font-bold text-brand-foreground">{i + 1}</span>
