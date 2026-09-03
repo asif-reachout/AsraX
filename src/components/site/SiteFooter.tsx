@@ -118,12 +118,9 @@ export function SiteFooter() {
       <div className="container-x py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <img src={logo} alt="AsraX Media" className="h-14 w-auto brightness-0 invert" />
-            <p className="mt-5 max-w-sm text-sm text-background/70">
-              A full funnel marketing agency for global brands — a growth partner that keeps every result transparent.
-            </p>
+            <img src={logo} alt="AsraX Media" className="h-20 w-auto object-contain brightness-0 invert" />
             {/* TODO: replace "#" with the real Facebook / Instagram URLs */}
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-6 flex items-center gap-3">
               <SocialIcon href="#" label="Facebook"><Facebook className="h-4 w-4" /></SocialIcon>
               <SocialIcon href="#" label="Instagram"><Instagram className="h-4 w-4" /></SocialIcon>
               <SocialIcon href="https://www.linkedin.com/company/asrax-media" label="LinkedIn">

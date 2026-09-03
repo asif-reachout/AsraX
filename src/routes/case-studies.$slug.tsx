@@ -208,10 +208,12 @@ function CaseStudyDetailPage() {
       >
         <div className="container-x w-full">
           <div className="max-w-4xl">
-            <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-glow hover:text-white transition-colors mb-8">
-              <ArrowLeft className="h-4 w-4" /> Back to Case Studies
-            </Link>
-            <p className="eyebrow text-brand-glow">CASE STUDY</p>
+            <div className="mb-8">
+              <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-glow hover:text-white transition-colors">
+                <ArrowLeft className="h-4 w-4" /> Back to Case Studies
+              </Link>
+            </div>
+            <p className="eyebrow flex text-brand-glow">CASE STUDY</p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl text-white">
               How we helped {study.clientName} achieve {study.headline}
             </h1>
