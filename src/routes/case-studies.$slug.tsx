@@ -143,12 +143,12 @@ const caseStudyData: Record<string, CaseStudy> = {
       "Without a refined audience, a stronger digital identity, or a structured content strategy behind the campaigns, the account was underperforming its budget."
     ],
     approach: [
-      "Month 1 — audience refinement: focused on social media management to rebuild and refine the target audience, ensuring ad spend was reaching the right people before pushing for volume.",
-      "Month 2 — conversion focus: shifted campaign priorities toward converting the now better-targeted audience, optimizing creative and targeting on early performance signals.",
-      "Month 3 — scaling: with a validated audience and improving conversion rate, scaled spend and campaign reach to grow conversion volume sustainably.",
-      "Educational content marketing: content parents genuinely find useful parenting guidance, child wellness, seasonal illness prevention, school health, nutrition, hydration, sleep habits and preventive care — rather than promotional graphics.",
-      "Consistent brand identity: every post used the same visual system bright healthcare colours, child-friendly illustrations, readable typography and clear Maranatha branding to build recall across platforms.",
-      "Community engagement and website support: an active publishing schedule with a clear call to action on every asset, turning engagement into clinic website visits and patient enquiries."
+      "Audience Refinement: focused on social media management to rebuild and refine the target audience, ensuring ad spend was reaching the right people before pushing for volume.",
+      "Conversion Focus: shifted campaign priorities toward converting the now better-targeted audience, optimizing creative and targeting on early performance signals.",
+      "Scaling: with a validated audience and improving conversion rate, scaled spend and campaign reach to grow conversion volume sustainably.",
+      "Educational Content Marketing: content parents genuinely find useful parenting guidance, child wellness, seasonal illness prevention, school health, nutrition, hydration, sleep habits and preventive care — rather than promotional graphics.",
+      "Consistent Brand Identity: every post used the same visual system bright healthcare colours, child-friendly illustrations, readable typography and clear Maranatha branding to build recall across platforms.",
+      "Community Engagement and Website Support: an active publishing schedule with a clear call to action on every asset, turning engagement into clinic website visits and patient enquiries."
     ],
     resultsText: "Cost per conversion dropped from $44.80 to $12.64 roughly 3.5x more conversions for every dollar spent. CTR rose from 6.19% to 10.39%, impressions grew from ~1K to 34.7K, and conversions went from 7 to 1,220. Across 18+ months of social management, the clinic also built stronger brand recognition, consistent educational publishing, higher engagement, and more website traffic from social.",
     stats: [
