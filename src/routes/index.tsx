@@ -7,7 +7,7 @@ import { FinalCTA } from "@/components/site/CTA";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AsraX Media — Full Funnel Marketing Agency for Global Brands" },
+      { title: "AsraX Media | Full Funnel Marketing Agency for Global Brand" },
       { name: "description", content: "A growth partner that keeps every result transparent. Website development, content, SEO, paid ads, social, and performance reporting — built around leads and revenue." },
     ],
   }),
