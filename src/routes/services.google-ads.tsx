@@ -4,7 +4,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/services/google-ads")({
   head: () => ({
     meta: [
-      { title: "Paid Marketing Agency — AsraX Media" },
+      { title: "Paid Marketing Agency | AsraX Media" },
       { name: "description", content: "One team owns every platform you run ads on — Google, Meta, LinkedIn, TikTok, Bing — and ties every penny of spend back to your revenue." },
     ],
   }),
