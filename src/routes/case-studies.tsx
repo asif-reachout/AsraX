@@ -6,7 +6,7 @@ import { FinalCTA } from "@/components/site/CTA";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — Real Clients. Real Revenue. | AsraX Media" },
+      { title: "Case Studies | Real Clients. Real Revenue. | AsraX Media" },
       { name: "description", content: "Real campaigns, real numbers: ROAS, conversions and cost-per-conversion results across e-commerce, marine, clothing and healthcare brands." },
     ],
   }),
