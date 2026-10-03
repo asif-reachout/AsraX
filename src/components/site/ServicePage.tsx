@@ -196,7 +196,7 @@ export function ServicePage(p: ServicePageProps) {
       {/* 8. CTA (full-width red background, white button) */}
       <FinalCTA
         heading={p.finalHeading}
-        sub={p.finalSub ?? "Book a free strategy call — no pitch, just a useful conversation about your numbers."}
+        sub={p.finalSub ?? "Book a free strategy call no pitch, just a useful conversation about your numbers."}
         btnText="Book Your Free Strategy Call"
         btnLink="/contact"
       />
