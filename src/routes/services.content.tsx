@@ -4,7 +4,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/services/content")({
   head: () => ({
     meta: [
-      { title: "Content Marketing Agency — AsraX Media" },
+      { title: "Content Marketing Agency | AsraX Media" },
       { name: "description", content: "From content strategy to execution, we help brands build trust and generate leads through high-quality content built for search, AI answers, and real buyers." },
     ],
   }),
