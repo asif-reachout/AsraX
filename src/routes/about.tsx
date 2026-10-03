@@ -13,7 +13,7 @@ import team5 from "@/assets/team/team-5.png";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About AsraX Media — Who We Are" },
+      { title: "About AsraX Media | Who We Are" },
       { name: "description", content: "Your business growth partner here to build something you believe in. Founded by Asra Saleem in 2022, AsraX Media runs paid, organic, content, and web as one connected growth engine." },
     ],
   }),
