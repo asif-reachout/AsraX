@@ -6,7 +6,7 @@ import { SiteShell } from "@/components/site/SiteShell";
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers — Join the growth team | AsraX Media" },
+      { title: "Careers | Join the growth team | AsraX Media" },
       { name: "description", content: "Work with ambitious brands on real growth. Remote-first, competitive pay, full autonomy, and senior operator guidance." },
     ],
   }),
