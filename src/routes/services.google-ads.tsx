@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
 
-export const Route = createFileRoute("/services/paid-ads")({
+export const Route = createFileRoute("/services/google-ads")({
   head: () => ({
     meta: [
       { title: "Paid Marketing Agency | AsraX Media" },
