@@ -4,7 +4,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/services/social-media")({
   head: () => ({
     meta: [
-      { title: "Social Media Marketing Agency — AsraX Media" },
+      { title: "Social Media Marketing Agency | AsraX Media" },
       { name: "description", content: "Content and paid social built around leads, not only likes. Strategy, community management, and Meta/LinkedIn campaigns tied to pipeline." },
     ],
   }),
