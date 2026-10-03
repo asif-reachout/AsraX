@@ -22,7 +22,7 @@ import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/service
 import { Route as ServicesSocialMediaRouteImport } from './routes/services.social-media'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
 import { Route as ServicesReportingRouteImport } from './routes/services.reporting'
-import { Route as ServicesGoogleAdsRouteImport } from './routes/services.google-ads'
+import { Route as ServicesGoogleAdsRouteImport } from './routes/services.paid-ads'
 import { Route as ServicesContentRouteImport } from './routes/services.content'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
