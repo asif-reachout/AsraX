@@ -6,7 +6,7 @@ import { SiteShell } from "@/components/site/SiteShell";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact AsraX Media — Book a free strategy call" },
+      { title: "Contact AsraX Media | Book a free strategy call" },
       { name: "description", content: "Book a free 30-minute strategy call with AsraX Media. No pitch — just a useful conversation about your growth." },
     ],
   }),
